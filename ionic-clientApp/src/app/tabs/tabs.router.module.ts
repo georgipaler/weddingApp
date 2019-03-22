@@ -12,7 +12,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../tab1/tab1.module#Tab1PageModule'
+            loadChildren: '../../pages/home/home.module#HomePageModule'
           }
         ]
       },
@@ -21,7 +21,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../tab2/tab2.module#Tab2PageModule'
+            loadChildren: '../../pages/guest/guest.module#GuestPageModule'
           }
         ]
       },
@@ -30,7 +30,16 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../tab3/tab3.module#Tab3PageModule'
+            loadChildren: '../../pages/schedule/schedule.module#SchedulePageModule'
+          }
+        ]
+      },
+      {
+        path: 'tab4',
+        children: [
+          {
+            path: '',
+            loadChildren: '../../pages/budget/budget.module#BudgetPageModule'
           }
         ]
       },
