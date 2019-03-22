@@ -47,6 +47,10 @@ ion-content{
             grid-template-rows: 5rem 5rem;
             margin-top: 4.5rem;
 
+            box-shadow: 0 15px 40px 0 #EDEAEA;
+            /* border: 0.5px solid #EDEAEA; */
+            border-radius: 10%;
+
             a.seconMenu-button{
                 display: flex;
                 flex-direction: column;
