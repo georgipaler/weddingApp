@@ -3,10 +3,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'guest', loadChildren: './guest/guest.module#GuestPageModule' },
-  { path: 'schedule', loadChildren: './schedule/schedule.module#SchedulePageModule' },
-  { path: 'budget', loadChildren: './budget/budget.module#BudgetPageModule' }
+  { path: 'home', loadChildren: '../pages/home/home.module#HomePageModule' },
+  { path: 'guest', loadChildren: '../pages/guest/guest.module#GuestPageModule' },
+  { path: 'schedule', loadChildren: '../pages/schedule/schedule.module#SchedulePageModule' },
+  { path: 'budget', loadChildren: '../pages/budget/budget.module#BudgetPageModule' }
 ];
 @NgModule({
   imports: [
