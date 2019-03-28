@@ -1,14 +1,43 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Guest</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
-  <div class="guestsStaus">
+  <div class="guestsStatus">
+    <div class="guestStat">
+      <div>100</div>
+      <div>90</div>
+      <div>35</div>
+      <div>On-list</div>
+      <div>Invited</div>
+      <div>Accepted</div>
+    </div>
 
   </div>
   <div class="groupWrapper">
+
+    <div class="groupsList">
+      <h4>Groups:</h4>
+
+
+      <div *ngFor="let group of groupsList">
+        <div class="group">
+          {{group.name}}
+        </div>
+      </div>
+    
+    </div>
+
+
+
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="addNewGroup()" color="light">
+        <ion-icon ios="ios-add" md="md-add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 
   </div>
 
