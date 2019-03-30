@@ -22,7 +22,7 @@
   </div>
   <div class="groupWrapper">
     <div class="groupsList" *ngFor="let group of groupsList">
-      <div class="group" href="groupDetails">
+      <div class="group" (click)="goToGroupDetails()">
         {{group.name}}
       </div>
     </div>

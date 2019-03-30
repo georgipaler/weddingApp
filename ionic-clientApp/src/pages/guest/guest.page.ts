@@ -44,6 +44,6 @@ export class GuestPage implements OnInit {
   }
 
   goToGroupDetails(){
-    this.router.navigate(['groupDetails']);
+    this.router.navigate(['tabs/guests/groupDetails']);
   }
 }

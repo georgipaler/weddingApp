@@ -22,6 +22,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../../pages/guest/guest.module#GuestPageModule'
+          },
+          {
+            path: 'groupDetails',
+            loadChildren: '../../pages/guest/group-details/group-details.module#GroupDetailsPageModule'
           }
         ]
       },
