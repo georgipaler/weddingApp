@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IGROUP } from 'src/model/interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-guest',
@@ -27,7 +28,7 @@ export class GuestPage implements OnInit {
       name: "Mutual friends"
     },
   ];
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -42,4 +43,7 @@ export class GuestPage implements OnInit {
     this.groupsList.push(newGroup);
   }
 
+  goToGroupDetails(){
+    this.router.navigate(['groupDetails']);
+  }
 }

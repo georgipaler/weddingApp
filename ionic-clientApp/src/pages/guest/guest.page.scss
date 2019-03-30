@@ -1,47 +1,79 @@
 
 ion-content{
+    font-family: 'Montserrat', sans-serif;
+
+    overflow: hidden;
+
     .guestsStatus{
-        height: 20%;
+
+        border-radius: 5px;
+        background-image: url("../../assets/roses.png");
+        overflow: hidden;
         border-bottom: 1px solid #A87E67;
-        justify-content: center;
-        align-items: center;
         display: flex;
+        flex-direction: column;
 
         .guestStat{
+           opacity: 1;
             display: grid;
+            background-color: #fff;
+            margin: 2rem 0;
             grid-template-columns: 6rem 6rem 6rem;
             grid-template-rows: 2rem 2rem;
-
+            box-shadow: 0 15px 40px 0 #EDEAEA;
+            border-radius: 20px;
+            padding: 1rem;
+            margin: 4rem 1rem 3rem 1rem;
+            color: #484848;
 
             div{
+                opacity: 1;
                 text-align: center;
             }
+        }
 
+
+        .infoWrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1rem 1rem;
+
+            span{
+               color: #484848;
+               padding-left: 1rem;
+               font-weight: bold;
+            }
+            p{
+                font-size: 0.7rem;
+                padding: 0.2rem 0.4rem;
+                color: #A87E67;
+                font-weight: bold;
+                border: 1px solid #A87E67;
+                border-radius: 25px;
+            }
         }
        
     }
 
     .groupWrapper{
-        height: 80%;
-
         display: flex;
         flex-direction: column;
-
         padding: 1.3rem;
 
         .groupsList{
-            height: 100%;
-            width: 100%;
 
+            overflow: scroll;
             .group{
                 padding: 1rem;
                 margin-bottom: 0.2rem;
-                box-shadow: 5px 5px 40px 0 #F0F0E8;
+                border-bottom: 0.1px solid #FFDED5;
+                color: #484848;
             }
 
             .group:hover{
                 box-shadow: 5px 5px 40px 0 #F0F0E8;
-                color: #9E785D;
+                color: #A87E67;
             }
         }
 

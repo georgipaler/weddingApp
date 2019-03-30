@@ -15,29 +15,24 @@
       <div>Accepted</div>
     </div>
 
+    <div class="infoWrapper">
+      <span>YOUR GUESTS</span>
+      <p (click)="addNewGroup()">Add group</p>
+    </div>
   </div>
   <div class="groupWrapper">
-
-    <div class="groupsList">
-      <h4>Groups:</h4>
-
-
-      <div *ngFor="let group of groupsList">
-        <div class="group">
-          {{group.name}}
-        </div>
+    <div class="groupsList" *ngFor="let group of groupsList">
+      <div class="group" href="groupDetails">
+        {{group.name}}
       </div>
-    
     </div>
 
 
-
-
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button (click)="addNewGroup()" color="light">
         <ion-icon ios="ios-add" md="md-add"></ion-icon>
       </ion-fab-button>
-    </ion-fab>
+    </ion-fab> -->
 
   </div>
 
