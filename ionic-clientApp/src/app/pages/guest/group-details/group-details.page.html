@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{group?.name}}</ion-title>
+    <ion-buttons class="addGuest" slot="end">
+        <ion-icon ios="ios-add" md="md-add"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content id="mainWrapper">
+  <ion-searchbar ></ion-searchbar>
+
+  <div id="guestList">
+    <div class="guest" *ngFor="let guest of guestsList">
+      {{guest.name}}
+    </div>
+  </div>
+</ion-content>

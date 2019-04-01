@@ -12,7 +12,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../../pages/home/home.module#HomePageModule'
+            loadChildren: '../pages/home/home.module#HomePageModule'
           }
         ]
       },
@@ -21,11 +21,11 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../../pages/guest/guest.module#GuestPageModule'
+            loadChildren: '../pages/guest/guest.module#GuestPageModule'
           },
           {
             path: 'groupDetails',
-            loadChildren: '../../pages/guest/group-details/group-details.module#GroupDetailsPageModule'
+            loadChildren: '../pages/guest/group-details/group-details.module#GroupDetailsPageModule'
           }
         ]
       },
@@ -34,7 +34,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../../pages/schedule/schedule.module#SchedulePageModule'
+            loadChildren: '../pages/schedule/schedule.module#SchedulePageModule'
           }
         ]
       },
@@ -43,7 +43,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../../pages/budget/budget.module#BudgetPageModule'
+            loadChildren: '../pages/budget/budget.module#BudgetPageModule'
           }
         ]
       },

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IGROUP } from 'src/model/interfaces';
-import { Router } from '@angular/router';
+import { IGROUP, GROUP_LIST } from 'src/model/interfaces';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-guest',
@@ -10,24 +10,8 @@ import { Router } from '@angular/router';
 export class GuestPage implements OnInit {
 
 
-  groupsList: Array<IGROUP> =[
-    {
-      id: 1,
-      name: "Wedding party"
-    },
-    {
-      id: 2,
-      name: "Bride's family"
-    },
-    {
-      id: 3,
-      name: "Groom's family"
-    },
-    {
-      id: 4,
-      name: "Mutual friends"
-    },
-  ];
+  groupsList: Array<IGROUP> = GROUP_LIST;
+  
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -43,7 +27,14 @@ export class GuestPage implements OnInit {
     this.groupsList.push(newGroup);
   }
 
-  goToGroupDetails(){
-    this.router.navigate(['tabs/guests/groupDetails']);
+  goToGroupDetails(group: IGROUP){
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        data: JSON.stringify(group)
+      }
+    };
+    
+    this.router.navigate(['tabs/guests/groupDetails'], navigationExtras);
   }
 }
