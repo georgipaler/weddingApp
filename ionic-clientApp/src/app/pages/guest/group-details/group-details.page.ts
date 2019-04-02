@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { groupBy } from 'rxjs/internal/operators/groupBy';
 import { IGROUP, IGuest, GUEST_LIST } from 'src/model/interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AddGuestComponent } from 'src/app/components/add-guest/add-guest.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-group-details',
@@ -14,7 +16,8 @@ export class GroupDetailsPage implements OnInit {
    guestsList: Array<IGuest> = GUEST_LIST;
 
   constructor(private route: ActivatedRoute, 
-    private router: Router,) { }
+    private router: Router,
+    private modalController: ModalController) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -24,5 +27,14 @@ export class GroupDetailsPage implements OnInit {
     });
     console.log(this.group.name, this.guestsList);
   }
+
+  async addNewGuest(){
+    const modal: HTMLIonModalElement= 
+      await this.modalController.create({
+      component: AddGuestComponent,
+  });
+
+  modal.present();
+}
 
 }

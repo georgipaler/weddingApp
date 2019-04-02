@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { GroupDetailsPage } from './group-details.page';
+import { AddGuestComponent } from 'src/app/components/add-guest/add-guest.component';
 
 const routes: Routes = [
   {
@@ -15,12 +16,17 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents: [
+    AddGuestComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [GroupDetailsPage]
+  declarations: [
+    GroupDetailsPage,
+    AddGuestComponent]
 })
 export class GroupDetailsPageModule {}
