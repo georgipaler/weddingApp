@@ -8,8 +8,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GroupDetailsPage } from './pages/guest/group-details/group-details.page';
-import { SearchPipePipe } from './pipes/searchPipe/search-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +18,7 @@ import { SearchPipePipe } from './pipes/searchPipe/search-pipe.pipe';
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule
+    AppRoutingModule, 
   ],
   providers: [
     StatusBar,

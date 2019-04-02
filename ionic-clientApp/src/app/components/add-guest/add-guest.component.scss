@@ -4,14 +4,30 @@ ion-header{
        align-items: center;
     }
 
+    ion-buttons{
+        font-family: 'Montserrat', sans-serif;
+    }
+
     ion-toolbar{
         padding: 0 0.5rem;
         align-items: center;
     }
 
-    ion-header{
-        ion-title{
-            font-family: 'Montserrat', sans-serif;
-        }
+    ion-title{
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+}
+
+ion-content{
+    font-family: 'Montserrat', sans-serif;
+    padding: 1rem;
+
+    input-wrapper{
+       
+    }
+    .item-input.sc-ion-label-ios-h, .item-input .sc-ion-label-ios-h{
+        font-family: 'Montserrat', sans-serif;
     }
 }
+

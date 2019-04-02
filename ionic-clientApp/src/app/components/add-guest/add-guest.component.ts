@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-guest',
@@ -8,8 +9,19 @@ import { ModalController } from '@ionic/angular';
 })
 export class AddGuestComponent implements OnInit {
 
-  constructor(private modalController: ModalController) { }
+  private addGuest : FormGroup;
 
+  constructor( private formBuilder: FormBuilder,
+    private modalController: ModalController, ) {
+    this.addGuest = this.formBuilder.group({
+      name: ['', Validators.required],
+      phoneNumber: [''],
+      membersNo: [''],
+    });
+  }
+  logForm(){
+    console.log(this.addGuest.value)
+  }
   ngOnInit() {}
 
   async dismissModal(){

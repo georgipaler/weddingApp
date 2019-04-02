@@ -4,9 +4,28 @@
       <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
     </div>
     <ion-title>Add new guest</ion-title>
-    <ion-buttons slot="end">
+    <ion-buttons slot="end" (click)="logForm()">
       Done
     </ion-buttons>
   </ion-toolbar>
 
 </ion-header>
+
+<ion-content>
+
+  <form [formGroup]="addGuest">
+    <ion-item class="basicInput">
+      <ion-label>Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item class="basicInput">
+      <ion-label>Phone number</ion-label>
+      <ion-input formControlName="phoneNumber"></ion-input>
+    </ion-item>
+    <ion-item class="basicInput">
+        <ion-label>Numar persoane</ion-label>
+        <ion-input type="number" formControlName="membersNo"></ion-input>
+    </ion-item>
+  </form>
+
+</ion-content>
