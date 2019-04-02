@@ -26,6 +26,8 @@ export class GroupDetailsPage implements OnInit {
       }
     });
     console.log(this.group.name, this.guestsList);
+
+    this.guestsList = this.guestsList.filter(guest => guest.group === this.group.name);
   }
 
   async addNewGuest(){

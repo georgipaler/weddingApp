@@ -13,7 +13,6 @@ export class ExpandableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("guest", this.guest);
   }
 
 }
