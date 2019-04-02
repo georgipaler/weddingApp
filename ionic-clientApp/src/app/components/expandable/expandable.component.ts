@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { GuestPage } from 'src/app/pages/guest/guest.page';
 
 @Component({
   selector: 'app-expandable',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpandableComponent implements OnInit {
 
+  @Input('guest') guest;
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("guest", this.guest);
+  }
 
 }

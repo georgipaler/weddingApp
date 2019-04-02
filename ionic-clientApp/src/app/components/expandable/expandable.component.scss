@@ -1,0 +1,13 @@
+
+#mainContainer{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    .shortInfoGuest{
+        padding-top: 0.5rem;
+        font-size: 0.7rem;
+        color: #5d6066;
+
+        display: flex;
+        justify-content: space-between;
+    }
+}

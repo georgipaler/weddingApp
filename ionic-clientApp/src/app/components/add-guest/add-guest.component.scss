@@ -8,4 +8,10 @@ ion-header{
         padding: 0 0.5rem;
         align-items: center;
     }
+
+    ion-header{
+        ion-title{
+            font-family: 'Montserrat', sans-serif;
+        }
+    }
 }

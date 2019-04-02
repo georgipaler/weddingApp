@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { GroupDetailsPage } from './group-details.page';
 import { AddGuestComponent } from 'src/app/components/add-guest/add-guest.component';
 import { ExpandableComponent } from 'src/app/components/expandable/expandable.component';
+import { SearchPipePipe } from 'src/app/pipes/searchPipe/search-pipe.pipe';
+import { SharedModule } from 'src/app/pipes/shared.module';
 
 const routes: Routes = [
   {
@@ -18,18 +20,20 @@ const routes: Routes = [
 
 @NgModule({
   entryComponents: [
-    AddGuestComponent
+    AddGuestComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule,
   ],
   declarations: [
     GroupDetailsPage,
     AddGuestComponent,
     ExpandableComponent,
-  ]
+  ],
+ 
 })
 export class GroupDetailsPageModule {}
