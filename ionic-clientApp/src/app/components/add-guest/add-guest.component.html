@@ -1,7 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <div class="backButton" (click)="dismissModal()">
-      <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+        <div class="textBack">Back</div>
     </div>
     <ion-title>Add new guest</ion-title>
     <ion-buttons slot="end" (click)="logForm()">
@@ -13,6 +14,10 @@
 
 <ion-content>
   <section>
+
+    <div class="importButton">
+      Import from Contacts
+    </div>
     <form [formGroup]="addGuest">
       <ion-item class="basicInput">
         <ion-input type="text" formControlName="name" placeholder="Name"></ion-input>
@@ -28,12 +33,29 @@
 
       <ion-item>
         <ion-label>Table number:</ion-label>
-        <ion-select placeholder="Select One" formControlName="confirmation">
-          <ion-select-option value="accepted">Accepted</ion-select-option>
-          <ion-select-option value="declined">Declined</ion-select-option>
-          <ion-select-option value="noResponse">No response</ion-select-option>
+        <ion-select placeholder="Select One" formControlName="tableNo" interface="popover">
+          <ion-select-option value="1">Table 1</ion-select-option>
+          <ion-select-option value="2">Table 2</ion-select-option>
+          <ion-select-option value="3">Table 3</ion-select-option>
+          <ion-select-option value="4">Table 4</ion-select-option>
+          <ion-select-option value="5">Table 5</ion-select-option>
         </ion-select>
       </ion-item>
+
+      <ion-item>
+          <ion-label>Menu:</ion-label>
+          <ion-select placeholder="Select One" formControlName="menu" interface="popover">
+            <ion-select-option value="1">Vegetarian</ion-select-option>
+            <ion-select-option value="2">Non-Vegetarian</ion-select-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item class="basicInput">
+        <ion-input type="text" id="autocomplete" placeholder="Address" (focus)="geolocate()" ></ion-input>
+      </ion-item>
+      <div class="addressWrapper">
+
+      </div>
 
       <ion-item>
         <ion-label>Confirmation:</ion-label>

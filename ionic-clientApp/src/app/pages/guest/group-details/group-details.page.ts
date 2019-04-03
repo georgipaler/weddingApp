@@ -39,4 +39,8 @@ export class GroupDetailsPage implements OnInit {
   modal.present();
 }
 
+goBack(){
+  this.router.navigate(['tabs/guests']);
+}
+
 }

@@ -21,3 +21,22 @@ body{
 .hydrated {
     font-family: 'Montserrat', sans-serif;
 }
+
+.sc-ion-select-popover-h ion-list.sc-ion-select-popover{
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+.searchbar-input-container.sc-ion-searchbar-ios{
+    border: 1px solid #d6c8c4;
+    // background-color: #FFDED5;
+    border-radius: 10px;
+}
+
+.sc-ion-searchbar-ios-h{
+    --background: #FFDED5 !important;
+}
+
+.show-back-button.sc-ion-back-button-ios-h, .can-go-back.sc-ion-back-button-ios-h > ion-header.sc-ion-back-button-ios, .can-go-back > ion-header .sc-ion-back-button-ios-h{
+    color: black;
+}

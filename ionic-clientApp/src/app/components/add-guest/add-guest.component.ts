@@ -9,6 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AddGuestComponent implements OnInit {
 
+  
   private addGuest : FormGroup;
 
   constructor( private formBuilder: FormBuilder,
@@ -26,8 +27,14 @@ export class AddGuestComponent implements OnInit {
       membersNo: [''],
       confirmation: [''],
       notes: [''],
-      sentInvitation:['']
+      sentInvitation:[''],
+      tableNo:[''],
+      menu:['']
     });
+  }
+
+  geolocate(){
+    
   }
 
   logForm(){
