@@ -12,35 +12,49 @@
 </ion-header>
 
 <ion-content>
- <section>
+  <section>
     <form [formGroup]="addGuest">
-        <ion-item class="basicInput">
-          <ion-input type="text" formControlName="name" placeholder="Name"></ion-input>
-        </ion-item>
+      <ion-item class="basicInput">
+        <ion-input type="text" formControlName="name" placeholder="Name"></ion-input>
+      </ion-item>
 
-        <ion-item class="basicInput">
-          <ion-input type="number" formControlName="phoneNumber" placeholder="Phone number"></ion-input>
-        </ion-item>
+      <ion-item class="basicInput">
+        <ion-input type="number" formControlName="phoneNumber" placeholder="Phone number"></ion-input>
+      </ion-item>
 
-        <ion-item class="basicInput">
-            <ion-input type="number" formControlName="membersNo" placeholder="Members number"></ion-input>
-        </ion-item>
+      <ion-item class="basicInput">
+        <ion-input type="number" formControlName="membersNo" placeholder="Members number"></ion-input>
+      </ion-item>
 
-        <ion-item>
-          <ion-label>Confirmation:</ion-label>
-          <ion-select placeholder="Select One" formControlName="confirmation">
-            <ion-select-option value="accepted">Accepted</ion-select-option>
-            <ion-select-option value="declined">Declined</ion-select-option>
-            <ion-select-option value="noResponse">No response</ion-select-option>
-          </ion-select>
-        </ion-item>
+      <ion-item>
+        <ion-label>Table number:</ion-label>
+        <ion-select placeholder="Select One" formControlName="confirmation">
+          <ion-select-option value="accepted">Accepted</ion-select-option>
+          <ion-select-option value="declined">Declined</ion-select-option>
+          <ion-select-option value="noResponse">No response</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-        <ion-item class="basicInput">
-          <ion-textarea type="text" formControlName="notes" placeholder="Enter more information here..."></ion-textarea>
-        </ion-item>
-        
-      </form>
- </section >
+      <ion-item>
+        <ion-label>Confirmation:</ion-label>
+        <ion-select placeholder="Select One" formControlName="confirmation">
+          <ion-select-option value="accepted">Accepted</ion-select-option>
+          <ion-select-option value="declined">Declined</ion-select-option>
+          <ion-select-option value="noResponse">No response</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Sent invitation:</ion-label>
+        <ion-toggle color="secondary" formControlName="sentInvitation"></ion-toggle>
+      </ion-item>
+
+      <ion-item class="basicInput">
+        <ion-textarea type="text" formControlName="notes" placeholder="Enter more information here..."></ion-textarea>
+      </ion-item>
+
+    </form>
+  </section>
 
 
 </ion-content>

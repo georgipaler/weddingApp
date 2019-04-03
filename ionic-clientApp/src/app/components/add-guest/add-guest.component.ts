@@ -13,18 +13,26 @@ export class AddGuestComponent implements OnInit {
 
   constructor( private formBuilder: FormBuilder,
     private modalController: ModalController, ) {
+  }
+
+  ngOnInit() {
+    this.initAddGuestForm();
+  }
+
+  initAddGuestForm(){
     this.addGuest = this.formBuilder.group({
       name: ['', Validators.required],
       phoneNumber: [''],
       membersNo: [''],
       confirmation: [''],
       notes: [''],
+      sentInvitation:['']
     });
   }
+
   logForm(){
     console.log(this.addGuest.value)
   }
-  ngOnInit() {}
 
   async dismissModal(){
     await this.modalController.dismiss();
