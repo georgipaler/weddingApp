@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalendarComponentOptions } from 'ion2-calendar';
 
 @Component({
   selector: 'app-schedule',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./schedule.page.scss'],
 })
 export class SchedulePage implements OnInit {
-
+  date: string;
+  type: 'string'; 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onChange($event) {
+    console.log($event);
+  }
 }

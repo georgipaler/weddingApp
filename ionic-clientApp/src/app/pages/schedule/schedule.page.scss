@@ -3,3 +3,26 @@ ion-header{
         font-family: 'Montserrat', sans-serif;
     }
 }
+
+ion-content{
+    .viewMode{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem 2.2rem;
+        
+        border: 1px solid #d6c8c4;
+        background-color: #FFDED5;
+        border-radius: 10px;
+
+        .verticalLine{
+            height: 1.2rem;
+            border-left: 1px solid #d6c8c4;
+        }
+
+        .modeItem{
+            padding: 0.5rem 1rem;
+        }
+    }
+}

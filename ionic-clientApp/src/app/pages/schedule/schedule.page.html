@@ -5,5 +5,19 @@
 </ion-header>
 
 <ion-content>
+  <div class="viewMode">
+    <div class="modeItem"> Today</div>
+    <div class="verticalLine"></div>
+    <div class="modeItem"> Week</div>
+    <div class="verticalLine"></div>
+    <div class="modeItem"> Month</div>
+  </div>
+
+  <ion-calendar [(ngModel)]="date"
+                (change)="onChange($event)"
+                [type]="type"
+                [format]="'YYYY-MM-DD'">
+</ion-calendar>
+
 
 </ion-content>
