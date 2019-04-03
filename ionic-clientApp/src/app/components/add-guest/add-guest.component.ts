@@ -17,6 +17,8 @@ export class AddGuestComponent implements OnInit {
       name: ['', Validators.required],
       phoneNumber: [''],
       membersNo: [''],
+      confirmation: [''],
+      notes: [''],
     });
   }
   logForm(){
