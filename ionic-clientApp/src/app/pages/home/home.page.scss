@@ -9,6 +9,9 @@ ion-content{
         display: flex;
         align-items: flex-end;
         justify-content: center;
+        background-image: url('../../../assets/bride1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
 
         .photoProfile{
             width: 12rem;
@@ -17,7 +20,8 @@ ion-content{
 
             margin-bottom: -5rem;
 
-            background-color: #fff;
+            background-image: url('../../../assets/bride1.jpg');
+            background-size: cover;
             border: 1px solid #A87E67;
             box-shadow: 0 15px 40px 0 #EDEAEA;
         }

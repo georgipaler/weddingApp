@@ -12,11 +12,19 @@ export class SchedulePage implements OnInit {
   type: 'string'; 
 
   appointments : IAppointment[] =Appointment_List;
+  uniqueDays : string[] = [];
   constructor() { }
 
   ngOnInit() {
     console.log("date", this.date, this.type);
-    this.appointments = Appointment_List.filter(app => app.date.getMonth() == 4);
+
+    this.appointments = this.appointments.filter(app => app.date.getMonth() == 4);
+
+    this.appointments.map(app => {
+      this.uniqueDays.push(app.date.toDateString());
+    });
+    this.uniqueDays = Array.from(new Set(this.uniqueDays));
+    console.log(this.uniqueDays, "uniq");
   }
 
   onChange($event) {

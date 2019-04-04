@@ -38,8 +38,14 @@ ion-content{
     }
 
     #appList{
-        max-height: 40%;
+        max-height: 37%;
         overflow-y: scroll;
+
+        .dayAppointment{
+            padding: 1.2rem 1rem 0.2rem 1rem;
+            border-bottom: 1px solid #FFDED5;
+            background-image: linear-gradient(#fff, #FFDED5);
+        }
 
         .appointmentWrapper{
             display: flex;
