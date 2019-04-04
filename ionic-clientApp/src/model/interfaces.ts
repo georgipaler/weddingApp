@@ -17,6 +17,22 @@ export interface IGuest{
     notes: string;
 }
 
+export interface IInvitees {
+    id: number;
+    name: string;
+    phone: string;
+}
+export interface IAppointment{
+    id: number;
+    startTime ?: string;
+    endTime ?: string;
+    allDay: boolean;
+    date: Date;
+    title: string;
+    invitees ?: Array<IInvitees>;
+    notes: string;
+}
+
 
 export const GROUP_LIST =[{
     id: 1,
@@ -34,6 +50,75 @@ export const GROUP_LIST =[{
     id: 4,
     name: "Mutual friends"
   },
+];
+
+export const Appointment_List :Array<IAppointment> = [
+    {
+        id: 1,
+        startTime : "12:30",
+        endTime : "13:30",
+        allDay: false,
+        date: new Date(2019, 4, 10),
+        title: "Send a group playlist",
+        invitees : [],
+        notes: ''
+    },
+    {
+        id: 2,
+        startTime : "12:30",
+        endTime : "13:30",
+        allDay: false,
+        date: new Date(2019, 4, 12),
+        title: "Meeting with the florist",
+        invitees : [{id: 1, name: "Roxana", phone: "0745987833"}],
+        notes: 'Some notes'
+    },
+    {
+        id: 3,
+        startTime : "12:30",
+        endTime : "13:30",
+        allDay: false,
+        date: new Date(2019, 4, 16),
+        title: "Meeting with the manager of the restaurant",
+        invitees : [{id: 1, name: "Laura", phone: "0745987833"}],
+        notes: 'Some notes'
+    },
+    {
+        id: 4,
+        allDay: true,
+        date: new Date(2019, 4, 22),
+        title: "Make a banquet menu",
+        invitees : [],
+        notes: 'Some notes'
+    },
+    {
+        id: 5,
+        startTime : "12:30",
+        endTime : "13:30",
+        allDay: false,
+        date: new Date(2019, 4, 22),
+        title: "Make a banquet menu",
+        invitees : [],
+        notes: 'Some notes'
+    },
+    {
+        id: 6,
+        allDay: true,
+        date: new Date(2019, 4, 22),
+        title: "Make a banquet menu",
+        invitees : [],
+        notes: 'Some notes'
+    },
+    {
+        id: 7,
+        startTime : "12:30",
+        endTime : "13:30",
+        allDay: false,
+        date: new Date(2019, 4, 16),
+        title: "Make a banquet menu",
+        invitees : [],
+        notes: 'Some notes'
+    },
 ];
 
 export const GUEST_LIST: Array<IGuest> = [

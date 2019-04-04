@@ -5,24 +5,69 @@ ion-header{
 }
 
 ion-content{
-    .viewMode{
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        margin: 2rem 2.2rem;
+
+    #calendarList{
+        max-height: 60%;
+        .align{
+            text-align: center;
+            justify-content: center;
+            display: flex;
+    
+            .viewMode{
+                display: flex;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                margin: 2rem 0;
+                width: 18rem;
+                
+                border: 1px solid #d6c8c4;
+                background-color: #FFDED5;
+                border-radius: 10px;
+                .verticalLine{
+                    height: 1.2rem;
+                    border-left: 1px solid #d6c8c4;
+                }
         
-        border: 1px solid #d6c8c4;
-        background-color: #FFDED5;
-        border-radius: 10px;
-
-        .verticalLine{
-            height: 1.2rem;
-            border-left: 1px solid #d6c8c4;
-        }
-
-        .modeItem{
-            padding: 0.5rem 1rem;
+                .modeItem{
+                    width: 50%;
+                    padding: 0.5rem 1rem;
+                }
+            }
         }
     }
+
+    #appList{
+        max-height: 40%;
+        overflow-y: scroll;
+
+        .appointmentWrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            padding: 10px 20px;
+            margin: 1rem 0;
+    
+            .hourWrapper{
+                min-width: 4rem;
+                font-size: 0.8rem;
+                text-align: left;
+            }
+    
+            .descriptionWrapper{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 0.8rem;
+                max-width: calc(100% - 6rem);
+            }
+            ion-icon{
+                min-width: 2rem;
+                font-size: 1.8rem;
+            }
+        }
+    }
+   
+  
 }
