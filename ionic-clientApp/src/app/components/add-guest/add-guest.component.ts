@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class AddGuestComponent implements OnInit {
 
   
-  private addGuest : FormGroup;
+  public addGuest : FormGroup;
 
   constructor( private formBuilder: FormBuilder,
     private modalController: ModalController, ) {
