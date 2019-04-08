@@ -11,20 +11,31 @@ export class GuestPage implements OnInit {
 
 
   groupsList: Array<IGROUP> = GROUP_LIST;
+  newGroupName: string = "";
+  showInput:boolean = false;
   
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  showNewInput(){
+    this.showInput = true;
+  }
 
   addNewGroup(){
     const newGroup = {
       id: this.groupsList.length+1,
-      name: "New group"
+      name: this.newGroupName
     };
 
+    this.hideInput();
     this.groupsList.push(newGroup);
+  }
+
+  hideInput(){
+    this.showInput = false;
+    this.newGroupName = "";
   }
 
   goToGroupDetails(group: IGROUP){
@@ -34,7 +45,6 @@ export class GuestPage implements OnInit {
         data: JSON.stringify(group)
       }
     };
-    
     this.router.navigate(['tabs/guests/groupDetails'], navigationExtras);
   }
 }

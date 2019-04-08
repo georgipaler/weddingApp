@@ -17,10 +17,15 @@
 
     <div class="infoWrapper">
       <span>YOUR GUESTS</span>
-      <p (click)="addNewGroup()">Add group</p>
+      <p (click)="showNewInput()">Add group</p>
     </div>
   </div>
   <div class="groupWrapper">
+    
+    <div *ngIf="showInput" class="basicInput">
+        <ion-input autofocus="true" (ionBlur)="addNewGroup()" [(ngModel)]="newGroupName" placeholder="New group" ></ion-input>
+    </div>
+    
     <div class="groupsList" *ngFor="let group of groupsList">
       <div class="group"  (click)="goToGroupDetails(group)">
         {{group.name}}
