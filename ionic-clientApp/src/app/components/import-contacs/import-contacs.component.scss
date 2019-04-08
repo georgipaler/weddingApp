@@ -1,0 +1,28 @@
+ion-header{
+    .backButton{
+       font-size: 2rem;
+       align-items: center;
+       justify-content: center;
+       display: flex;
+       width: fit-content;
+       .textBack{
+           font-size: 1rem;
+       }
+
+
+    }
+
+    ion-buttons{
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    ion-toolbar{
+        padding-right: 1rem;
+        align-items: center;
+    }
+
+    ion-title{
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ImportContacsComponent } from '../import-contacs/import-contacs.component';
 
 @Component({
   selector: 'app-add-guest',
@@ -9,10 +10,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AddGuestComponent implements OnInit {
 
-  
-  private addGuest : FormGroup;
 
-  constructor( private formBuilder: FormBuilder,
+  private addGuest: FormGroup;
+
+  constructor(private formBuilder: FormBuilder,
     private modalController: ModalController, ) {
   }
 
@@ -20,28 +21,39 @@ export class AddGuestComponent implements OnInit {
     this.initAddGuestForm();
   }
 
-  initAddGuestForm(){
+  initAddGuestForm() {
     this.addGuest = this.formBuilder.group({
       name: ['', Validators.required],
       phoneNumber: [''],
       membersNo: [''],
       confirmation: [''],
       notes: [''],
-      sentInvitation:[''],
-      tableNo:[''],
-      menu:['']
+      sentInvitation: [''],
+      tableNo: [''],
+      menu: ['']
     });
   }
 
-  geolocate(){
-    
+  geolocate() {
+
   }
 
-  logForm(){
+  logForm() {
     console.log(this.addGuest.value)
   }
 
-  async dismissModal(){
+  async goToContacts() {
+    const modal: HTMLIonModalElement =
+      await this.modalController.create({
+        component: ImportContacsComponent,
+      });
+
+    modal.present();
+
+  }
+
+
+  async dismissModal() {
     await this.modalController.dismiss();
   }
 }
