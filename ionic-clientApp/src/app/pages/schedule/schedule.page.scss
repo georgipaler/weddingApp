@@ -6,8 +6,12 @@ ion-header{
 
 ion-content{
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     #calendarList{
-        max-height: 60%;
+        max-height: 65%;
         .align{
             text-align: center;
             justify-content: center;
@@ -38,7 +42,7 @@ ion-content{
     }
 
     #appList{
-        max-height: 37%;
+        max-height: 35%;
         overflow-y: scroll;
 
         .dayAppointment{

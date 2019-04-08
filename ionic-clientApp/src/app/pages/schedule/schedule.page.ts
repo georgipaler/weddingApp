@@ -20,11 +20,25 @@ export class SchedulePage implements OnInit {
 
     this.appointments = this.appointments.filter(app => app.date.getMonth() == 4);
 
+   this.generateUniqueArray();
+    console.log(this.uniqueDays, "uniq");
+  }
+
+  generateUniqueArray(){
+    this.uniqueDays = [];
     this.appointments.map(app => {
       this.uniqueDays.push(app.date.toDateString());
     });
     this.uniqueDays = Array.from(new Set(this.uniqueDays));
-    console.log(this.uniqueDays, "uniq");
+  }
+
+  removeItem(appointment: IAppointment){
+    var index = this.appointments.indexOf(appointment);
+    if (index > -1) {
+     this.appointments.splice(index, 1);
+    }
+
+    this.generateUniqueArray();
   }
 
   onChange($event) {
