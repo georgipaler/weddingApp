@@ -18,21 +18,25 @@
     <div class="importButton" (click)="goToContacts()">
       Import from Contacts
     </div>
+  
     <form [formGroup]="addGuest">
-      <ion-item class="basicInput">
-        <ion-input type="text" formControlName="name" placeholder="Name"></ion-input>
+      <ion-item >
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" formControlName="name" ></ion-input>
       </ion-item>
 
-      <ion-item class="basicInput">
-        <ion-input type="number" formControlName="phoneNumber" placeholder="Phone number"></ion-input>
+      <ion-item >
+        <ion-label position="floating">Phone number</ion-label>
+        <ion-input type="number" formControlName="phoneNumber" ></ion-input>
       </ion-item>
 
-      <ion-item class="basicInput">
-        <ion-input type="number" formControlName="membersNo" placeholder="Members number"></ion-input>
+      <ion-item >
+        <ion-label position="floating">Members number</ion-label>
+        <ion-input type="number" formControlName="membersNo"></ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-label>Table number:</ion-label>
+      <ion-item class="dropdownInput">
+        <ion-label>Table number</ion-label>
         <ion-select placeholder="Select One" formControlName="tableNo" interface="popover">
           <ion-select-option value="1">Table 1</ion-select-option>
           <ion-select-option value="2">Table 2</ion-select-option>
@@ -42,23 +46,24 @@
         </ion-select>
       </ion-item>
 
-      <ion-item>
-          <ion-label>Menu:</ion-label>
+      <ion-item class="dropdownInput">
+          <ion-label>Menu</ion-label>
           <ion-select placeholder="Select One" formControlName="menu" interface="popover">
             <ion-select-option value="1">Vegetarian</ion-select-option>
             <ion-select-option value="2">Non-Vegetarian</ion-select-option>
           </ion-select>
       </ion-item>
 
-      <ion-item class="basicInput">
-        <ion-input type="text" id="autocomplete" placeholder="Address" (focus)="geolocate()" ></ion-input>
+      <ion-item >
+          <ion-label position="floating">Address</ion-label>
+        <ion-input type="text" id="autocomplete"  (focus)="geolocate()" ></ion-input>
       </ion-item>
       <div class="addressWrapper">
 
       </div>
 
-      <ion-item>
-        <ion-label>Confirmation:</ion-label>
+      <ion-item class="dropdownInput">
+        <ion-label>Confirmation</ion-label>
         <ion-select placeholder="Select One" formControlName="confirmation">
           <ion-select-option value="accepted">Accepted</ion-select-option>
           <ion-select-option value="declined">Declined</ion-select-option>
@@ -66,13 +71,14 @@
         </ion-select>
       </ion-item>
 
-      <ion-item>
-        <ion-label>Sent invitation:</ion-label>
+      <ion-item class="dropdownInput">
+        <ion-label>Sent invitation</ion-label>
         <ion-toggle color="secondary" formControlName="sentInvitation"></ion-toggle>
       </ion-item>
 
-      <ion-item class="basicInput">
-        <ion-textarea type="text" formControlName="notes" placeholder="Enter more information here..."></ion-textarea>
+      <ion-item>
+          <ion-label position="floating">Notes</ion-label>
+        <ion-textarea type="text" formControlName="notes"></ion-textarea>
       </ion-item>
 
     </form>

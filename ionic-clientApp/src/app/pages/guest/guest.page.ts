@@ -26,7 +26,7 @@ export class GuestPage implements OnInit {
   addNewGroup(){
     const newGroup = {
       id: this.groupsList.length+1,
-      name: this.newGroupName
+      name: this.newGroupName == '' ? "New group" : this.newGroupName
     };
 
     this.hideInput();

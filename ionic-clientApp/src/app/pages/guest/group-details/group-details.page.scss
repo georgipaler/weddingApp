@@ -20,6 +20,9 @@ ion-header{
 }
 ion-content{
     font-family: 'Montserrat', sans-serif;
+    ion-searchbar{
+        margin-top: 1rem;
+    }
 
     #guestList{
         margin: 1rem;
