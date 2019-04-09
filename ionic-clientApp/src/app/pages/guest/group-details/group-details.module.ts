@@ -11,6 +11,7 @@ import { ExpandableComponent } from 'src/app/components/expandable/expandable.co
 import { SearchPipePipe } from 'src/app/pipes/searchPipe/search-pipe.pipe';
 import { SharedModule } from 'src/app/pipes/shared.module';
 import { ImportContacsComponent } from 'src/app/components/import-contacs/import-contacs.component';
+import { IndependentGuestDetailsComponent } from 'src/app/components/independent-guest-details/independent-guest-details.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
 @NgModule({
   entryComponents: [
     AddGuestComponent,
-    ImportContacsComponent
+    ImportContacsComponent,
+    IndependentGuestDetailsComponent,
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ const routes: Routes = [
     GroupDetailsPage,
     AddGuestComponent,
     ExpandableComponent,
-    ImportContacsComponent
+    ImportContacsComponent,
+    IndependentGuestDetailsComponent,
   ],
  
 })

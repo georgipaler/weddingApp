@@ -16,8 +16,8 @@
   <ion-searchbar [(ngModel)]="searchedText" ></ion-searchbar>
 
   <div id="guestList">
-    <div class="guest" *ngFor="let guest of guestsList | searchPipe: searchedText">
-      <app-expandable [guest]="guest"></app-expandable>
+    <div class="guest" *ngFor="let guest of guestsList | searchPipe: searchedText" >
+      <app-expandable (click)="goToIndependentDetails(guest)" [guest]="guest"></app-expandable>
     </div>
   </div>
 </ion-content>
