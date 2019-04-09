@@ -14,6 +14,7 @@ export class GroupDetailsPage implements OnInit {
 
    group: IGROUP;
    guestsList: Array<IGuest> = GUEST_LIST;
+   searchedText;
 
   constructor(private route: ActivatedRoute, 
     private router: Router,
@@ -34,7 +35,13 @@ export class GroupDetailsPage implements OnInit {
     const modal: HTMLIonModalElement= 
       await this.modalController.create({
       component: AddGuestComponent,
+      componentProps: { groupName: this.group}
   });
+
+  modal.onDidDismiss()
+  .then((data) => {
+    this.guestsList.push(data['data']);
+});
 
   modal.present();
 }
