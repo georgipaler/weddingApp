@@ -24,7 +24,10 @@ export class AddGuestComponent implements OnInit {
   ngOnInit() {
     this.initAddGuestForm();
     this.groupName = this.navParams.get("groupName");
+    this.newGuest = this.navParams.get("guest");
     console.log("group name", this.groupName);
+    console.log("guest", this.newGuest);
+    this.initFormValues();
   }
 
   initAddGuestForm() {
@@ -59,7 +62,7 @@ export class AddGuestComponent implements OnInit {
 
     this.newGuest = {
       id: 10,
-      group: this.groupName.name,
+      group: this.groupName ? this.groupName.name : this.newGuest.group ,
       name: this.addGuest.value.name,
       phoneNumber: this.addGuest.value.phoneNumber,
       membersNo:  this.addGuest.value.membersNo,
@@ -67,11 +70,28 @@ export class AddGuestComponent implements OnInit {
       address:this.addGuest.value.address,
       response: this.addGuest.value.confirmation,
       sentInvitation : this.addGuest.value.sentInvitation,
-      notes: this.addGuest.value.notes
+      notes: this.addGuest.value.notes,
+      tableNo: this.addGuest.value.tableNo,
     };
 
-    console.log("new guest", this.newGuest);
+    console.log("new guest addModal", this.newGuest);
     this.dismissModal();
+  }
+
+  initFormValues(){
+    if(!this.newGuest){
+      return;
+    }
+    this.addGuest.patchValue({
+      name: this.newGuest.name,
+      phoneNumber: this.newGuest.phoneNumber,
+      membersNo: this.newGuest.membersNo,
+      confirmation: this.newGuest.response,
+      notes: this.newGuest.notes,
+      sentInvitation: this.newGuest.sentInvitation,
+      tableNo: this.newGuest.tableNo,
+      menu: this.newGuest.isVegetarian
+    });
   }
 
   async dismissModal(){

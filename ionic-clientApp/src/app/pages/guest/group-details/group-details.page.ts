@@ -54,9 +54,16 @@ export class GroupDetailsPage implements OnInit {
       componentProps: { guest: guest }
     });
 
-    // modal.onDidDismiss().then(data => {
-    //   this.guestsList.push(data["data"]);
-    // });
+    modal.onDidDismiss().then(data => {
+      //get null object if i click back button 
+      //get object i want be deleted if i click delete button
+      if(data["data"]){
+        var removeIndex = this.guestsList.map(function(item) { return item.id; }).indexOf(data["data"].id);
+        // remove object
+        this.guestsList.splice(removeIndex, 1);
+      }
+      console.log("dismiss");
+    });
 
     modal.present();
   }
