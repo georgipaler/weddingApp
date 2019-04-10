@@ -8,40 +8,32 @@ import { IAppointment, Appointment_List } from 'src/model/interfaces';
   styleUrls: ['./schedule.page.scss'],
 })
 export class SchedulePage implements OnInit {
-  date: string;
-  type: 'string'; 
+
+  dateMulti: string[];
+  type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
+  optionsMulti: CalendarComponentOptions = {
+    pickMode: 'multi'
+  };
+  weekView: boolean = false;
 
   appointments : IAppointment[] =Appointment_List;
-  uniqueDays : string[] = [];
+
   constructor() { }
 
   ngOnInit() {
-    console.log("date", this.date, this.type);
-
+    console.log("date", this.dateMulti, this.type);
     this.appointments = this.appointments.filter(app => app.date.getMonth() == 4);
-
-   this.generateUniqueArray();
-    console.log(this.uniqueDays, "uniq");
   }
 
-  generateUniqueArray(){
-    this.uniqueDays = [];
-    this.appointments.map(app => {
-      this.uniqueDays.push(app.date.toDateString());
-    });
-    this.uniqueDays = Array.from(new Set(this.uniqueDays));
+  toggleWeekView(){
+    this.weekView = true;
   }
-
-  removeItem(appointment: IAppointment){
-    var index = this.appointments.indexOf(appointment);
-    if (index > -1) {
-     this.appointments.splice(index, 1);
-    }
-
-    this.generateUniqueArray();
+  toggleMonthView(){
+    this.weekView = false;
   }
 
   onChange($event) {
     console.log($event);
+    console.log("multiDate", this.dateMulti);
   }
 }

@@ -1,16 +1,18 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { Routes, RouterModule } from "@angular/router";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { SchedulePage } from './schedule.page';
-import { CalendarModule } from 'ion2-calendar';
+import { SchedulePage } from "./schedule.page";
+import { CalendarModule } from "ion2-calendar";
+import { WeekAppointmentsComponent } from "./week-appointments/week-appointments.component";
+import { MonthAppointmentsComponent } from "./month-appointments/month-appointments.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: SchedulePage
   }
 ];
@@ -21,9 +23,13 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    CalendarModule,
+    CalendarModule
   ],
-  declarations: [SchedulePage],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  declarations: [
+    SchedulePage,
+    WeekAppointmentsComponent,
+    MonthAppointmentsComponent
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SchedulePageModule {}

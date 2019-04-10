@@ -11,7 +11,6 @@ ion-content{
     justify-content: space-between;
 
     #calendarList{
-        max-height: 65%;
         .align{
             text-align: center;
             justify-content: center;
@@ -36,48 +35,11 @@ ion-content{
                 .modeItem{
                     width: 50%;
                     padding: 0.5rem 1rem;
+                    cursor: pointer;
                 }
             }
         }
     }
-
-    #appList{
-        max-height: 35%;
-        overflow-y: scroll;
-
-        .dayAppointment{
-            padding: 1.2rem 1rem 0.2rem 1rem;
-            border-bottom: 1px solid #FFDED5;
-            background-image: linear-gradient(#fff, #FFDED5);
-        }
-
-        .appointmentWrapper{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            padding: 10px 20px;
-            margin: 1rem 0;
-    
-            .hourWrapper{
-                min-width: 4rem;
-                font-size: 0.8rem;
-                text-align: left;
-            }
-    
-            .descriptionWrapper{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 0.8rem;
-                max-width: calc(100% - 6rem);
-            }
-            ion-icon{
-                min-width: 2rem;
-                font-size: 1.8rem;
-            }
-        }
-    }
-   
+ 
   
 }
