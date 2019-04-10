@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IGROUP, IGuest } from 'src/model/interfaces';
+import { NavParams, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-independent-guest-details',
@@ -7,8 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndependentGuestDetailsComponent implements OnInit {
 
-  constructor() { }
+  guest: IGuest;
 
-  ngOnInit() {}
+  constructor(public navParams: NavParams,
+    private modalController: ModalController, 
+    ) { }
+
+
+  ngOnInit() {
+    this.guest = this.navParams.get("guest");
+    console.log("guest", this.guest);
+  }
+
+  async dismissModal(){
+    await this.modalController.dismiss();
+  }
 
 }

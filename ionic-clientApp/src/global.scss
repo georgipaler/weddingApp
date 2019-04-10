@@ -1,47 +1,57 @@
 // http://ionicframework.com/docs/theming/
-@import '~@ionic/angular/css/core.css';
-@import '~@ionic/angular/css/normalize.css';
-@import '~@ionic/angular/css/structure.css';
-@import '~@ionic/angular/css/typography.css';
-@import '~@ionic/angular/css/display.css';
-@import '~@ionic/angular/css/padding.css';
-@import '~@ionic/angular/css/float-elements.css';
-@import '~@ionic/angular/css/text-alignment.css';
-@import '~@ionic/angular/css/text-transformation.css';
-@import '~@ionic/angular/css/flex-utils.css';
+@import "~@ionic/angular/css/core.css";
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
 
-body{
-    font-family: 'Montserrat', sans-serif;
+body {
+  font-family: "Montserrat", sans-serif;
 }
 
 .native-input.sc-ion-input-ios,
 .alert-wrapper.sc-ion-alert-ios,
-.item.sc-ion-label-ios-h, .item .sc-ion-label-ios-h,
+.item.sc-ion-label-ios-h,
+.item .sc-ion-label-ios-h,
 .native-textarea.sc-ion-textarea-ios,
 .hydrated {
-    font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-.sc-ion-select-popover-h ion-list.sc-ion-select-popover{
-    margin-right: 1rem;
-    font-size: 1rem;
+.sc-ion-select-popover-h ion-list.sc-ion-select-popover {
+  margin-right: 1rem;
+  font-size: 1rem;
 }
 
-.searchbar-input-container.sc-ion-searchbar-ios{
-    border: 1px solid #d6c8c4;
-    // background-color: #FFDED5;
-    border-radius: 10px;
+.searchbar-input-container.sc-ion-searchbar-ios {
+  border: 1px solid #d6c8c4;
+  // background-color: #FFDED5;
+  border-radius: 10px;
 }
 
-.sc-ion-searchbar-ios-h{
-    --background: #FFDED5 !important;
+.sc-ion-searchbar-ios-h {
+  --background: #ffded5 !important;
 }
 
-.show-back-button.sc-ion-back-button-ios-h, .can-go-back.sc-ion-back-button-ios-h > ion-header.sc-ion-back-button-ios, .can-go-back > ion-header .sc-ion-back-button-ios-h{
-    color: black;
+.show-back-button.sc-ion-back-button-ios-h,
+.can-go-back.sc-ion-back-button-ios-h > ion-header.sc-ion-back-button-ios,
+.can-go-back > ion-header .sc-ion-back-button-ios-h {
+  color: black;
 }
 
 .label-floating.sc-ion-label-ios-h,
-.item.sc-ion-label-ios-h, .item .sc-ion-label-ios-h{
-    color: #5d6066;
+.item.sc-ion-label-ios-h,
+.item .sc-ion-label-ios-h {
+  color: #5d6066;
+}
+
+@media (max-height: 700px) {
+  :root {
+    font-size: 12px;
+  }
 }

@@ -1,3 +1,58 @@
-<p>
-  independent-guest-details works!
-</p>
+<section id="topWrapper">
+  <div class="backButton" (click)="dismissModal()">
+    <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+    <div class="textBack">Back</div>
+  </div>
+</section>
+
+<section id="mainWrapper">
+  <h3>{{ guest?.name }}</h3>
+
+  <div class="guestInfo">
+    <h4>{{ guest?.group }}</h4>
+
+    <div class="basicInfo">
+        <div class="info">
+            <div>Confirmation: </div>
+            <div>{{ guest?.response }}</div>
+        </div>
+       <div class="info">
+          <div>Phone number: </div>
+          <div>{{ guest?.phoneNumber }}</div>
+      </div>
+      <div class="info">
+          <div>Address: </div>
+          <div>{{ guest?.address }}</div>
+      </div>
+      <div class="info">
+          <div>Sent invitation: </div>
+          <ion-toggle [checked]="guest.sentInvitation" disabled></ion-toggle>
+      </div>
+      <div class="info">
+          <div>Members number: </div>
+          <div>{{ guest?.membersNo }}</div>
+      </div>
+      <div class="info">
+          <div>Menu: </div>
+          <div *ngIf="guest?.isVegetarian ">Vegetarian</div>
+          <div *ngIf="!guest?.isVegetarian ">Non-vegetarian</div>
+      </div>
+      <div class="info">
+          <div>Table number: </div>
+          <div *ngIf="guest?.tableNo ">{{guest?.tableNo}}</div>
+          <div *ngIf="!guest?.tableNo ">Unset</div>
+      </div>
+      <div *ngIf="guest.notes" class="info">
+          <div>Notes: </div>
+          <div >{{guest?.notes}}</div>
+          
+      </div>
+    
+    </div>
+  </div>
+
+  <div class="buttonsWrapper">
+    <span>Edit</span>
+    <span>Delete</span>
+  </div>
+</section>

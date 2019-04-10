@@ -51,12 +51,12 @@ export class GroupDetailsPage implements OnInit {
   async goToIndependentDetails(guest: IGuest){
     const modal: HTMLIonModalElement = await this.modalController.create({
       component: IndependentGuestDetailsComponent,
-      componentProps: { groupName: this.group }
+      componentProps: { guest: guest }
     });
 
-    modal.onDidDismiss().then(data => {
-      this.guestsList.push(data["data"]);
-    });
+    // modal.onDidDismiss().then(data => {
+    //   this.guestsList.push(data["data"]);
+    // });
 
     modal.present();
   }
