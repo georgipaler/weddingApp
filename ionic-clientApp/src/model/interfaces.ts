@@ -3,6 +3,13 @@ export interface IGROUP  {
     name: string;
 }
 
+export interface IEvent {
+    title: string,
+    startTime: any, 
+    endTime: any, 
+    allDay: boolean
+}
+
 export interface IGuest{
     id: number;
     group: string;

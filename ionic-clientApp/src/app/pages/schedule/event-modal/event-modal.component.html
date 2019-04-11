@@ -1,0 +1,37 @@
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-input
+        type="text"
+        placeholder="title"
+        [(ngModel)]="event.title"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Start: </ion-label>
+      <ion-datetime
+        displayFormat="MM/DD/YYYY HH:mm"
+        pickerFromat="MM/DD/YYYY HH:mm"
+        [(ngModel)]="event.startTime"
+        [min]="minDate"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>End: </ion-label>
+      <ion-datetime
+        displayFormat="MM/DD/YYYY HH:mm"
+        pickerFromat="MM/DD/YYYY HH:mm"
+        [(ngModel)]="event.endTime"
+        [min]="minDate"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>All day</ion-label>
+      <ion-checkbox [(ngModel)]="event.allDay"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button full icon-left (click)="save()">
+    <ion-icon name="chackmark"></ion-icon>Add Event
+  </button>
+</ion-content>

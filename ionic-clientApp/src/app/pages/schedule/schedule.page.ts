@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarComponentOptions } from 'ion2-calendar';
-import { IAppointment, Appointment_List } from 'src/model/interfaces';
+import { IAppointment, Appointment_List, IEvent } from 'src/model/interfaces';
+import { NavController, ModalController, AlertController } from '@ionic/angular';
+import * as moment from 'moment'
+import { EventModalComponent } from './event-modal/event-modal.component';
 
 @Component({
   selector: 'app-schedule',
@@ -8,40 +11,76 @@ import { IAppointment, Appointment_List } from 'src/model/interfaces';
   styleUrls: ['./schedule.page.scss'],
 })
 export class SchedulePage implements OnInit {
-  date: string;
-  type: 'string'; 
 
-  appointments : IAppointment[] =Appointment_List;
-  uniqueDays : string[] = [];
-  constructor() { }
+  eventSource = [];
+  viewTitle:string;
+  selectedDay = new Date();
+
+  calendar = {
+    mode: 'day',
+    currentDate: this.selectedDay
+  }
+
+  constructor(
+    public navCtrl: NavController,
+    private modalController: ModalController,
+    private alertController: AlertController
+  ) { }
 
   ngOnInit() {
-    console.log("date", this.date, this.type);
-
-    this.appointments = this.appointments.filter(app => app.date.getMonth() == 4);
-
-   this.generateUniqueArray();
-    console.log(this.uniqueDays, "uniq");
   }
 
-  generateUniqueArray(){
-    this.uniqueDays = [];
-    this.appointments.map(app => {
-      this.uniqueDays.push(app.date.toDateString());
-    });
-    this.uniqueDays = Array.from(new Set(this.uniqueDays));
-  }
 
-  removeItem(appointment: IAppointment){
-    var index = this.appointments.indexOf(appointment);
-    if (index > -1) {
-     this.appointments.splice(index, 1);
+  async addEvent(){
+    const modal: HTMLIonModalElement =
+    await this.modalController.create({
+       component: EventModalComponent,
+       componentProps: {
+          selectedDay: this.selectedDay
+       }
+ });
+  
+ modal.onDidDismiss().then((data) => {
+    if (data !== null) {
+      let eventData: IEvent = data['data'];
+      eventData.startTime = new Date(data['data'].startTime);
+      eventData.endTime = new Date(data['data'].endTime);
+
+      let events = this.eventSource;
+      events.push(eventData);
+      this.eventSource = [];
+      setTimeout(()=> {
+        this.eventSource = events;
+      });
+      console.log('The result:', data);
     }
-
-    this.generateUniqueArray();
+ });
+ 
+ await modal.present();
+  }
+  onViewTitleChanged(title){
+    this.viewTitle = title;
+  }
+  onTimeSelected(ev){
+    this.selectedDay = ev.selectedTime;
   }
 
-  onChange($event) {
-    console.log($event);
+  onEventSelected(event){
+    let start = moment(event.startTime).format('LLLL');
+    let end = moment(event.endTime).format('LLLL'); 
+
+    this.presentAlert(event, start, end);
   }
+
+
+  async presentAlert(event, start, end) {
+  
+    const alert = await this.alertController.create({
+      header: '' + event.title,
+      message: 'From: ' + start + '<br> To: ' + end,
+      buttons: ['OK']
+    });
+    return await alert.present();
+  }
+
 }

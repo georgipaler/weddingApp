@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {Contacts} from '@ionic-native/contacts'
+import { NgCalendarModule } from 'ionic2-calendar'
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {Contacts} from '@ionic-native/contacts'
   entryComponents: [
   ],
   imports: [
+    NgCalendarModule,
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 

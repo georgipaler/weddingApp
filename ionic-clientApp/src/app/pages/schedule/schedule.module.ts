@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { SchedulePage } from './schedule.page';
 import { CalendarModule } from 'ion2-calendar';
+import { NgCalendarModule } from 'ionic2-calendar';
+import { EventModalComponent } from './event-modal/event-modal.component';
+
 
 const routes: Routes = [
   {
@@ -16,14 +19,20 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents: [
+    EventModalComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
     CalendarModule,
+    NgCalendarModule
   ],
-  declarations: [SchedulePage],
+  declarations: [SchedulePage,
+    EventModalComponent
+],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class SchedulePageModule {}

@@ -50,6 +50,10 @@ body {
   color: #5d6066;
 }
 
+.table-bordered[_ngcontent-c4]{
+  font-size: 1rem;
+}
+
 @media (max-height: 700px) {
   :root {
     font-size: 12px;

@@ -5,42 +5,28 @@
 </ion-header>
 
 <ion-content>
-  <section id="calendarList">
-    <div class="align">
-      <div class="viewMode">
-        <div class="modeItem"> Week</div>
-        <div class="verticalLine"></div>
-        <div class="modeItem"> Month</div>
-      </div>
-    </div>
 
-    <ion-calendar [(ngModel)]="date" (change)="onChange($event)" [type]="type" [format]="'YYYY-MM-DD'">
-    </ion-calendar>
+<div class="calendarDetails">
+  <div class="monthTitle">
+      {{viewTitle}}
+  </div>
+  <ion-buttons end>
+      <button ion-button icon-only (click)="addEvent()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+  </ion-buttons>
+</div>
+<calendar [eventSource]="eventSource"
+[calendarMode]="calendar.mode"
+[currentDate]="calendar.currentDate"
+(onEventSelected)="onEventSelected($event)"
+(onTitleChanged)="onViewTitleChanged($event)"
+(onTimeSelected)="onTimeSelected($event)"
+step="30"
+class="calendar"
+>
 
-  </section>
-
-  <section id="appList">
-    <div *ngFor="let day of uniqueDays">
-
-      <div class="dayAppointment">
-        {{day}}
-      </div>
-      <div *ngFor="let app of appointments">
-        <div *ngIf="app.date.toDateString() === day" class="appointmentWrapper">
-          <div class="hourWrapper">
-            <div *ngIf="!app.allDay">{{app.startTime}} -</div>
-            <div *ngIf="!app.allDay">{{app.endTime}} </div>
-            <div *ngIf="app.allDay"> All day </div>
-          </div>
-          <div class="descriptionWrapper">
-            {{app.title}}
-          </div>
-          <ion-icon (click)="removeItem(app)" ios="ios-close" md="md-close"></ion-icon>
-        </div>
-
-      </div>
-    </div>
-  </section>
+</calendar>
 
 
 </ion-content>
