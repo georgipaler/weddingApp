@@ -35,7 +35,14 @@ export class EventModalComponent implements OnInit {
   }
 
   async dismissModal(){
-    await this.modalController.dismiss(this.event);
+    if(this.event.title){
+      await this.modalController.dismiss(this.event);
+    }
+  }
+
+  async dismissModalCancel(){
+      await this.modalController.dismiss(null);
+    
   }
 
 }

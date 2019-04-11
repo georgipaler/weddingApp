@@ -1,9 +1,18 @@
-<ion-content>
-  <ion-list>
+
+<section id="topWrapper">
+    <div class="backButton" (click)="dismissModalCancel()">
+      <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      <div class="textBack">Back</div>
+    </div>
+</section>
+
+<section id="mainWrapper">
+  <h4>Create new appointment</h4>
+  <ion-list class="guestInfo">
     <ion-item>
       <ion-input
         type="text"
-        placeholder="title"
+        placeholder="Title"
         [(ngModel)]="event.title"
       ></ion-input>
     </ion-item>
@@ -31,7 +40,7 @@
     </ion-item>
   </ion-list>
 
-  <button ion-button full icon-left (click)="save()">
-    <ion-icon name="chackmark"></ion-icon>Add Event
-  </button>
-</ion-content>
+  <div class="buttonsWrapper">
+    <span (click)="save()">Add appointment</span>
+  </div>
+</section>

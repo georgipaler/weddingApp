@@ -50,8 +50,23 @@ body {
   color: #5d6066;
 }
 
-.table-bordered[_ngcontent-c4]{
+.table-bordered[_ngcontent-c4],
+.table > thead,
+.no-events-label[_ngcontent-c6],
+.event-detail[_ngcontent-c6],
+.monthview-eventdetail-timecolumn[_ngcontent-c6],
+.picker-opt
+ {
   font-size: 1rem;
+}
+
+.table > tbody > tr > td.calendar-hour-column{
+  font-size: 0.6rem;
+}
+
+.table > tbody,
+{
+  font-size: 0.8rem;
 }
 
 @media (max-height: 700px) {
