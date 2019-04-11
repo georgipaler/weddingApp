@@ -17,7 +17,7 @@ export class SchedulePage implements OnInit {
   selectedDay = new Date();
 
   calendar = {
-    mode: 'day',
+    mode: 'month',
     currentDate: this.selectedDay
   }
 
