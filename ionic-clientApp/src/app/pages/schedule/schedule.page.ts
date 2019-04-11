@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarComponentOptions } from 'ion2-calendar';
 import { IAppointment, Appointment_List } from 'src/model/interfaces';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-schedule',
@@ -9,7 +10,7 @@ import { IAppointment, Appointment_List } from 'src/model/interfaces';
 })
 export class SchedulePage implements OnInit {
 
-  dateMulti: string[];
+  dateMulti: moment.Moment[] = [];
   type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
   optionsMulti: CalendarComponentOptions = {
     pickMode: 'multi'
@@ -22,7 +23,14 @@ export class SchedulePage implements OnInit {
 
   ngOnInit() {
     console.log("date", this.dateMulti, this.type);
-    this.appointments = this.appointments.filter(app => app.date.getMonth() == 4);
+    this.appointments = this.appointments.filter(app => app.date.getMonth() == 3);
+    this.appointments.map(el=> {
+
+      const newMom = moment(el.date);
+      console.log(el.date);
+      this.dateMulti.push(newMom);
+    });
+    
   }
 
   toggleWeekView(){
@@ -34,6 +42,8 @@ export class SchedulePage implements OnInit {
 
   onChange($event) {
     console.log($event);
+    const newMoment = moment($event.time);
+    console.log("moment", newMoment);
     console.log("multiDate", this.dateMulti);
   }
 }

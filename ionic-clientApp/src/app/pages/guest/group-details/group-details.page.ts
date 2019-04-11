@@ -42,7 +42,9 @@ export class GroupDetailsPage implements OnInit {
     });
 
     modal.onDidDismiss().then(data => {
-      this.guestsList.push(data["data"]);
+      if(data["data"]){
+        this.guestsList.push(data["data"]);
+      }
     });
 
     modal.present();
