@@ -6,9 +6,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { SchedulePage } from './schedule.page';
-import { CalendarModule } from 'ion2-calendar';
+import { CalendarModule, MonthComponent } from 'ion2-calendar';
 import { NgCalendarModule } from 'ionic2-calendar';
 import { EventModalComponent } from './event-modal/event-modal.component';
+import { DayModeComponent } from './day-mode/day-mode.component';
+import { WeekModeComponent } from './week-mode/week-mode.component';
+import { MonthModeComponent } from './month-mode/month-mode.component';
 
 
 const routes: Routes = [
@@ -20,7 +23,10 @@ const routes: Routes = [
 
 @NgModule({
   entryComponents: [
-    EventModalComponent
+    EventModalComponent,
+    MonthModeComponent,
+    DayModeComponent,
+    WeekModeComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +37,10 @@ const routes: Routes = [
     NgCalendarModule
   ],
   declarations: [SchedulePage,
-    EventModalComponent
+    EventModalComponent,
+    MonthModeComponent,
+    DayModeComponent,
+    WeekModeComponent,
 ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

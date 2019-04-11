@@ -6,27 +6,13 @@
 
 <ion-content>
 
-<div class="calendarDetails">
-  <div class="monthTitle">
-      {{viewTitle}}
-  </div>
-  <ion-buttons end>
-      <button ion-button icon-only (click)="addEvent()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-  </ion-buttons>
-</div>
-<calendar [eventSource]="eventSource"
-[calendarMode]="calendar.mode"
-[currentDate]="calendar.currentDate"
-(onEventSelected)="onEventSelected($event)"
-(onTitleChanged)="onViewTitleChanged($event)"
-(onTimeSelected)="onTimeSelected($event)"
-step="30"
-class="calendar"
->
+  <section class="viewMode">
+    <div (click)="changeMode('month')">Month</div>
+    <div (click)="changeMode('week')">Week</div>
+    <div (click)="changeMode('day')">Day</div>
+  </section>
 
-</calendar>
-
-
+  <app-day-mode *ngIf="calendarMode === 'day'"></app-day-mode>
+  <app-week-mode  *ngIf="calendarMode === 'week'"></app-week-mode>
+  <app-month-mode  *ngIf="calendarMode === 'month'"></app-month-mode>
 </ion-content>

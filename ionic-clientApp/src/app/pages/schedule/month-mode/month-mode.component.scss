@@ -1,21 +1,5 @@
-ion-header{
-    ion-title{
-        font-family: 'Montserrat', sans-serif;
-    }
-}
 
 ion-content{
-    .viewMode{
-        display: flex;
-        justify-content: space-between;
-        font-family: 'Montserrat', sans-serif;
-
-        div{
-            margin: 1rem 1.5rem;
-            padding: 1rem;
-            color: #A87E67;
-        }
-    }
     
     .calendarDetails{
         display: flex;
