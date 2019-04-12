@@ -65,7 +65,7 @@ export const Appointment_List :Array<IAppointment> = [
         startTime : "12:30",
         endTime : "13:30",
         allDay: false,
-        date: new Date(2019, 4, 10),
+        date: new Date(2019, 3, 10),
         title: "Send a group playlist",
         invitees : [],
         notes: ''
@@ -75,7 +75,7 @@ export const Appointment_List :Array<IAppointment> = [
         startTime : "12:30",
         endTime : "13:30",
         allDay: false,
-        date: new Date(2019, 4, 12),
+        date: new Date(2019, 3, 12),
         title: "Meeting with the florist",
         invitees : [{id: 1, name: "Roxana", phone: "0745987833"}],
         notes: 'Some notes'
@@ -85,7 +85,7 @@ export const Appointment_List :Array<IAppointment> = [
         startTime : "12:30",
         endTime : "13:30",
         allDay: false,
-        date: new Date(2019, 4, 16),
+        date: new Date(2019, 3, 16),
         title: "Meeting with the manager of the restaurant",
         invitees : [{id: 1, name: "Laura", phone: "0745987833"}],
         notes: 'Some notes'
@@ -93,7 +93,7 @@ export const Appointment_List :Array<IAppointment> = [
     {
         id: 4,
         allDay: true,
-        date: new Date(2019, 4, 22),
+        date: new Date(2019, 3, 22),
         title: "Make a banquet menu",
         invitees : [],
         notes: 'Some notes'
@@ -103,7 +103,7 @@ export const Appointment_List :Array<IAppointment> = [
         startTime : "12:30",
         endTime : "13:30",
         allDay: false,
-        date: new Date(2019, 4, 22),
+        date: new Date(2019, 3, 22),
         title: "Make a banquet menu",
         invitees : [],
         notes: 'Some notes'
@@ -111,7 +111,7 @@ export const Appointment_List :Array<IAppointment> = [
     {
         id: 6,
         allDay: true,
-        date: new Date(2019, 4, 22),
+        date: new Date(2019, 3, 22),
         title: "Make a banquet menu",
         invitees : [],
         notes: 'Some notes'
@@ -121,7 +121,7 @@ export const Appointment_List :Array<IAppointment> = [
         startTime : "12:30",
         endTime : "13:30",
         allDay: false,
-        date: new Date(2019, 4, 16),
+        date: new Date(2019, 3, 16),
         title: "Make a banquet menu",
         invitees : [],
         notes: 'Some notes'

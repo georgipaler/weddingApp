@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarComponentOptions } from 'ion2-calendar';
-import { IAppointment, Appointment_List, IEvent } from 'src/model/interfaces';
 import { NavController, ModalController, AlertController } from '@ionic/angular';
-import * as moment from 'moment'
-import { EventModalComponent } from './event-modal/event-modal.component';
 
 @Component({
   selector: 'app-schedule',

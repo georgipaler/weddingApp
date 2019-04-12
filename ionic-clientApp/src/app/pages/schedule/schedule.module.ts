@@ -1,9 +1,9 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { Routes, RouterModule } from "@angular/router";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
 import { SchedulePage } from './schedule.page';
 import { CalendarModule, MonthComponent } from 'ion2-calendar';
@@ -15,7 +15,7 @@ import { DayModeComponent } from './day-mode/day-mode.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: SchedulePage
   }
 ];
