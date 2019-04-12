@@ -1,8 +1,8 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Schedule</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
 
@@ -12,7 +12,5 @@
     <div (click)="changeMode('day')">Day</div>
   </section>
 
-  <app-day-mode *ngIf="calendarMode === 'day'"></app-day-mode>
-  <app-week-mode  *ngIf="calendarMode === 'week'"></app-week-mode>
-  <app-month-mode  *ngIf="calendarMode === 'month'"></app-month-mode>
+  <app-day-mode [calendarMode]="calendarMode"></app-day-mode>
 </ion-content>

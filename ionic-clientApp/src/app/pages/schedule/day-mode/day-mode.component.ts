@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NavController, ModalController, AlertController } from '@ionic/angular';
 import { EventModalComponent } from '../event-modal/event-modal.component';
 import { IEvent } from 'src/model/interfaces';
 import * as moment from 'moment'
+import { CalendarModule } from 'ion2-calendar';
 
 @Component({
   selector: 'app-day-mode',
@@ -11,7 +12,7 @@ import * as moment from 'moment'
 })
 export class DayModeComponent implements OnInit {
 
-  
+  @Input("calendarMode") calendarMode: string;
   eventSource = [];
   viewTitle:string;
   selectedDay = new Date();
@@ -51,8 +52,9 @@ export class DayModeComponent implements OnInit {
       this.eventSource = [];
       setTimeout(()=> {
         this.eventSource = events;
+        console.log('The result:', this.eventSource);
       });
-      console.log('The result:', data);
+
     }
  });
  

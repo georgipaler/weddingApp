@@ -28,16 +28,17 @@ body {
   font-size: 1rem;
 }
 
+
+//searchbar
 .searchbar-input-container.sc-ion-searchbar-ios {
   border: 1px solid #d6c8c4;
-  // background-color: #FFDED5;
   border-radius: 10px;
 }
-
 .sc-ion-searchbar-ios-h {
   --background: #ffded5 !important;
 }
 
+//backButton
 .show-back-button.sc-ion-back-button-ios-h,
 .can-go-back.sc-ion-back-button-ios-h > ion-header.sc-ion-back-button-ios,
 .can-go-back > ion-header .sc-ion-back-button-ios-h {
@@ -50,6 +51,9 @@ body {
   color: #5d6066;
 }
 
+
+
+//calendar Schedule page
 .table-bordered[_ngcontent-c4],
 .table > thead,
 .no-events-label[_ngcontent-c6],
@@ -69,6 +73,18 @@ body {
   font-size: 0.8rem;
 }
 
+.event-detail-container[_ngcontent-c4],
+.table-bordered[_ngcontent-c5],
+.table-bordered[_ngcontent-c5] > thead[_ngcontent-c5] > tr[_ngcontent-c5] > th[_ngcontent-c5], .table-bordered[_ngcontent-c5] > tbody[_ngcontent-c5] > tr[_ngcontent-c5] > th[_ngcontent-c5], .table-bordered[_ngcontent-c5] > tfoot[_ngcontent-c5] > tr[_ngcontent-c5] > th[_ngcontent-c5], .table-bordered[_ngcontent-c5] > thead[_ngcontent-c5] > tr[_ngcontent-c5] > td[_ngcontent-c5], .table-bordered[_ngcontent-c5] > tbody[_ngcontent-c5] > tr[_ngcontent-c5] > td[_ngcontent-c5], .table-bordered[_ngcontent-c5] > tfoot[_ngcontent-c5] > tr[_ngcontent-c5] > td[_ngcontent-c5]{
+  border: unset !important;
+}
+
+.event-detail-container[_ngcontent-c4]{
+  margin-top: 1.5rem;
+}
+
+
+//responsive for small rezolutions
 @media (max-height: 700px) {
   :root {
     font-size: 12px;
