@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {Contacts} from '@ionic-native/contacts'
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {Contacts} from '@ionic-native/contacts'
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
+    ChartsModule
   ],
   providers: [
     StatusBar,
