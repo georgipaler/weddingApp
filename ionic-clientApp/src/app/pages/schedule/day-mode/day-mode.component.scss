@@ -8,15 +8,24 @@
             width: -webkit-fill-available;
             margin-left: 52px;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        ion-buttons{
+        .addButton{
             width: 60px;
             display: flex;
             justify-content: center
         }
+
+        .addButton *{
+            font-size: 2rem;
+        }
        
     }
+
+
 
 
   

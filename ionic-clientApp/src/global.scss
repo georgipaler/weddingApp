@@ -84,6 +84,20 @@ body {
 }
 
 
+
+//calendar
+.calendar-event-inner[_ngcontent-c4],
+.monthview-primary-with-event[_ngcontent-c5],
+{
+  background-color: #A87E67 !important;
+}
+.monthview-selected[_ngcontent-c5]{
+  background-color: #d89c8b !important;
+}
+.monthview-current[_ngcontent-c5]{
+  background-color: #EDEAEA !important;
+}
+
 //responsive for small rezolutions
 @media (max-height: 700px) {
   :root {
