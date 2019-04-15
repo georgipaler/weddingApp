@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { BudgetPage } from './budget.page';
 import { ChartsModule } from 'ng2-charts';
+import { ChartComponent } from 'src/app/components/chart/chart.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents:[ 
+    ChartComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -23,6 +27,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ChartsModule
   ],
-  declarations: [BudgetPage]
+  declarations: [BudgetPage,
+  ChartComponent]
 })
 export class BudgetPageModule {}

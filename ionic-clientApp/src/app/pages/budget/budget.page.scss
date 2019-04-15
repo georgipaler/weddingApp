@@ -2,4 +2,21 @@ ion-header{
     ion-title{
         font-family: 'Montserrat', sans-serif;
     }
+
+}
+ion-content{
+    .viewMode{
+        margin: 0.5 0 5rem 0;
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Montserrat', sans-serif;
+        border-bottom: 1px solid #A87E67;
+
+        div{
+            text-align: center;
+            margin: 1rem 1.5rem;
+            padding: 1rem;
+            color: #A87E67;
+        }
+    }
 }

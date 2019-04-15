@@ -1,73 +1,57 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-budget',
-  templateUrl: './budget.page.html',
-  styleUrls: ['./budget.page.scss'],
+  selector: "app-budget",
+  templateUrl: "./budget.page.html",
+  styleUrls: ["./budget.page.scss"]
 })
 export class BudgetPage implements OnInit {
-
-  constructor() { }
+  public lineChartData: Array<any> = [
+    { data: [65, 100, 80, 81, 56, 55, 40], label: "Expenses" }
+  ];
+  public lineChartLabels: Array<any> = [];
+  weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  thisMonth = ["1-5", "6-10", "11-15", "15-20", "21-25", "26-30"];
+  allTime = ["2017", "2018", "2019"];
+  constructor() {}
 
   ngOnInit() {
+    this.lineChartLabels = this.thisMonth;
+
+    let curr = new Date();
+    let week = [];
+
+    for (let i = 1; i <= 7; i++) {
+      let first = curr.getDate() - curr.getDay() + i;
+      let day = new Date(curr.setDate(first)).toISOString().slice(0, 10);
+      week.push(day);
+    }
+
+    console.log(week);
   }
 
-  public lineChartData:Array<any> = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Expenses'},
-    // {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'},
-    // {data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C'}
-  ];
-  public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public lineChartOptions:any = {
-    responsive: true
-  };
-  public lineChartColors:Array<any> = [
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    },
-    { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
-    },
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+  changeMode(modeBudget: string) {
+    switch (modeBudget) {
+      case "thisMonth":
+        this.lineChartLabels = this.thisMonth;
+        this.lineChartData = [
+          { data: [30, 100, 0, 45, 25, 55], label: "Expenses" }
+        ];
+        break;
+      case "thisWeek":
+        this.lineChartLabels = this.weekDays;
+        this.lineChartData = [
+          { data: [65, 100, 80, 81, 56, 55, 40], label: "Expenses" }
+        ];
+        break;
+      case "allTime":
+        this.lineChartLabels = this.allTime;
+        this.lineChartData = [
+          { data: [100, 150, 250], label: "Expenses" }
+        ];
+        break;
+      default:
+      // code block
     }
-  ];
-  public lineChartLegend:boolean = true;
-  public lineChartType:string = 'line';
-  
-  public randomize():void {
-    let _lineChartData:Array<any> = new Array(this.lineChartData.length);
-    for (let i = 0; i < this.lineChartData.length; i++) {
-      _lineChartData[i] = {data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
-      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        _lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-      }
-    }
-    this.lineChartData = _lineChartData;
   }
-  
-  // events
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
-  
-  public chartHovered(e:any):void {
-    console.log(e);
-  }
-
 }
