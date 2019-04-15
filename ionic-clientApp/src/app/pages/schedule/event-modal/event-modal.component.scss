@@ -23,29 +23,18 @@
     padding-top: 3rem;
     padding-left: 3rem;
     color: #5d6066;
-    animation: 1.75s fadeInRight forwards;
+    animation: 1.5s fadeInRight forwards;
 
-    h3{
+    h4{
         color: #A87E67;
-        font-weight: bold;
+        margin-left: 2rem;
     }
     .guestInfo{
         margin-top: 2rem;
         padding: 1rem;
         width: 100% ;
-        box-shadow: 0 15px 40px 0 #EDEAEA;
+        box-shadow: -7px -1px 10px -4px #EDEAEA;
 
-        .basicInfo{
-            margin-top: 1rem;
-           
-            .info{
-                font-size: 0.9rem;
-                padding: 1rem 0;
-                display: flex;
-                justify-content: space-between;
-            }
-            
-        }
     }
 
     .buttonsWrapper{
@@ -54,7 +43,6 @@
         color: #EDEAEA;
         font-weight: bold;
         margin-left: 2rem;
-      
         span{
             padding: 0.8rem 1rem;
         }
@@ -62,15 +50,15 @@
 
 }
 
- 
+ .list-ios{
+     margin:0;
+ }
+
 @keyframes fadeInRight {
     0% { 
       opacity: 0;
-      margin-left:100px;
-      margin-right: -100px;
     }
     100% { 
       opacity: 1; 
-      margin-left:0px;
     } 
   }

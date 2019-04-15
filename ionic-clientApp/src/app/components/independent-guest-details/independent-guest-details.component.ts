@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IGROUP, IGuest } from 'src/model/interfaces';
-import { NavParams, ModalController } from '@ionic/angular';
+import { NavParams, ModalController, AlertController } from '@ionic/angular';
+import { AddGuestComponent } from '../add-guest/add-guest.component';
 
 @Component({
   selector: 'app-independent-guest-details',
@@ -13,6 +14,7 @@ export class IndependentGuestDetailsComponent implements OnInit {
 
   constructor(public navParams: NavParams,
     private modalController: ModalController, 
+    public alertController: AlertController,
     ) { }
 
 
@@ -20,9 +22,59 @@ export class IndependentGuestDetailsComponent implements OnInit {
     this.guest = this.navParams.get("guest");
     console.log("guest", this.guest);
   }
+  async editGuest(){
+    const modal: HTMLIonModalElement = await this.modalController.create({
+      component: AddGuestComponent,
+      componentProps: { guest: this.guest }
+    });
 
-  async dismissModal(){
-    await this.modalController.dismiss();
+    modal.onDidDismiss().then(data => {
+      this.guest = data["data"];
+    });
+
+    modal.present();
+
   }
+
+  deleteGuest(){
+    this.presentAlertConfirm();
+  }
+
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Confirm!',
+      message: `Are you sure you want to remove ${this.guest.name}`,
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.dismissModal("delete");
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async dismissModal(info: string){
+    
+    if(info === "delete"){
+      await this.modalController.dismiss(this.guest);
+    }
+    else{
+      await this.modalController.dismiss(null);
+    }
+   
+  }
+
 
 }

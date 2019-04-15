@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarComponentOptions } from 'ion2-calendar';
-import { IAppointment, Appointment_List } from 'src/model/interfaces';
+import { NavController, ModalController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-schedule',
@@ -8,40 +7,30 @@ import { IAppointment, Appointment_List } from 'src/model/interfaces';
   styleUrls: ['./schedule.page.scss'],
 })
 export class SchedulePage implements OnInit {
-  date: string;
-  type: 'string'; 
 
-  appointments : IAppointment[] =Appointment_List;
-  uniqueDays : string[] = [];
-  constructor() { }
+  eventSource = [];
+  viewTitle:string;
+  selectedDay = new Date();
+  calendarMode: string ="month";
+
+
+
+  constructor(
+    public navCtrl: NavController,
+    private modalController: ModalController,
+    private alertController: AlertController
+  ) { }
 
   ngOnInit() {
-    console.log("date", this.date, this.type);
-
-    this.appointments = this.appointments.filter(app => app.date.getMonth() == 4);
-
-   this.generateUniqueArray();
-    console.log(this.uniqueDays, "uniq");
   }
 
-  generateUniqueArray(){
-    this.uniqueDays = [];
-    this.appointments.map(app => {
-      this.uniqueDays.push(app.date.toDateString());
-    });
-    this.uniqueDays = Array.from(new Set(this.uniqueDays));
+
+
+  changeMode(modeCal: string){
+    this.calendarMode = modeCal;
   }
 
-  removeItem(appointment: IAppointment){
-    var index = this.appointments.indexOf(appointment);
-    if (index > -1) {
-     this.appointments.splice(index, 1);
-    }
 
-    this.generateUniqueArray();
-  }
 
-  onChange($event) {
-    console.log($event);
-  }
+
 }
