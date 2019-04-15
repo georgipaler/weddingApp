@@ -9,11 +9,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {Contacts} from '@ionic-native/contacts'
-<<<<<<< HEAD
 import { ChartsModule } from 'ng2-charts';
-=======
 import { NgCalendarModule } from 'ionic2-calendar'
->>>>>>> develop
 
 @NgModule({
   declarations: [
