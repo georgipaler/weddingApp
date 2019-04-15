@@ -18,9 +18,9 @@ export class ChartComponent implements OnInit {
   };
   public lineChartColors: Array<any> = [
     {
-      // grey
-      backgroundColor: "rgb(158, 120, 93)",
-      borderColor: "rgb(158, 120, 93)",
+      // brown
+      backgroundColor: "rgb(185, 151 , 133)",
+      borderColor: "rgb(185, 151 , 133)",
       pointBackgroundColor: "rgb(168, 126, 103)",
       pointBorderColor: "#fff",
       pointHoverBackgroundColor: "#fff",

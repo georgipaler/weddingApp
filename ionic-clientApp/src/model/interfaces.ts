@@ -40,6 +40,13 @@ export interface IAppointment{
     notes: string;
 }
 
+export interface IExpense {
+    id: number;
+    date: Date;
+    title: string;
+    cost: number
+}
+
 
 export const GROUP_LIST =[{
     id: 1,
@@ -57,6 +64,44 @@ export const GROUP_LIST =[{
     id: 4,
     name: "Mutual friends"
   },
+];
+
+export const expenses_list = [{
+    id: 1,
+    date: new Date(2018, 3, 10),
+    title: "Booked officiants",
+    cost: 3000
+},
+{
+    id: 2,
+    date: new Date(2018, 10, 11),
+    title: "Bought cookies",
+    cost: 4000
+},
+{
+    id: 3,
+    date: new Date(2018, 14, 12),
+    title: "Bought flowers",
+    cost: 5600
+},
+{
+    id: 4,
+    date: new Date(2019, 3, 16),
+    title: "Hired a photographer",
+    cost: 1200
+},
+{
+    id: 5,
+    date: new Date(2019, 6, 15),
+    title: "Hired a florist",
+    cost: 300
+},
+{
+    id: 6,
+    date: new Date(2019, 7, 21),
+    title: "Booked restaurant",
+    cost: 10
+},
 ];
 
 export const Appointment_List :Array<IAppointment> = [
