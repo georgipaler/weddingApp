@@ -19,6 +19,7 @@ export class ImportContacsComponent implements OnInit {
   contactsfound = [];
   search = false;
   public contactList = [];
+  searchedText :string;
 
   constructor(
     public navCtrl: NavController,

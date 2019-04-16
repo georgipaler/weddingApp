@@ -10,7 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {Contacts, Contact} from '@ionic-native/contacts'
 import { ChartsModule } from 'ng2-charts';
-import { NgCalendarModule } from 'ionic2-calendar'
+import { NgCalendarModule } from 'ionic2-calendar';
+import { ContactSearchPipe } from './pipes/contactSearch/contact-search.pipe'
 
 @NgModule({
   declarations: [

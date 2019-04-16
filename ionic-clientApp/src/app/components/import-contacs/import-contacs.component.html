@@ -12,9 +12,8 @@
 </ion-header>
 
 <ion-content padding>
-  <!-- <ion-searchbar (keyup)="onKeyUp($event)"></ion-searchbar> -->
-  <ion-list>
-    <ion-item *ngFor="let cont of contactList">
+  <ion-searchbar [(ngModel)]="searchedText" ></ion-searchbar>
+  <div *ngFor="let cont of contactList | contactSearch : searchedText" >
       <section (click)="addContact(cont)" id="mainContainer">
         {{ cont?.name.formatted }}
         <div class="shortInfoGuest">
@@ -24,6 +23,5 @@
           </p>
         </div>
       </section>
-    </ion-item>
-  </ion-list>
+    </div>
 </ion-content>
