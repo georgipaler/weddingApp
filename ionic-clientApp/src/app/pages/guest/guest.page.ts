@@ -30,7 +30,7 @@ export class GuestPage implements OnInit {
     };
 
     this.hideInput();
-    this.groupsList.push(newGroup);
+    this.groupsList.unshift(newGroup);
   }
 
   hideInput(){
