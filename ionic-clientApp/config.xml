@@ -85,6 +85,9 @@
     </plugin>
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-contacts" spec="~3.0.1" />
+    <edit-config file="*-Info.plist" mode="merge" target="NSContactsUsageDescription">
+        <string>need contacts access to search friends</string>
+    </edit-config>
     <engine name="android" spec="6.3.0" />
     <engine name="ios" spec="^4.5.5" />
 </widget>

@@ -1,24 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <div class="backButton" (click)="dismissModal()">
-        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
-        <div class="textBack">Back</div>
+    <div class="backButton" (click)="dismissModal('', null)">
+      <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      <div class="textBack">Back</div>
     </div>
     <ion-title>Contacts</ion-title>
-    <ion-buttons slot="end" (click)="dismissModal()">
+    <!-- <ion-buttons slot="end" (click)="dismissModal('', null )">
       Done
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content padding>
   <!-- <ion-searchbar (keyup)="onKeyUp($event)"></ion-searchbar> -->
   <ion-list>
-    <ion-item *ngFor="let contact of contactsFound"></ion-item>
-    {{contact?.displayName}}
-    <p *ngFor="let num of contact?.phoneNumbers">
-      {{num?.value}}
-    </p>
+    <ion-item *ngFor="let cont of contactList">
+      <section (click)="addContact(cont)" id="mainContainer">
+        {{ cont?.name.formatted }}
+        <div class="shortInfoGuest">
+          Phone:
+          <p *ngFor="let num of cont?.phoneNumbers">
+            {{num?.type}}: {{ num?.value }}
+          </p>
+        </div>
+      </section>
+    </ion-item>
   </ion-list>
 </ion-content>

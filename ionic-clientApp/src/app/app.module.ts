@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {Contacts} from '@ionic-native/contacts'
+import {Contacts, Contact} from '@ionic-native/contacts'
 import { ChartsModule } from 'ng2-charts';
 import { NgCalendarModule } from 'ionic2-calendar'
 
@@ -29,7 +29,9 @@ import { NgCalendarModule } from 'ionic2-calendar'
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Contacts
+    Contacts,
+    Navigator,
+    Contact
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
