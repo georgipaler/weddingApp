@@ -23,7 +23,7 @@
     padding-top: 3rem;
     padding-left: 3rem;
     color: #5d6066;
-    animation: 1.75s fadeInRight forwards;
+    animation: 0.75s fadeInRight forwards;
 
     h3{
         color: #A87E67;
@@ -66,8 +66,8 @@
 @keyframes fadeInRight {
     0% { 
       opacity: 0;
-      margin-left:100px;
-      margin-right: -100px;
+      margin-left:70px;
+      margin-right: -70px;
     }
     100% { 
       opacity: 1; 
