@@ -5,29 +5,22 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { BudgetPage } from './budget.page';
-import { ChartsModule } from 'ng2-charts';
-import { ChartComponent } from './chart/chart.component';
+import { AuthPage } from './auth.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: BudgetPage
+    component: AuthPage
   }
 ];
 
 @NgModule({
-  entryComponents:[ 
-    ChartComponent
-  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    ChartsModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [BudgetPage,
-  ChartComponent]
+  declarations: [AuthPage]
 })
-export class BudgetPageModule {}
+export class AuthPageModule {}
