@@ -3,6 +3,14 @@ export interface IGROUP  {
     name: string;
 }
 
+export interface IUser {
+    id: number;
+    name: string;
+    gender: string;
+    email: string;
+    _value?: any;
+}
+
 export interface IEvent {
     title: string,
     startTime: any, 

@@ -12,6 +12,7 @@ import {Contacts, Contact} from '@ionic-native/contacts'
 import { ChartsModule } from 'ng2-charts';
 import { NgCalendarModule } from 'ionic2-calendar';
 import { ContactSearchPipe } from './pipes/contactSearch/contact-search.pipe'
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ContactSearchPipe } from './pipes/contactSearch/contact-search.pipe'
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
-    ChartsModule
+    ChartsModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,

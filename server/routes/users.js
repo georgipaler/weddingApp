@@ -25,7 +25,8 @@ router.post('/', (req, res, next) => {
     const newObj = new User({
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
-        gender: req.body.gender
+        gender: req.body.gender,
+        email: req.body.email
     });
     newObj.save().then(result=>{
         console.log("result post", result);
