@@ -3,6 +3,9 @@ import { UserService } from 'src/app/services/user/user.service';
 import { IUser } from 'src/model/interfaces';
 import { Subscription } from 'rxjs';
 import { LoaderService } from 'src/app/services/loader/loader.service';
+import { ActionSheetController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +20,10 @@ export class HomePage implements OnInit {
   private userSupscription: Subscription;
 
   constructor(private userService: UserService,
-    public loading: LoaderService) { }
+    public loading: LoaderService,
+    public actionSheetCtrl: ActionSheetController, 
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -38,6 +44,34 @@ export class HomePage implements OnInit {
 
   ngOnDestroy(){
     this.userSupscription.unsubscribe();
+  }
+
+  async presentActionSheet() {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Settings',
+      buttons: [
+        {
+          text: 'Edit profile',
+          handler: () => {
+            console.log('edit clicked');
+          }
+        },{
+          text: 'Log out',
+          handler: () => {
+            console.log('log out clicked');
+            this.authService.logout();
+            this.router.navigateByUrl('/auth');
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    await actionSheet.present();
   }
 
 }

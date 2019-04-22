@@ -11,6 +11,8 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUserData(): Observable<Object>  {
-    return this.http.get("http://9.154.172.52:8080/users")
+    return this.http.get("http:9.233.95.149//:8080/users")
+
+    //IBM API: 9.154.172.52
   }
 }
