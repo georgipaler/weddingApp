@@ -1,15 +1,15 @@
 
-<ion-content padding>
+<ion-content>
   
   <section id="mainWrapper">
     <h3>LOGO</h3>
   
     
-      <ion-segment class="signIn" (ionChange)="segmentChanged($event)">
-        <ion-segment-button value="singIn">
+      <ion-segment class="signIn " (ionChange)="segmentChanged($event)">
+        <ion-segment-button  value="singIn" [checked]="true">
           <ion-label>Sing in</ion-label>
         </ion-segment-button>
-        <ion-segment-button value="singUp">
+        <ion-segment-button  value="singUp">
           <ion-label>Sing up</ion-label>
         </ion-segment-button>
       </ion-segment>

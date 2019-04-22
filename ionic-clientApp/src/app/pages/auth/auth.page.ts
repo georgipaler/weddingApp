@@ -37,7 +37,7 @@ export class AuthPage implements OnInit {
   }
 
   segmentChanged(event){
-    console.log(event);
+    console.log(event.detail.value);
   }
 
   initLoginForm() {

@@ -3,7 +3,7 @@
 #mainWrapper{
     height: 90%;
 
-    padding-top: 4rem;
+    padding-top: 7rem;
     padding-left: 3rem;
     color: #5d6066;
     animation: 0.75s fadeInRight forwards;
@@ -13,13 +13,21 @@
         font-weight: bold;
     }
 
-    ion-segment{
-        margin-top: 2.5rem;
+    ion-segment-button{
+        margin-top: 3.5rem;
 
         border:0 !important;
+        ion-label{
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
     }
+   
+
     .guestInfo{
         padding: 1rem;
+        padding-top: 0;
         width: 100% ;
         box-shadow: 0 15px 40px 0 #EDEAEA;
 
@@ -34,11 +42,16 @@
             }
             
         }
+
+        ion-button{
+            margin-left: 1rem;
+           padding: 0.3rem 0;
+        }
     }
 
     .buttonsWrapper{
         display: flex;
-        background-color: #A87E67;
+        background-image: linear-gradient(rgb(145, 109, 90) ,#A87E67 , rgb(183, 138, 114));
         color: #EDEAEA;
         font-weight: bold;
         margin-left: 2rem;
@@ -49,6 +62,7 @@
     }
 
 }
+
 
  
 @keyframes fadeInRight {
@@ -62,3 +76,12 @@
       margin-left:0px;
     } 
   }
+
+
+  //responsive for small rezolutions
+@media (max-height: 700px) {
+  #mainWrapper{
+            height: 90%;
+            padding-top: 4rem;
+  }
+}
