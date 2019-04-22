@@ -13,6 +13,7 @@ import { ChartsModule } from 'ng2-charts';
 import { NgCalendarModule } from 'ionic2-calendar';
 import { ContactSearchPipe } from './pipes/contactSearch/contact-search.pipe'
 import { HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HttpClientModule} from '@angular/common/http';
     IonicModule.forRoot(), 
     AppRoutingModule, 
     ChartsModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [

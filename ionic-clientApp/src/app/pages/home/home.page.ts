@@ -21,12 +21,14 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
 
-   // this.loading.present();
+    //this.loading.present();
     this.userSupscription = this.userService.getUserData().subscribe((user: IUser)=> {
       this.user = user[0];
       console.log("user", this.user.gender, this.user);
       this.displayBrideOrGroom();
-   //   this.loading.dismiss();
+     // this.loading.dismiss();
+    }, err => {
+      console.log(err);
     });
   }
 

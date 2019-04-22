@@ -45,6 +45,6 @@ export class GuestPage implements OnInit {
         data: JSON.stringify(group)
       }
     };
-    this.router.navigate(['tabs/guests/groupDetails'], navigationExtras);
+    this.router.navigate(['welcome/tabs/guests/groupDetails'], navigationExtras);
   }
 }
