@@ -51,8 +51,6 @@ body {
   color: #5d6066;
 }
 
-
-
 //calendar Schedule page
 .table-bordered[_ngcontent-c4],
 .table > thead,
@@ -83,8 +81,6 @@ body {
   margin-top: 1.5rem;
 }
 
-
-
 //calendar
 .calendar-event-inner[_ngcontent-c4],
 .monthview-primary-with-event[_ngcontent-c5],
@@ -98,8 +94,6 @@ body {
   background-color: #EDEAEA !important;
 }
 
-
-
 //segment
 .sc-ion-segment-ios-h{
   --background-checked: transparent;
@@ -110,6 +104,9 @@ body {
 }
 
 
+.list-ios{
+  margin:0;
+}
 
 //responsive for small rezolutions
 @media (max-height: 700px) {

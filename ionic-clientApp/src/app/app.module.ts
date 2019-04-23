@@ -24,7 +24,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     NgCalendarModule,
     BrowserModule, 
-    IonicModule.forRoot(), 
+    IonicModule.forRoot({
+      mode: 'ios',
+      scrollAssist: true}), 
     AppRoutingModule, 
     ChartsModule,
     FormsModule,
