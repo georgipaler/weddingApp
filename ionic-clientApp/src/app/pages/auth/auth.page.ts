@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-auth',
@@ -10,11 +11,14 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class AuthPage implements OnInit {
 
+  @ViewChild('slider') slider: IonSlides;
   public formLogin : FormGroup;
+  page: string ="0";
 
   constructor(private authService : AuthService,
     private router: Router,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    ) { }
 
   ngOnInit() {
     this.initLoginForm();
@@ -36,8 +40,15 @@ export class AuthPage implements OnInit {
     this.onLogin();
   }
 
+  //change slide on click SignIn/SignUp button
   segmentChanged(event){
-    console.log(event.detail.value);
+    this.slider.slideTo(event.detail.value);
+  }
+
+
+  //change selected button Sing In/ Sign Up
+  changeButton(event){
+    this.slider.getActiveIndex().then(index=> this.page=index.toString());
   }
 
   initLoginForm() {

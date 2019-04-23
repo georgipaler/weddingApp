@@ -26,31 +26,47 @@
    
 
     .guestInfo{
-        padding: 1rem;
-        padding-top: 0;
-        width: 100% ;
+        padding: 0 0 1rem 1rem;
         box-shadow: 0 15px 40px 0 #EDEAEA;
 
-        .basicInfo{
-            margin-top: 1rem;
-           
-            .info{
-                font-size: 0.9rem;
-                padding: 1rem 0;
-                display: flex;
-                justify-content: space-between;
-            }
-            
-        }
+        .swiper-slide {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
-        ion-button{
-            margin-left: 1rem;
-           padding: 0.3rem 0;
+            .basicInfo{
+                width: 100%;
+                margin-top: 1rem;
+               
+                .info{
+                    font-size: 0.9rem;
+                    padding: 1rem 0;
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+
+            .logButtonWrapper{
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                ion-button{
+                   margin-left: 1rem;
+                   padding: 0.3rem 0;
+                }
+            }
         }
+   
+
+      
+    
     }
 
     .buttonsWrapper{
         display: flex;
+        justify-content: flex-end;
         background-image: linear-gradient(rgb(145, 109, 90) ,#A87E67 , rgb(183, 138, 114));
         color: #EDEAEA;
         font-weight: bold;

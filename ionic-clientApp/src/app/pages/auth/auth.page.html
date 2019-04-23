@@ -1,49 +1,86 @@
-
 <ion-content>
-  
   <section id="mainWrapper">
     <h3>LOGO</h3>
-  
-    
-      <ion-segment class="signIn " (ionChange)="segmentChanged($event)">
-        <ion-segment-button  value="singIn" [checked]="true">
-          <ion-label>Sing in</ion-label>
-        </ion-segment-button>
-        <ion-segment-button  value="singUp">
-          <ion-label>Sing up</ion-label>
-        </ion-segment-button>
-      </ion-segment>
+
+    <ion-segment class="signIn " (ionChange)="segmentChanged($event)" [(ngModel)]="page">
+      <ion-segment-button value="0" [checked]="true">
+        <ion-label>Sign in</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        <ion-label>Sign up</ion-label>
+      </ion-segment-button>
+    </ion-segment>
 
     <div class="guestInfo">
-      
-  
-      <div class="basicInfo">
 
-          <form [formGroup]="formLogin">
-            <ion-item class="info" >
-              <ion-label position="floating">Full name</ion-label>
-              <ion-input type="text" formControlName="fullName" ></ion-input>
-            </ion-item>
-      
-            <ion-item class="info">
-              <ion-label position="floating">Email</ion-label>
-              <ion-input type="text" formControlName="email" ></ion-input>
-            </ion-item>
-      
-            <ion-item class="info">
-              <ion-label position="floating">Password</ion-label>
-              <ion-input type="password" formControlName="password"></ion-input>
-            </ion-item>
-          </form>
-      
-      </div>
-      <ion-button color="secondary" fill="outline" (click)="onLogin()" > Login </ion-button>
+
+      <ion-slides #slider (ionSlideWillChange)="changeButton($event)">
+        <ion-slide>
+          <div class="basicInfo">
+            <form [formGroup]="formLogin">
+              <!-- <ion-item class="info" >
+                    <ion-label position="floating">Full name</ion-label>
+                    <ion-input type="text" formControlName="fullName" ></ion-input>
+                  </ion-item> -->
+
+              <ion-item class="info">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="text" formControlName="email"></ion-input>
+              </ion-item>
+
+              <ion-item class="info">
+                <ion-label position="floating">Password</ion-label>
+                <ion-input
+                  type="password"
+                  formControlName="password"
+                ></ion-input>
+              </ion-item>
+            </form>
+          </div>
+          <div class="logButtonWrapper">
+            <ion-button color="secondary" fill="outline" (click)="onLogin()">
+              Login
+            </ion-button>
+          </div>
+        
+        </ion-slide>
+        <ion-slide>
+          <div class="basicInfo">
+            <form [formGroup]="formLogin">
+              <ion-item class="info">
+                <ion-label position="floating">Full name</ion-label>
+                <ion-input type="text" formControlName="fullName"></ion-input>
+              </ion-item>
+
+              <ion-item class="info">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="text" formControlName="email"></ion-input>
+              </ion-item>
+
+              <ion-item class="info">
+                <ion-label position="floating">Password</ion-label>
+                <ion-input
+                  type="password"
+                  formControlName="password"
+                ></ion-input>
+              </ion-item>
+            </form>
+          </div>
+          <div class="logButtonWrapper">
+            <ion-button color="secondary" fill="outline" (click)="onLogin()">
+              Sing up
+            </ion-button>
+          </div>
+        </ion-slide>
+      </ion-slides>
     </div>
-  
     <div class="buttonsWrapper">
-      <span (click)="connectFacebook()"> <ion-icon name="logo-facebook"></ion-icon></span>
-      <span (click)="connectGoogle()">  <ion-icon name="logo-google"></ion-icon> </span>
+      <span (click)="connectFacebook()">
+        <ion-icon name="logo-facebook"></ion-icon
+      ></span>
+      <span (click)="connectGoogle()">
+        <ion-icon name="logo-google"></ion-icon>
+      </span>
     </div>
   </section>
-
 </ion-content>
