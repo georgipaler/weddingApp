@@ -103,9 +103,9 @@ body {
   --color: #5d6066;
 }
 
-
-.list-ios{
-  margin:0;
+//list sliding
+.item-options-end ion-item-option:last-child{
+  width: 3.5rem;
 }
 
 //responsive for small rezolutions

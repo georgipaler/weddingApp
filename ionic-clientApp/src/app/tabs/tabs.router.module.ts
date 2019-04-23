@@ -13,6 +13,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../pages/home/home.module#HomePageModule'
+          },
+          {
+            path: 'notes',
+            loadChildren: '../pages/notes/notes.module#NotesPageModule' 
           }
         ]
       },

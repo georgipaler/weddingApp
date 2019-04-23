@@ -46,6 +46,10 @@ export class HomePage implements OnInit {
     this.userSupscription.unsubscribe();
   }
 
+  goToNotes(){
+    this.router.navigateByUrl('welcome/tabs/home/notes');
+  }
+
   async presentActionSheet() {
     const actionSheet = await this.actionSheetCtrl.create({
       header: 'Settings',
