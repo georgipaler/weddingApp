@@ -55,6 +55,35 @@ export interface IExpense {
     cost: number
 }
 
+export interface INote{
+    id:number;
+    date: Date;
+    content: string;
+}
+
+export const NOTES_LIST=[
+    {
+        id: 1,
+        date: new Date(2019, 4, 10),
+        content: "Select and order the cake"
+    },
+    {
+        id: 2,
+        date: new Date(2019, 4, 15),
+        content: "prajituri bune pe straga Narciselor, bl A, scA"
+    },
+    {
+        id: 3,
+        date: new Date(2019, 4, 22),
+        content: "i-am lasat Monicai banii pentru sucuri"
+    },
+    {
+        id: 4,
+        date: new Date(2019, 4, 15),
+        content: "Lista ospatari: \n Alina, \nClaudia, \nGabriel, \nAti, \nIoana, \nLuci, \nLaura, \nAnca"
+    },
+];
+
 
 export const GROUP_LIST =[{
     id: 1,

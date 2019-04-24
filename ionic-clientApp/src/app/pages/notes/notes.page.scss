@@ -1,14 +1,36 @@
-.noteInfoWrapper{
-    display: flex;
-
-    span{
-        display: flex;
-        align-items: center;
-        font-size: 0.7rem;
+ion-header{
+    ion-title{
+        font-family: 'Montserrat', sans-serif;
     }
-    p{
-        font-size: 0.7rem;
-        padding: 0 0.5rem;
-        color: #5d6066;
+    ion-buttons.addNote{
+        font-size: 2rem;
+    }
+}
+
+ion-content{
+    h3{
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .noteInfoWrapper{
+        display: flex;
+    
+        
+        span{
+            display: flex;
+            align-items: center;
+            font-size: 0.7rem;
+        }
+        p{
+            font-size: 0.7rem;
+            padding: 0 0.5rem;
+            color: #5d6066;
+    
+    
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 }
