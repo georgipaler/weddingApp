@@ -31,6 +31,9 @@ export class NotesPage implements OnInit {
     if(note){
       this.noteService.newNote = note;
     }
+    else{
+      this.noteService.resetNote();
+    }
     this.router.navigateByUrl('welcome/tabs/home/addNote');
   }
 
@@ -38,11 +41,11 @@ export class NotesPage implements OnInit {
     return date.toLocaleDateString("en-US");
   }
 
-  deleteNote(){
-    this.presentAlertConfirm();
+  deleteNote(note: INote){
+    this.presentAlertConfirm(note);
   }
 
-  async presentAlertConfirm() {
+  async presentAlertConfirm(note: INote) {
     const alert = await this.alertController.create({
       header: 'Confirm!',
       message: `Are you sure you want to remove this note?`,
@@ -58,7 +61,7 @@ export class NotesPage implements OnInit {
           text: 'Okay',
           handler: () => {
             console.log('Confirm Okay');
-            
+            this.noteService.deleteNote(note)
           }
         }
       ]
