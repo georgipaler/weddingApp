@@ -17,6 +17,10 @@ const routes: Routes = [
           {
             path: 'notes',
             loadChildren: '../pages/notes/notes.module#NotesPageModule' 
+          },
+          {
+            path: 'addNote',
+            loadChildren: '../pages/notes/add-note/add-note.module#AddNotePageModule' 
           }
         ]
       },

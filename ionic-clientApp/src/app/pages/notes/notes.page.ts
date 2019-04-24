@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { INote, NOTES_LIST } from 'src/model/interfaces';
 import * as moment from 'moment'
+import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/services/loader/loader.service';
+import { TouchSequence } from 'selenium-webdriver';
+import { NoteService } from 'src/app/services/notes/note.service';
 
 @Component({
   selector: 'app-notes',
@@ -10,14 +14,25 @@ import * as moment from 'moment'
 })
 export class NotesPage implements OnInit {
 
-  notes: INote[] = NOTES_LIST;
+  notes: INote[] = [];
 
-  constructor( public alertController: AlertController,) { }
+  constructor( public alertController: AlertController,
+    private router: Router,
+    private loaderServ: LoaderService,
+    private noteService: NoteService) { }
 
   ngOnInit() {
+    this.loaderServ.present();
+    this.notes = this.noteService.notes;
+    this.loaderServ.dismiss();
   }
 
-  addNote(){}
+  addNote(note: INote){
+    if(note){
+      this.noteService.newNote = note;
+    }
+    this.router.navigateByUrl('welcome/tabs/home/addNote');
+  }
 
   dateFormat(date: Date){
     return date.toLocaleDateString("en-US");

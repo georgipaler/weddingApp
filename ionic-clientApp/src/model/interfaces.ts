@@ -33,7 +33,7 @@ export interface IGuest{
 }
 
 export interface IInvitees {
-    id: number;
+    id?: number;
     name: string;
     phone: string;
 }
@@ -56,7 +56,7 @@ export interface IExpense {
 }
 
 export interface INote{
-    id:number;
+    id?:number;
     date: Date;
     content: string;
 }

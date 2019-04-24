@@ -13,7 +13,7 @@
 <ion-content>
   <ion-list >
     <ion-item-sliding *ngFor="let note of notes">
-      <ion-item>
+      <ion-item (click)="addNote(note)">
         <ion-label>
           <h3>{{note.content}}</h3>
           <div class="noteInfoWrapper">

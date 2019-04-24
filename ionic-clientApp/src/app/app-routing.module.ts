@@ -17,6 +17,7 @@ const routes: Routes = [
     path: "auth", 
     loadChildren: "./pages/auth/auth.module#AuthPageModule" 
   },
+  // { path: 'add-note', loadChildren: './pages/notes/add-note/add-note.module#AddNotePageModule' },
   // { path: 'notes', loadChildren: './pages/notes/notes.module#NotesPageModule' }
   // { path: 'add-guest', loadChildren: './pages/guest/add-guest/add-guest.module#AddGuestPageModule' },
   // { path: 'group-details', loadChildren: './group-details/group-details.module#GroupDetailsPageModule' }

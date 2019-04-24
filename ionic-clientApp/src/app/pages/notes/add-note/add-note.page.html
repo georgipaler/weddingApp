@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-title>add-note</ion-title> -->
+    <ion-buttons (click)="saveNote()" slot="end">
+        Done
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+
+    <ion-item>
+        <ion-textarea [(ngModel)]="newNote.content" autofocus></ion-textarea>
+      </ion-item>
+
+</ion-content>
+s
