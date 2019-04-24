@@ -11,7 +11,11 @@ import {Location} from '@angular/common';
 })
 export class AddNotePage implements OnInit {
 
-  newNote: INote ;
+  newNote: INote = {
+    content: '',
+    date: new Date()
+  };
+  editNote: boolean = false;
 
   constructor(private noteService: NoteService,
     private router: Router,
@@ -19,12 +23,23 @@ export class AddNotePage implements OnInit {
 
   ngOnInit() {
 
-    this.newNote = this.noteService.newNote;
+    if(this.noteService.newNote.content){
+      this.editNote = true;
+      this.newNote = this.noteService.newNote;
+    }
+  
   }
 
   saveNote(){
-    this.noteService.saveNote(this.newNote);
-    console.log(this.newNote.content);
+    if(!this.editNote){
+      this.noteService.saveNote(this.newNote);
+      console.log(this.newNote.content);
+    }
+
+    if(this.editNote){
+      this.noteService.newNote.content = this.newNote.content;
+    }
+
     this._location.back();
   }
 
