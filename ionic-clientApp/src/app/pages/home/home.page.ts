@@ -46,8 +46,8 @@ export class HomePage implements OnInit {
     this.userSupscription.unsubscribe();
   }
 
-  goToNotes(){
-    this.router.navigateByUrl('welcome/tabs/home/notes');
+  goToNotes(path: string){
+    this.router.navigateByUrl('welcome/tabs/home/'+path);
   }
 
   async presentActionSheet() {

@@ -21,7 +21,11 @@ const routes: Routes = [
           {
             path: 'addNote',
             loadChildren: '../pages/notes/add-note/add-note.module#AddNotePageModule' 
-          }
+          },
+          {
+            path: 'costs',
+            loadChildren: '../pages/costs/costs.module#CostsPageModule' 
+          },
         ]
       },
       {
