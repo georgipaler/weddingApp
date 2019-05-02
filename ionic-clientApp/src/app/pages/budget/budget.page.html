@@ -5,14 +5,38 @@
 </ion-header>
 
 <ion-content>
+  <ion-slides #slider (ionSlideWillChange)="changeButton($event)">
+    <ion-slide>
+      <canvas
+        id="barChart"
+        (onHover)="chartHovered($event)"
+        (onClick)="chartClicked($event)"
+        width="300"
+        height="300"
+      ></canvas>
+    </ion-slide>
+    <ion-slide>
+        <canvas
+        id="barChartLast"
+        (onHover)="chartHovered($event)"
+        (onClick)="chartClicked($event)"
+        width="300"
+        height="300"
+      ></canvas>
+    </ion-slide>
+  </ion-slides>
+<!-- 
+  <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="page">
+      <ion-segment-button value="0" [checked]="true">
+        <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        <ion-icon
+          ios="ios-arrow-round-forward"
+          md="md-arrow-round-forward"
+        ></ion-icon>
+      </ion-segment-button>
+    </ion-segment> -->
 
-    <section class="viewMode">
-        <div (click)="changeMode('thisMonth')">This month</div>
-        <div (click)="changeMode('thisWeek')">This week</div>
-        <div (click)="changeMode('allTime')">All time</div>
-      </section>
-
-   <app-chart [lineChartData]="lineChartData"
-   [lineChartLabels]="lineChartLabels" ></app-chart>
-
+    <app-costs-details></app-costs-details>
 </ion-content>

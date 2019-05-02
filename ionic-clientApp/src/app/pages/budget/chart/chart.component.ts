@@ -1,73 +1,64 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from "@angular/core";
+import * as Chart from "chart.js";
 
 @Component({
-  selector: 'app-chart',
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss'],
+  selector: "app-chart",
+  templateUrl: "./chart.component.html",
+  styleUrls: ["./chart.component.scss"]
 })
 export class ChartComponent implements OnInit {
+  @Input("lineChartData") lineChartData: Array<any>;
+  @Input("lineChartLabels") lineChartLabels: Array<any>;
+  @ViewChild("barCanvas") barCanvas;
 
-  @Input('lineChartData') lineChartData :Array<any>;
-  @Input('lineChartLabels') lineChartLabels :Array<any>;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {}
-
-  public lineChartOptions: any = {
-    responsive: true
-  };
-  public lineChartColors: Array<any> = [
-    {
-      // brown
-      backgroundColor: "rgb(185, 151 , 133)",
-      borderColor: "rgb(185, 151 , 133)",
-      pointBackgroundColor: "rgb(168, 126, 103)",
-      pointBorderColor: "#fff",
-      pointHoverBackgroundColor: "#fff",
-      pointHoverBorderColor: "rgb(168, 126, 103)"
-    },
-    {
-      // dark grey
-      backgroundColor: "rgba(77,83,96,0.2)",
-      borderColor: "rgba(77,83,96,1)",
-      pointBackgroundColor: "rgba(77,83,96,1)",
-      pointBorderColor: "#fff",
-      pointHoverBackgroundColor: "#fff",
-      pointHoverBorderColor: "rgba(77,83,96,1)"
-    },
-    {
-      // grey
-      backgroundColor: "rgba(148,159,177,0.2)",
-      borderColor: "rgba(148,159,177,1)",
-      pointBackgroundColor: "rgba(148,159,177,1)",
-      pointBorderColor: "#fff",
-      pointHoverBackgroundColor: "#fff",
-      pointHoverBorderColor: "rgba(148,159,177,0.8)"
-    }
-  ];
-  public lineChartLegend: boolean = true;
-  public lineChartType: string = "line";
-
-  public randomize(): void {
-    let _lineChartData: Array<any> = new Array(this.lineChartData.length);
-    for (let i = 0; i < this.lineChartData.length; i++) {
-      _lineChartData[i] = {
-        data: new Array(this.lineChartData[i].data.length),
-        label: this.lineChartData[i].label
-      };
-      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        _lineChartData[i].data[j] = Math.floor(Math.random() * 100 + 1);
+  barChart: any;
+  ngOnInit() {
+    this.barChart = new Chart("barChart", {
+      type: "bar",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [
+          {
+            data: [12, 19, 3, 5, 2, 3, 10, 20, 17, 19, 23, 25],
+            backgroundColor: 
+              "rgba(168, 126, 103, 0.2)"
+            ,
+            hoverBackgroundColor: "rgba(168, 126, 103, 0.5)",
+            borderColor: 
+              "rgba(168, 126, 103, 0.5)"
+            ,
+            hoverBorderColor:   "rgba(168, 126, 103, 0.7)",
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        title: {
+          text: "Bar Chart",
+          display: false
+        },
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true
+              }
+            }
+          ]
+        }
       }
+    });
+  }
+
+    // events
+    public chartClicked(e: any): void {
+      console.log(e);
     }
-    this.lineChartData = _lineChartData;
-  }
+  
+    public chartHovered(e: any): void {
+      console.log(e);
+    }
 
-  // events
-  public chartClicked(e: any): void {
-    console.log(e);
-  }
-
-  public chartHovered(e: any): void {
-    console.log(e);
-  }
 }

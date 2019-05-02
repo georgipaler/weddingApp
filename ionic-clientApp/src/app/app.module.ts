@@ -14,10 +14,13 @@ import { NgCalendarModule } from 'ionic2-calendar';
 import { ContactSearchPipe } from './pipes/contactSearch/contact-search.pipe'
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CostsPage } from './pages/costs/costs.page';
+import { CostsDetailsComponent } from './pages/budget/costs-details/costs-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CostsDetailsComponent
   ],
   entryComponents: [
   ],
