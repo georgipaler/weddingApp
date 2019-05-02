@@ -8,9 +8,11 @@
     color: #5d6066;
     animation: 0.75s fadeInRight forwards;
 
-    h3{
-        color: #A87E67;
-        font-weight: bold;
+    .logoWrapper{
+        width: 100%;
+        height: 3rem;;
+        background-image: url("../../../assets/logo22.png");
+        background-repeat: no-repeat;
     }
 
     ion-segment-button{
