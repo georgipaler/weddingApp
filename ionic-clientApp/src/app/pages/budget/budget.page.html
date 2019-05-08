@@ -1,6 +1,6 @@
 <section class="mainWrapper">
   <section class="topWrapperSmall" [ngClass]="{ 'topWrapperOver': viewAdditionalInfo}" >
-    <div class="totalInfo">
+    <div class="totalInfo"  (click)="displayTotalCosts()">
       <p>Your total expenses</p>
       <h3>23 432 RON</h3>
     </div>

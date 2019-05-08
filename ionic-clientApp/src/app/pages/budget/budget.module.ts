@@ -37,6 +37,9 @@ const routes: Routes = [
     CostsDetailsComponent
     
   ],
+  providers: [
+    MonthSearchCostsPipe
+  ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class BudgetPageModule {}

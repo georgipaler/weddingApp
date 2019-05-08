@@ -7,7 +7,7 @@ import { IExpense } from 'src/model/interfaces';
 export class MonthSearchCostsPipe implements PipeTransform {
 
   transform(costs: Array<IExpense>, searchedMonth: number) {
-    if (!costs || costs.length <= 0 || !searchedMonth) {
+    if (!costs || costs.length <= 0 || (!searchedMonth && searchedMonth !=0)) {
       return costs;
     }
 

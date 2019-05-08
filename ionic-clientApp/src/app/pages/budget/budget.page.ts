@@ -27,6 +27,10 @@ export class BudgetPage implements OnInit {
     this.viewAdditionalInfo = true;
   }
 
+  displayTotalCosts(){
+    this.searchedMonth = null;
+  }
+
   ionViewWillLeave(){
     this.viewAdditionalInfo = false;
   }
