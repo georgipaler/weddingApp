@@ -9,7 +9,8 @@ import { BudgetPage } from './budget.page';
 import { ChartsModule } from 'ng2-charts';
 import { ChartComponent } from './chart/chart.component';
 import { CostsDetailsComponent } from './costs-details/costs-details.component';
-import { CostsPageModule } from '../costs/costs.module';
+import { MonthSearchCostsPipe } from '../../pipes/monthSearchCosts/month-search-costs.pipe';
+import { SharedModule } from 'src/app/pipes/shared.module';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
     ChartComponent,
   ],
   imports: [
+    SharedModule,
     CommonModule,
     FormsModule,
     IonicModule,
@@ -32,6 +34,7 @@ const routes: Routes = [
   declarations: [
     BudgetPage,
     ChartComponent,
+    CostsDetailsComponent
     
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

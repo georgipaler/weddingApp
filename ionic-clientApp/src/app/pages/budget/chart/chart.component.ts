@@ -1,5 +1,8 @@
-import { Component, OnInit, Input, ViewChild } from "@angular/core";
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from "@angular/core";
 import * as Chart from "chart.js";
+import { LoaderService } from 'src/app/services/loader/loader.service';
+import { CostsService } from 'src/app/services/costs/costs.service';
+import { IExpense } from 'src/model/interfaces';
 
 @Component({
   selector: "app-chart",
@@ -9,56 +12,58 @@ import * as Chart from "chart.js";
 export class ChartComponent implements OnInit {
   @Input("lineChartData") lineChartData: Array<any>;
   @Input("lineChartLabels") lineChartLabels: Array<any>;
+  @Output() monthValueChange = new EventEmitter();
   @ViewChild("barCanvas") barCanvas;
 
-  constructor() {}
+  costs: IExpense[];
+  
+  constructor(private loaderServ: LoaderService,
+    private noteService: CostsService) {}
+
+  public barChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true
+  };
+  public barChartLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  public barChartType = 'bar';
+  public barChartLegend = false;
+  public barChartData = [
+    {
+      data: [12, 19, 3, 5, 2, 3, 10, 20, 17, 19, 23, 25],
+      backgroundColor: 
+        "rgba(168, 126, 103, 0.2)"
+      ,
+      hoverBackgroundColor: "rgba(168, 126, 103, 0.5)",
+      borderColor: 
+        "rgba(168, 126, 103, 0.5)"
+      ,
+      hoverBorderColor:   "rgba(168, 126, 103, 0.7)",
+      borderWidth: 1
+    }
+  ];
+
 
   barChart: any;
   ngOnInit() {
-    this.barChart = new Chart("barChart", {
-      type: "bar",
-      data: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets: [
-          {
-            data: [12, 19, 3, 5, 2, 3, 10, 20, 17, 19, 23, 25],
-            backgroundColor: 
-              "rgba(168, 126, 103, 0.2)"
-            ,
-            hoverBackgroundColor: "rgba(168, 126, 103, 0.5)",
-            borderColor: 
-              "rgba(168, 126, 103, 0.5)"
-            ,
-            hoverBorderColor:   "rgba(168, 126, 103, 0.7)",
-            borderWidth: 1
-          }
-        ]
-      },
-      options: {
-        title: {
-          text: "Bar Chart",
-          display: false
-        },
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true
-              }
-            }
-          ]
-        }
-      }
-    });
+
+
+    this.loaderServ.present();
+    this.costs = this.noteService.expenses;
+    this.loaderServ.dismiss();
+
+    console.log(this.costs);
+    this.costs.map(cost => console.log(cost.date.getMonth()));
+
   }
 
     // events
-    public chartClicked(e: any): void {
-      console.log(e);
+    public changeMonth(e: any): void {
+    if(   e.active[0] != undefined ) {
+      console.log(e.active[0]._index);
+      this.monthValueChange.emit(e.active[0]._index);
     }
-  
-    public chartHovered(e: any): void {
-      console.log(e);
+    
     }
+
 
 }

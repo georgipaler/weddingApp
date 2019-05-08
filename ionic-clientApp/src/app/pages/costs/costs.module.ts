@@ -4,9 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-
 import { CostsPage } from './costs.page';
-import { CostsDetailsComponent } from '../budget/costs-details/costs-details.component';
 
 const routes: Routes = [
   {

@@ -1,19 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Budget</ion-title>
-  </ion-toolbar>
-</ion-header>
+<section class="mainWrapper">
+  <section class="topWrapperSmall" [ngClass]="{ 'topWrapperOver': viewAdditionalInfo}" >
+    <div class="totalInfo">
+      <p>Your total expenses</p>
+      <h3>23 432 RON</h3>
+    </div>
 
-<ion-content>
-  <ion-slides #slider (ionSlideWillChange)="changeButton($event)">
+    <app-chart (monthValueChange)='changeMonth($event)'></app-chart>
+  </section>
+
+  <app-costs-details
+    class="costsDetails" 
+    [opacity]="!viewAdditionalInfo"
+    [searchedMonth]="searchedMonth"
+    (click)="goToCosts()"
+  ></app-costs-details>
+</section>
+
+<!-- <ion-slides #slider (ionSlideWillChange)="changeButton($event)">
     <ion-slide>
-      <canvas
-        id="barChart"
-        (onHover)="chartHovered($event)"
-        (onClick)="chartClicked($event)"
-        width="300"
-        height="300"
-      ></canvas>
+      <app-chart></app-chart>
     </ion-slide>
     <ion-slide>
         <canvas
@@ -24,7 +29,7 @@
         height="300"
       ></canvas>
     </ion-slide>
-  </ion-slides>
+  </ion-slides> -->
 <!-- 
   <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="page">
       <ion-segment-button value="0" [checked]="true">
@@ -37,6 +42,3 @@
         ></ion-icon>
       </ion-segment-button>
     </ion-segment> -->
-
-    <app-costs-details></app-costs-details>
-</ion-content>

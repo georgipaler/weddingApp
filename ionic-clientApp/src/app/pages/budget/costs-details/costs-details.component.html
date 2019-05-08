@@ -1,3 +1,13 @@
-<p>
-  costs-details works!
-</p>
+<section class="mainWrapper" [ngClass]="{'opacity': !opacity}">
+  <div *ngFor="let cost of costs | monthSearchCosts : searchedMonth">
+    <div class="costItem">
+      <div class="leftColumn">
+          <p>{{cost?.title}}</p>
+          <span>{{cost?.category}}</span> 
+      </div>
+     
+     <span>{{cost?.cost}} lei</span>
+    </div>
+  
+  </div>
+</section>

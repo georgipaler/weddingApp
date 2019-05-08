@@ -52,7 +52,8 @@ export interface IExpense {
     id: number;
     date: Date;
     title: string;
-    cost: number
+    cost: number;
+    category ?: string ;
 }
 
 export interface INote{
@@ -60,6 +61,7 @@ export interface INote{
     date: Date;
     content: string;
 }
+
 
 export const NOTES_LIST=[
     // {
@@ -107,18 +109,21 @@ export const expenses_list = [{
     id: 1,
     date: new Date(2018, 3, 10),
     title: "Booked officiants",
+    category: "Food & drink",
     cost: 3000
 },
 {
     id: 2,
     date: new Date(2018, 10, 11),
     title: "Bought cookies",
+    category: "Music",
     cost: 4000
 },
 {
     id: 3,
     date: new Date(2018, 14, 12),
     title: "Bought flowers",
+    category: "Flowers",
     cost: 5600
 },
 {

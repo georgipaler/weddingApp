@@ -1,0 +1,36 @@
+.mainWrapper{
+    background-color: #ffffff;
+    opacity: 0.7;
+    padding:  3rem 1rem 1rem 1rem;
+
+    .costItem{
+        padding: 0.6rem 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        p{
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 0.3rem 0;
+            margin:0;
+            color: #A87E67;
+        }
+
+        span{
+            font-size: 0.7rem;
+            color: #5d6066;
+            align-items: center;
+            display: flex;
+        }
+
+        .leftColumn{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+.opacity{
+  opacity: 1;
+  height: 100%;
+}
