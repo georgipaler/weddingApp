@@ -12,6 +12,7 @@
     class="costsDetails" 
     [opacity]="!viewAdditionalInfo"
     [searchedMonth]="searchedMonth"
+    (backToChart)='backToChart($event)'
     (click)="goToCosts()"
   ></app-costs-details>
 </section>

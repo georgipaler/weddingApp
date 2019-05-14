@@ -22,9 +22,16 @@ export class BudgetPage implements OnInit {
   changeMonth(event: number){
     this.searchedMonth = event;
   }
+  backToChart(event: boolean){
+    console.log("down", event);
+    this.viewAdditionalInfo = false;
+    console.log("change idiot", this.viewAdditionalInfo)
+  }
 
   goToCosts(){
     this.viewAdditionalInfo = true;
+    
+    console.log("go to cost")
   }
 
   displayTotalCosts(){

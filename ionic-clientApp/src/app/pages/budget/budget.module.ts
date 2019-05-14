@@ -8,9 +8,9 @@ import { IonicModule } from '@ionic/angular';
 import { BudgetPage } from './budget.page';
 import { ChartsModule } from 'ng2-charts';
 import { ChartComponent } from './chart/chart.component';
-import { CostsDetailsComponent } from './costs-details/costs-details.component';
 import { MonthSearchCostsPipe } from '../../pipes/monthSearchCosts/month-search-costs.pipe';
 import { SharedModule } from 'src/app/pipes/shared.module';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 const routes: Routes = [
   {
@@ -24,6 +24,7 @@ const routes: Routes = [
     ChartComponent,
   ],
   imports: [
+    ComponentsModule,
     SharedModule,
     CommonModule,
     FormsModule,
@@ -33,8 +34,7 @@ const routes: Routes = [
   ],
   declarations: [
     BudgetPage,
-    ChartComponent,
-    CostsDetailsComponent
+    ChartComponent
     
   ],
   providers: [

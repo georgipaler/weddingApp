@@ -15,6 +15,7 @@ import { ContactSearchPipe } from './pipes/contactSearch/contact-search.pipe'
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CostsPage } from './pages/costs/costs.page';
+import { SharedModule } from './pipes/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CostsPage } from './pages/costs/costs.page';
   ],
   imports: [
     NgCalendarModule,
+    SharedModule,
     BrowserModule, 
     IonicModule.forRoot({
       mode: 'ios',

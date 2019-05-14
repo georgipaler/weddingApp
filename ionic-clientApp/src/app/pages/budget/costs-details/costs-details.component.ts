@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { LoaderService } from "src/app/services/loader/loader.service";
 import { CostsService } from "src/app/services/costs/costs.service";
 import { IExpense } from "src/model/interfaces";
 import { MonthSearchCostsPipe } from "../../../pipes/monthSearchCosts/month-search-costs.pipe";
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: "app-costs-details",
@@ -13,6 +14,7 @@ export class CostsDetailsComponent implements OnInit {
   costs: IExpense[];
   @Input("opacity") opacity: boolean;
   @Input("searchedMonth") searchedMonth: number;
+  @Output() backToChart = new EventEmitter();
 
   constructor(
     private loaderServ: LoaderService,
@@ -30,6 +32,12 @@ export class CostsDetailsComponent implements OnInit {
     return this.pipe.transform(this.costs, this.searchedMonth);
   }
 
+  dismissAdditionalInfo(){
+    this.opacity = !this.opacity;
+    console.log(this.opacity, "dismiss add")
+    this.backToChart.emit( this.opacity);
+  }
+  
   getMonth(): string {
     const monthNames = [
       "January",
@@ -45,7 +53,7 @@ export class CostsDetailsComponent implements OnInit {
       "November",
       "December"
     ];
-    if(!this.costs || this.costs.length <= 0 || !this.searchedMonth ) {
+    if(!this.costs || this.costs.length <= 0 || (!this.searchedMonth && this.searchedMonth != 0) ) {
       return 'All time';
     }
     return monthNames[this.searchedMonth] + ' ' + this.costs[0].date.getFullYear();
