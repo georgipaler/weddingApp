@@ -11,6 +11,7 @@ import { ChartComponent } from './chart/chart.component';
 import { MonthSearchCostsPipe } from '../../pipes/monthSearchCosts/month-search-costs.pipe';
 import { SharedModule } from 'src/app/pipes/shared.module';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { CostsDetailsComponent } from './costs-details/costs-details.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
 @NgModule({
   entryComponents:[ 
     ChartComponent,
+    CostsDetailsComponent
   ],
   imports: [
     ComponentsModule,

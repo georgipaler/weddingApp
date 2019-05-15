@@ -1,21 +1,22 @@
-<section class="mainWrapper">
-  <section class="topWrapperSmall" [ngClass]="{ 'topWrapperOver': viewAdditionalInfo}" >
-    <div class="totalInfo"  (click)="displayTotalCosts()">
-      <p>Your total expenses</p>
-      <h3>23 432 RON</h3>
-    </div>
 
-    <app-chart (monthValueChange)='changeMonth($event)'></app-chart>
+  <section class="mainWrapper">
+    <section
+      class="topWrapperSmall"
+    >
+      <div class="totalInfo" (click)="displayTotalCosts()">
+        <p>Your total expenses</p>
+        <h3>23 432 RON</h3>
+      </div>
+
+      <app-chart (monthValueChange)="changeMonth($event)"></app-chart>
+    </section>
+
+    <app-costs-details
+      class="costsDetails"
+      [searchedMonth]="searchedMonth"
+      (backToChart)="backToChart($event)"
+    ></app-costs-details>
   </section>
-
-  <app-costs-details
-    class="costsDetails" 
-    [opacity]="!viewAdditionalInfo"
-    [searchedMonth]="searchedMonth"
-    (backToChart)='backToChart($event)'
-    (click)="goToCosts()"
-  ></app-costs-details>
-</section>
 
 <!-- <ion-slides #slider (ionSlideWillChange)="changeButton($event)">
     <ion-slide>

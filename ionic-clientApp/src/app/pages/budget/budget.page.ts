@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 })
 export class BudgetPage implements OnInit {
   public expenses: Array<IExpense> = expenses_list;
-  public viewAdditionalInfo = false;
   public searchedMonth : number ;
 
   constructor( private router: Router) {}
@@ -24,14 +23,6 @@ export class BudgetPage implements OnInit {
   }
   backToChart(event: boolean){
     console.log("down", event);
-    this.viewAdditionalInfo = false;
-    console.log("change idiot", this.viewAdditionalInfo)
-  }
-
-  goToCosts(){
-    this.viewAdditionalInfo = true;
-    
-    console.log("go to cost")
   }
 
   displayTotalCosts(){
@@ -39,6 +30,6 @@ export class BudgetPage implements OnInit {
   }
 
   ionViewWillLeave(){
-    this.viewAdditionalInfo = false;
   }
+
 }

@@ -1,17 +1,22 @@
-<section class="mainWrapper" [ngClass]="{'opacity': !opacity}">
-    <div *ngIf="!opacity" class="backButton" (click)="dismissAdditionalInfo()">
-        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
-        <div class="textBack">Back</div>
-      </div>
-  <div class="currentMonth">{{getMonth()}}</div>
-  <div *ngFor="let cost of getCostsArray()">
-    <div class="costItem">
-      <div class="leftColumn">
-          <p>{{cost?.title}}</p>
-          <span>{{cost?.category}}</span> 
-      </div>
-     <span>{{cost?.cost}} lei</span>
-    </div>
-  </div>
-  <span *ngIf="getCostsArray().length < 1"  class="noInfo">No data to display</span>
-</section>
+<ion-content [scrollEvents]="!modalOpen" (ionScroll)="logScrolling($event)" >
+    <section class="mainWrapper">
+        <div *ngIf="modalOpen" class="backButton" (click)="dismissModal()">
+          <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+          <div class="textBack">Back</div>
+        </div>
+        <div class="currentMonth">{{ getMonth() }}</div>
+        <div *ngFor="let cost of getCostsArray()">
+          <div class="costItem">
+            <div class="leftColumn">
+              <p>{{ cost?.title }}</p>
+              <span>{{ cost?.category }}</span>
+            </div>
+            <span>{{ cost?.cost }} lei</span>
+          </div>
+        </div>
+        <span *ngIf="getCostsArray().length < 1" class="noInfo"
+          >No data to display</span
+        >
+      </section>
+</ion-content>
+
