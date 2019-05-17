@@ -1,0 +1,45 @@
+<section id="topWrapper">
+  <div class="backButton" (click)="dismissModalCancel()">
+    <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+    <div class="textBack">Back</div>
+  </div>
+</section>
+
+<section id="mainWrapper">
+  <h4>Create new appointment</h4>
+  <ion-list class="guestInfo">
+    <ion-item>
+      <ion-input
+        type="text"
+        placeholder="Title"
+        [(ngModel)]="event.title"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Start: </ion-label>
+      <ion-datetime
+        displayFormat="MM/DD/YYYY HH:mm"
+        pickerFromat="MM/DD/YYYY HH:mm"
+        [(ngModel)]="event.startTime"
+        [min]="minDate"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>End: </ion-label>
+      <ion-datetime
+        displayFormat="MM/DD/YYYY HH:mm"
+        pickerFromat="MM/DD/YYYY HH:mm"
+        [(ngModel)]="event.endTime"
+        [min]="minDate"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>All day</ion-label>
+      <ion-checkbox [(ngModel)]="event.allDay"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <div class="buttonsWrapper" (click)="save()">
+    <span (click)="save()">Add appointment</span>
+  </div>
+</section>

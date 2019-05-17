@@ -2,7 +2,8 @@ import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from "@angu
 import * as Chart from "chart.js";
 import { LoaderService } from 'src/app/services/loader/loader.service';
 import { CostsService } from 'src/app/services/costs/costs.service';
-import { IExpense } from 'src/model/interfaces';
+import { Cost } from '../../costs/cost.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: "app-chart",
@@ -15,10 +16,11 @@ export class ChartComponent implements OnInit {
   @Output() monthValueChange = new EventEmitter();
   @ViewChild("barCanvas") barCanvas;
 
-  costs: IExpense[];
+  expensesSub: Subscription;
+  costs: Cost[];
   
   constructor(private loaderServ: LoaderService,
-    private noteService: CostsService) {}
+    private costService: CostsService) {}
 
   public barChartOptions = {
     scaleShowVerticalLines: false,
@@ -48,11 +50,14 @@ export class ChartComponent implements OnInit {
 
 
     this.loaderServ.present();
-    this.costs = this.noteService.expenses;
-    this.loaderServ.dismiss();
+    this.expensesSub = this.costService.expenses.subscribe( costs => {
+      this.costs = costs;
+      this.loaderServ.dismiss();
+    });
+
 
     console.log(this.costs);
-    this.costs.map(cost => console.log(cost.date.getMonth()));
+    this.costs.map(cost => console.log(cost.dueDate.getMonth()));
 
   }
 

@@ -1,9 +1,9 @@
-<ion-content [scrollEvents]="!modalOpen" (ionScroll)="logScrolling($event)" >
+<ion-content>
     <section class="mainWrapper">
-        <div *ngIf="modalOpen" class="backButton" (click)="dismissModal()">
+        <!-- <div *ngIf="modalOpen" class="backButton" (click)="dismissModal()">
           <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
           <div class="textBack">Back</div>
-        </div>
+        </div> -->
         <div class="currentMonth">{{ getMonth() }}</div>
         <div *ngFor="let cost of getCostsArray()">
           <div class="costItem">
@@ -11,10 +11,10 @@
               <p>{{ cost?.title }}</p>
               <span>{{ cost?.category }}</span>
             </div>
-            <span>{{ cost?.cost }} lei</span>
+            <span>{{ cost?.totalSum }} lei</span>
           </div>
         </div>
-        <span *ngIf="getCostsArray().length < 1" class="noInfo"
+        <span *ngIf="!getCostsArray() || getCostsArray().length < 1" class="noInfo"
           >No data to display</span
         >
       </section>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, ModalController } from '@ionic/angular';
 import * as moment from 'moment'
-import { ViewController } from '@ionic/core';
 
 @Component({
   selector: 'app-event-modal',

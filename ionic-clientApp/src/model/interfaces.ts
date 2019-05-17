@@ -1,3 +1,5 @@
+import { Cost } from 'src/app/pages/costs/cost.model';
+
 export interface IGROUP  {
     id: number;
     name: string;
@@ -105,44 +107,48 @@ export const GROUP_LIST =[{
   },
 ];
 
-export const expenses_list = [{
-    id: 1,
-    date: new Date(2018, 3, 10),
+export const expenses_list: Cost[] = [{
+    id: '1',
     title: "Booked officiants",
+    dueDate: new Date(2018, 3, 10),
     category: "Food & drink",
-    cost: 3000
+    totalSum: 3000
 },
 {
-    id: 2,
-    date: new Date(2018, 10, 11),
+    id: '2',
     title: "Bought cookies",
+    dueDate: new Date(2018, 10, 11),
+    totalSum: 4000,
     category: "Music",
-    cost: 4000
+   
 },
 {
-    id: 3,
-    date: new Date(2018, 14, 12),
+    id: '3',
     title: "Bought flowers",
+    dueDate: new Date(2018, 14, 12),
+    totalSum: 5600,
     category: "Flowers",
-    cost: 5600
 },
 {
-    id: 4,
-    date: new Date(2019, 3, 16),
+    id: '4',
     title: "Hired a photographer",
-    cost: 1200
+    dueDate: new Date(2019, 3, 16),
+    totalSum: 1200,
+    category: "Flowers",
 },
 {
-    id: 5,
-    date: new Date(2019, 6, 15),
+    id: '5',
     title: "Hired a florist",
-    cost: 300
+    dueDate: new Date(2019, 6, 15),
+    totalSum: 300,
+    category: "Flowers",
 },
 {
-    id: 6,
-    date: new Date(2019, 7, 21),
+    id: '6',
     title: "Booked restaurant",
-    cost: 10
+    dueDate: new Date(2019, 7, 21),
+    totalSum: 10,
+    category: "Flowers",
 },
 ];
 

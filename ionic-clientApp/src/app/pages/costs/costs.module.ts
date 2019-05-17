@@ -8,6 +8,7 @@ import { CostsPage } from './costs.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { SharedModule } from 'src/app/pipes/shared.module';
 import { MonthSearchCostsPipe } from 'src/app/pipes/monthSearchCosts/month-search-costs.pipe';
+import { AddCostComponent } from './add-cost/add-cost.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    CostsPage
+    CostsPage,
+    AddCostComponent
   ],
   imports: [
     SharedModule,
@@ -28,6 +30,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
+  entryComponents: [AddCostComponent],
   providers: [MonthSearchCostsPipe],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 
