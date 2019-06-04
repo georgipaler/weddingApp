@@ -1,39 +1,51 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { RouteReuseStrategy } from "@angular/router";
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { IonicModule, IonicRouteStrategy } from "@ionic/angular";
+import { SplashScreen } from "@ionic-native/splash-screen/ngx";
+import { StatusBar } from "@ionic-native/status-bar/ngx";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import {Contacts, Contact} from '@ionic-native/contacts'
-import { ChartsModule } from 'ng2-charts';
-import { NgCalendarModule } from 'ionic2-calendar';
-import { ContactSearchPipe } from './pipes/contactSearch/contact-search.pipe'
-import { HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { CostsPage } from './pages/costs/costs.page';
-import { SharedModule } from './pipes/shared.module';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { Contacts, Contact } from "@ionic-native/contacts";
+import { ChartsModule } from "ng2-charts";
+import { NgCalendarModule } from "ionic2-calendar";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
+import { SharedModule } from "./pipes/shared.module";
+import { IonicStorageModule } from "@ionic/storage";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { PopoverComponent } from './components/popover/popover.component';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, "assets/i18n", ".json");
+}
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  entryComponents: [
-  ],
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [
     NgCalendarModule,
     SharedModule,
-    BrowserModule, 
+    BrowserModule,
     IonicModule.forRoot({
-      mode: 'ios',
-      scrollAssist: true}), 
-    AppRoutingModule, 
+      mode: "ios",
+      scrollAssist: true
+    }),
+    AppRoutingModule,
     ChartsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     StatusBar,
@@ -44,6 +56,6 @@ import { SharedModule } from './pipes/shared.module';
     Contact
   ],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}

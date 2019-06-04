@@ -11,7 +11,13 @@
               <p>{{ cost?.title }}</p>
               <span>{{ cost?.category }}</span>
             </div>
-            <span>{{ cost?.totalSum }} lei</span>
+            <div class="rightColumn">
+
+              <p>{{ cost?.totalSum }} lei</p>
+              <span *ngIf="cost?.paid" class="unpaid">Unpaid</span>
+              <span *ngIf="!cost?.paid" class="paid">Paid <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
+            </div>
+            
           </div>
         </div>
         <span *ngIf="!getCostsArray() || getCostsArray().length < 1" class="noInfo"

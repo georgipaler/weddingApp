@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './home.page';
+import { TranslateModule } from '@ngx-translate/core';
+import { PopoverComponent } from 'src/app/components/popover/popover.component';
 
 const routes: Routes = [
   {
@@ -19,8 +21,13 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslateModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, PopoverComponent]
+  ,
+  entryComponents:[
+    PopoverComponent
+  ]
 })
 export class HomePageModule {}

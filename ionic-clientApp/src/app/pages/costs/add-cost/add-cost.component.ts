@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController, NavParams } from '@ionic/angular';
 import { __await } from 'tslib';
 
 @Component({
@@ -9,10 +9,32 @@ import { __await } from 'tslib';
 })
 export class AddCostComponent implements OnInit {
 
-  constructor( private modalController: ModalController) { }
+  event = {
+    title: '',
+    totalCost: new Date().toISOString(), 
+    dueDate: new Date().toISOString(), 
+    paid: false,
+    category: '',
+    notes: ''
+  };
+
+  options: String[] = ["Food & drink", "Music", "Flowers"];
+
+  minDate = new Date().toISOString();
+  constructor(public navController: NavController,
+    public navParams: NavParams,
+    private modalController: ModalController
+    ) { 
+
+    
+  }
 
   ngOnInit() {}
 
+  async save(){
+    console.log("form", this.event);
+    await this.modalController.dismiss();
+  }
   async dismissModalCancel(){
     await this.modalController.dismiss();
   }

@@ -53,12 +53,14 @@ export class ChartComponent implements OnInit {
     this.expensesSub = this.costService.expenses.subscribe( costs => {
       this.costs = costs;
       this.loaderServ.dismiss();
+
+      console.log(this.costs);
+      this.costs.map(cost => console.log(cost.dueDate.getMonth()));
+  
     });
 
 
-    console.log(this.costs);
-    this.costs.map(cost => console.log(cost.dueDate.getMonth()));
-
+   
   }
 
     // events

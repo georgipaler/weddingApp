@@ -5,7 +5,7 @@ export class Cost {
       public  dueDate: Date,
       public totalSum: number,
       public  category : string ,
-
+      public paid: boolean
     
 
     ) {}

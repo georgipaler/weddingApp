@@ -25,6 +25,7 @@
         padding: 0.6rem 1rem;
         display: flex;
         justify-content: space-between;
+        border-bottom: 0.1px solid #FFDED5;
 
         p{
             font-size: 0.8rem;
@@ -44,6 +45,24 @@
         .leftColumn{
             display: flex;
             flex-direction: column;
+        }
+
+        .rightColumn{
+            min-width: 4rem;
+            display: flex;
+            flex-direction: column;
+
+            .unpaid{
+                color: red;
+            }
+
+            .paid{
+                color: green;
+
+                ion-icon{
+                    font-size: 1rem;
+                }
+            }
         }
     }
 

@@ -22,7 +22,8 @@ export class CostsService {
     title: string,
     dueDate: Date,
     category : string,
-    totalSum: number
+    totalSum: number,
+    paid: boolean
   ) {
     console.log("add new place");
     const newCost = new Cost(
@@ -30,7 +31,8 @@ export class CostsService {
       title,
       dueDate,
      totalSum,
-     category
+     category,
+     paid
     );
     return this._expenses.pipe(
       take(1),

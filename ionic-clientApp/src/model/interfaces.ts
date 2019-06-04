@@ -56,6 +56,7 @@ export interface IExpense {
     title: string;
     cost: number;
     category ?: string ;
+    paid: boolean;
 }
 
 export interface INote{
@@ -112,7 +113,8 @@ export const expenses_list: Cost[] = [{
     title: "Booked officiants",
     dueDate: new Date(2018, 3, 10),
     category: "Food & drink",
-    totalSum: 3000
+    totalSum: 3000,
+    paid: true
 },
 {
     id: '2',
@@ -120,6 +122,7 @@ export const expenses_list: Cost[] = [{
     dueDate: new Date(2018, 10, 11),
     totalSum: 4000,
     category: "Music",
+    paid: true
    
 },
 {
@@ -128,6 +131,7 @@ export const expenses_list: Cost[] = [{
     dueDate: new Date(2018, 14, 12),
     totalSum: 5600,
     category: "Flowers",
+    paid: true
 },
 {
     id: '4',
@@ -135,6 +139,7 @@ export const expenses_list: Cost[] = [{
     dueDate: new Date(2019, 3, 16),
     totalSum: 1200,
     category: "Flowers",
+    paid: true
 },
 {
     id: '5',
@@ -142,6 +147,7 @@ export const expenses_list: Cost[] = [{
     dueDate: new Date(2019, 6, 15),
     totalSum: 300,
     category: "Flowers",
+    paid: true
 },
 {
     id: '6',
@@ -149,6 +155,7 @@ export const expenses_list: Cost[] = [{
     dueDate: new Date(2019, 7, 21),
     totalSum: 10,
     category: "Flowers",
+    paid: false
 },
 ];
 

@@ -6,7 +6,7 @@
 </section>
 
 <section id="mainWrapper">
-  <h4>Create new appointment</h4>
+  <h4>Add new cost</h4>
   <ion-list class="guestInfo">
     <ion-item>
       <ion-input
@@ -16,30 +16,38 @@
       ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Start: </ion-label>
+      <ion-label>Amount </ion-label>
+      <ion-input type="number" [(ngModel)]="event.totalCost"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Due date </ion-label>
       <ion-datetime
         displayFormat="MM/DD/YYYY HH:mm"
         pickerFromat="MM/DD/YYYY HH:mm"
-        [(ngModel)]="event.startTime"
+        [(ngModel)]="event.dueDate"
         [min]="minDate"
       ></ion-datetime>
     </ion-item>
-    <ion-item>
-      <ion-label>End: </ion-label>
-      <ion-datetime
-        displayFormat="MM/DD/YYYY HH:mm"
-        pickerFromat="MM/DD/YYYY HH:mm"
-        [(ngModel)]="event.endTime"
-        [min]="minDate"
-      ></ion-datetime>
+
+    <ion-item class="dropdownInput">
+      <ion-label>Category</ion-label>
+      <ion-select placeholder="Category"  [(ngModel)]="event.category">
+        <ion-select-option *ngFor="let opt of options" value="{{opt}}">{{opt}}</ion-select-option>
+      </ion-select>
     </ion-item>
+
     <ion-item>
-      <ion-label>All day</ion-label>
-      <ion-checkbox [(ngModel)]="event.allDay"></ion-checkbox>
+      <ion-label>Paid</ion-label>
+      <ion-checkbox [(ngModel)]="event.paid"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Notes</ion-label>
+      <ion-textarea type="text" [(ngModel)]="event.notes"></ion-textarea>
     </ion-item>
   </ion-list>
 
   <div class="buttonsWrapper" (click)="save()">
-    <span (click)="save()">Add appointment</span>
+    <span (click)="save()">Add cost</span>
   </div>
 </section>
