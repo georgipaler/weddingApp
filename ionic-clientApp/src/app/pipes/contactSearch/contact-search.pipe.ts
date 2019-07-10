@@ -5,12 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ContactSearchPipe implements PipeTransform {
 
- 
   transform(guestList: Array<any>, searchedText: string) {
     if (!guestList || guestList.length <= 0 || !searchedText) {
       return guestList;
     }
-
     return guestList.filter(guest => {
       return this.compare(guest.name.formatted, searchedText);
     });
@@ -23,5 +21,4 @@ export class ContactSearchPipe implements PipeTransform {
     }
     return false;
   }
-
 }

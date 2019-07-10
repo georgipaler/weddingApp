@@ -56,17 +56,13 @@ export class AddGuestComponent implements OnInit {
 
       modal.onDidDismiss().then(data => {
         if(data["data"]){
-          console.log("dismiss contact", data["data"], data["data"].phoneNumbers[0].value);
           this.addGuest.patchValue({
             name: data["data"].name.formatted,
             phoneNumber: data["data"].phoneNumbers[0].value});
-          
         }
-        console.log("dismiss");
       });
 
     modal.present();
-
   }
 
   logForm(){

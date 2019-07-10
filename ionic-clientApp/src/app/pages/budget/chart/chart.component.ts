@@ -47,8 +47,6 @@ export class ChartComponent implements OnInit {
 
   barChart: any;
   ngOnInit() {
-
-
     this.loaderServ.present();
     this.expensesSub = this.costService.expenses.subscribe( costs => {
       this.costs = costs;
@@ -58,9 +56,6 @@ export class ChartComponent implements OnInit {
       this.costs.map(cost => console.log(cost.dueDate.getMonth()));
   
     });
-
-
-   
   }
 
     // events

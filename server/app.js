@@ -1,20 +1,12 @@
 const Express = require("express");
 const BodyParser = require("body-parser");
-const MongoClient = require("mongodb").MongoClient;
 const mongoose = require("mongoose");
-const ObjectId = require("mongodb").ObjectID;
 const user = require("./routes/users");
-
-
-
 const CONNECTION_URL = "mongodb+srv://georgiana:icididi@wpcluster-7zr2x.mongodb.net/weddingPlanner?retryWrites=true";
-const DATABASE_NAME = "weddingPlanner";
-
 var app = Express();
 mongoose.connect(CONNECTION_URL,{ useNewUrlParser: true });
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: false }));
-
 app.use((req, res, next)=>{
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Accept, Authorization');
@@ -24,7 +16,6 @@ app.use((req, res, next)=>{
     }
     next();
 });
-
 app.use("/users", user);
 app.listen(8080, ()=> console.log("Listening to 8080..."));
 

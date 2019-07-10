@@ -38,31 +38,12 @@ export class ImportContacsComponent implements OnInit {
   getContacts(): any {
     this.contacts.find(["displayName", "phoneNumbers"], {multiple: true}).then((contacts) => {
       this.contactList = contacts;
-      console.log("contacts", this.contactList);
     });
-    // this.contacts
-    //   .find(["displayName", "phoneNumbers"], {
-    //     multiple: true,
-    //     hasPhoneNumber: true
-    //   })
-    //   .then(contacts => {
-    //     for (var i = 0; i < contacts.length; i++) {
-    //       if (contacts[i].displayName !== null) {
-    //         var contact = {};
-    //         contact["name"] = contacts[i].displayName;
-    //         contact["number"] = contacts[i].phoneNumbers[0].value;
-    //         this.contactList.push(contact);
-    //       }
-    //     }
-    //   });
-
       return this.contacts;
   }
 
-
-
-  addContact(cont){
-    this.presentAlertConfirm(cont);
+  addContact(contactAdded){
+    this.presentAlertConfirm(contactAdded);
   }
 
 
@@ -90,9 +71,9 @@ export class ImportContacsComponent implements OnInit {
     await alert.present();
   }
 
-  async dismissModal(mes: string, cont) {
+  async dismissModal(mes: string, contactAdded) {
     if(mes === "add"){
-      await this.modalController.dismiss(cont);
+      await this.modalController.dismiss(contactAdded);
       return;
     }
     await this.modalController.dismiss(null);
