@@ -1,46 +1,39 @@
+<section class='mainWrapper'>
+  <section class='topWrapperSmall'>
+    <div class='totalInfo' (click)='displayTotalCosts()'>
+      <p>Your total expenses</p>
+      <h3>{{totalSumTiDisplay}} RON</h3>
+    </div>
 
-  <section class="mainWrapper">
-    <section
-      class="topWrapperSmall"
-    >
-      <div class="totalInfo" (click)="displayTotalCosts()">
-        <p>Your total expenses</p>
-        <h3>23 432 RON</h3>
-      </div>
-
-      <app-chart (monthValueChange)="changeMonth($event)"></app-chart>
-    </section>
-
-    <app-costs-details
-      class="costsDetails"
-      [searchedMonth]="searchedMonth"
-      (backToChart)="backToChart($event)"
-    ></app-costs-details>
+    <app-chart (monthValueChange)='changeMonth($event)'></app-chart>
   </section>
 
-<!-- <ion-slides #slider (ionSlideWillChange)="changeButton($event)">
+  <app-costs-details class='costsDetails' [searchedMonth]='searchedMonth'></app-costs-details>
+</section>
+
+<!-- <ion-slides #slider (ionSlideWillChange)='changeButton($event)'>
     <ion-slide>
       <app-chart></app-chart>
     </ion-slide>
     <ion-slide>
         <canvas
-        id="barChartLast"
-        (onHover)="chartHovered($event)"
-        (onClick)="chartClicked($event)"
-        width="300"
-        height="300"
+        id='barChartLast'
+        (onHover)='chartHovered($event)'
+        (onClick)='chartClicked($event)'
+        width='300'
+        height='300'
       ></canvas>
     </ion-slide>
   </ion-slides> -->
 <!-- 
-  <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="page">
-      <ion-segment-button value="0" [checked]="true">
-        <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+  <ion-segment (ionChange)='segmentChanged($event)' [(ngModel)]='page'>
+      <ion-segment-button value='0' [checked]='true'>
+        <ion-icon ios='ios-arrow-round-back' md='md-arrow-round-back'></ion-icon>
       </ion-segment-button>
-      <ion-segment-button value="1">
+      <ion-segment-button value='1'>
         <ion-icon
-          ios="ios-arrow-round-forward"
-          md="md-arrow-round-forward"
+          ios='ios-arrow-round-forward'
+          md='md-arrow-round-forward'
         ></ion-icon>
       </ion-segment-button>
     </ion-segment> -->

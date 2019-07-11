@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {  expenses_list } from 'src/model/interfaces';
 import { Cost } from 'src/app/pages/costs/cost.model';
-import { take, map, tap, delay } from "rxjs/operators";
+import { take, map, tap, delay } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -11,7 +11,8 @@ export class CostsService {
 
 
   _expenses = new BehaviorSubject<Cost[]>( expenses_list);
-
+  costs: Cost[] = [];
+  totalSum: number;
   constructor() { }
 
   public get expenses() {
@@ -21,11 +22,11 @@ export class CostsService {
   addCost(
     title: string,
     dueDate: Date,
-    category : string,
+    category: string,
     totalSum: number,
     paid: boolean
   ) {
-    console.log("add new place");
+    console.log('add new place');
     const newCost = new Cost(
       Math.random().toString(),
       title,
@@ -44,5 +45,13 @@ export class CostsService {
       )
     );
   }
-  
+
+  calcTotalCost() {
+    this.totalSum = 0;
+    this.expenses.subscribe(costs => {
+      this.costs = costs;
+      this.costs.map(cost => this.totalSum += cost.totalSum);
+    });
+  }
+
 }

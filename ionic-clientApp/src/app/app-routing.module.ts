@@ -1,21 +1,22 @@
-import { NgModule } from "@angular/core";
-import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
-import { AuthGuard } from "./pages/auth/auth-guard/auth.guard";
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './pages/auth/auth-guard/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'welcome',
+    redirectTo: 'auth',
     pathMatch: 'full'
   },
   {
-    path: "welcome",
-    loadChildren: "./tabs/tabs.module#TabsPageModule",
+    path: 'welcome',
+    loadChildren: './tabs/tabs.module#TabsPageModule',
     canLoad: [AuthGuard]
   },
-  { 
-    path: "auth", 
-    loadChildren: "./pages/auth/auth.module#AuthPageModule" 
+  {
+    path: 'auth',
+    loadChildren: './pages/auth/auth.module#AuthPageModule',
+    canLoad: [AuthGuard]
   },
   // { path: 'costs', loadChildren: './costs/costs.module#CostsPageModule' },
   // { path: 'add-note', loadChildren: './pages/notes/add-note/add-note.module#AddNotePageModule' },
@@ -29,4 +30,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

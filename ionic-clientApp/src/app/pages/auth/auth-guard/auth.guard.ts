@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {  CanLoad, Route, UrlSegment, Router } from '@angular/router';
+import { CanLoad, Route, UrlSegment, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TouchSequence } from 'selenium-webdriver';
@@ -7,20 +7,20 @@ import { TouchSequence } from 'selenium-webdriver';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanLoad  {
+export class AuthGuard implements CanLoad {
 
   constructor(private authService: AuthService,
-    private router: Router){}
+    private router: Router) { }
 
   canLoad(
-    route: Route, 
+    route: Route,
     segments: UrlSegment[]
-    ): Observable<boolean> | Promise<boolean> | boolean {
-      if(!this.authService.userIsAuthenticated){
-        this.router.navigateByUrl('/auth');
-      }
+  ): Observable<boolean> | Promise<boolean> | boolean {
+    if (!this.authService.userIsAuthenticated) {
+      this.router.navigateByUrl('/auth');
+    }
     return this.authService.userIsAuthenticated;
   }
 
-  
+
 }

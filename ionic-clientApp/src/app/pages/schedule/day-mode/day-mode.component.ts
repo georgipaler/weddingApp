@@ -14,13 +14,13 @@ export class DayModeComponent implements OnInit {
 
   @Input("calendarMode") calendarMode: string;
   eventSource = [];
-  viewTitle:string;
+  viewTitle: string;
   selectedDay = new Date();
 
   calendar = {
     mode: 'day',
     currentDate: this.selectedDay
-  }
+  };
 
   constructor(
     public navCtrl: NavController,
@@ -32,51 +32,51 @@ export class DayModeComponent implements OnInit {
   }
 
 
-  async addEvent(){
+  async addEvent() {
     const modal: HTMLIonModalElement =
-    await this.modalController.create({
-       component: EventModalComponent,
-       componentProps: {
+      await this.modalController.create({
+        component: EventModalComponent,
+        componentProps: {
           selectedDay: this.selectedDay
-       }
- });
-  
- modal.onDidDismiss().then((data) => {
-    if (data !== null) {
-      let eventData: IEvent = data['data'];
-      eventData.startTime = new Date(data['data'].startTime);
-      eventData.endTime = new Date(data['data'].endTime);
-
-      let events = this.eventSource;
-      events.push(eventData);
-      this.eventSource = [];
-      setTimeout(()=> {
-        this.eventSource = events;
-        console.log('The result:', this.eventSource);
+        }
       });
 
-    }
- });
- 
- await modal.present();
+    modal.onDidDismiss().then((data) => {
+      if (data !== null) {
+        const eventData: IEvent = data['data'];
+        eventData.startTime = new Date(data['data'].startTime);
+        eventData.endTime = new Date(data['data'].endTime);
+
+        const events = this.eventSource;
+        events.push(eventData);
+        this.eventSource = [];
+        setTimeout(() => {
+          this.eventSource = events;
+          console.log('The result:', this.eventSource);
+        });
+
+      }
+    });
+
+    await modal.present();
   }
-  onViewTitleChanged(title){
+  onViewTitleChanged(title) {
     this.viewTitle = title;
   }
-  onTimeSelected(ev){
+  onTimeSelected(ev) {
     this.selectedDay = ev.selectedTime;
   }
 
-  onEventSelected(event){
-    let start = moment(event.startTime).format('LLLL');
-    let end = moment(event.endTime).format('LLLL'); 
+  onEventSelected(event) {
+    const start = moment(event.startTime).format('LLLL');
+    const end = moment(event.endTime).format('LLLL');
 
     this.presentAlert(event, start, end);
   }
 
 
   async presentAlert(event, start, end) {
-  
+
     const alert = await this.alertController.create({
       header: '' + event.title,
       message: 'From: ' + start + '<br> To: ' + end,

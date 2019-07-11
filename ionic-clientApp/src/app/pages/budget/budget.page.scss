@@ -2,8 +2,11 @@
 .mainWrapper{
     padding-top: 2rem;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 
     .topWrapperSmall{
+        height: fit-content;
         .totalInfo{
             padding: 2rem;
             width: fit-content;
@@ -18,12 +21,12 @@
         }
     }
     
-    .topWrapperOver{
-        background-color: white;
-        transition:all .3s ease;
-        animation: 1.25s fadeInRight forwards;
+    & .costsDetails {
+        flex-grow: 1;
+        overflow: auto;
     }
 
+}
     @keyframes fadeInRight {
         0% { 
           opacity: 1;
@@ -50,6 +53,3 @@
     //     height: 375px;
     //     width: 100%;
     // }
-
-
-}
