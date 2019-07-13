@@ -11,6 +11,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUserData(): Observable<Object>  {
-    return this.http.get("http://192.168.1.181:8080/users");
+    return this.http.get('https://guarded-citadel-95311.herokuapp.com/users');
   }
 }

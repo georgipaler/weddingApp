@@ -3,6 +3,7 @@ import { CostsDetailsComponent } from '../pages/budget/costs-details/costs-detai
 import { CommonModule } from '@angular/common';
 import { FormsModule, FormBuilder } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { HelpModalComponent } from './modals/help-modal/help-modal/help-modal.component';
 
 @NgModule({
     imports: [
@@ -11,7 +12,10 @@ import { IonicModule } from '@ionic/angular';
         FormsModule,
         IonicModule,
     ],
-    declarations: [CostsDetailsComponent],
+    declarations: [
+        CostsDetailsComponent,
+        HelpModalComponent
+    ],
     exports: [CostsDetailsComponent],
     providers: [
         FormBuilder,

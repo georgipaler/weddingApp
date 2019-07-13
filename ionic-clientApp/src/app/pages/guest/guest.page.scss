@@ -8,7 +8,8 @@ ion-content{
 
         border-radius: 5px;
         // background-image: url('../../../assets/roses.png');
-        background-image: linear-gradient(#d89c8b, #fff);
+        background-image: url('../../../assets/guest-page.jpeg');
+        background-size: cover;
         overflow: hidden;
         border-bottom: 1.5px solid #FFDED5;
         display: flex;
@@ -38,20 +39,24 @@ ion-content{
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 1rem 1rem;
+            padding: 1.5rem 1rem 0.2rem 1rem;
+            background-image: linear-gradient(transparent, rgba(255,255,255, 0.8));
 
             span{
                color: #484848;
                padding-left: 1rem;
+               font-size: 1.3rem;
                font-weight: bold;
+               text-shadow: 3px 2px 2px #ffff;
             }
             p{
-                font-size: 0.7rem;
+                font-size: 1rem;
                 padding: 0.2rem 0.4rem;
                 color: #484848;
                 font-weight: bold;
                 border: 1px solid #484848;
                 border-radius: 25px;
+                text-shadow: 2px 2px 2px #ffff;
             }
         }
        

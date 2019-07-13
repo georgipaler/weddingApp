@@ -1,23 +1,21 @@
-import { Component, OnInit } from "@angular/core";
-import { UserService } from "src/app/services/user/user.service";
-import { IUser } from "src/model/interfaces";
-import { Subscription } from "rxjs";
-import { LoaderService } from "src/app/services/loader/loader.service";
-import { ActionSheetController, PopoverController } from "@ionic/angular";
-import { AuthService } from "src/app/services/auth/auth.service";
-import { Router } from "@angular/router";
-import { TranslateService } from "@ngx-translate/core";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { UserService } from 'src/app/services/user/user.service';
+import { IUser } from 'src/model/interfaces';
+import { Subscription } from 'rxjs';
+import { LoaderService } from 'src/app/services/loader/loader.service';
+import { ActionSheetController, PopoverController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
 import { PopoverComponent } from 'src/app/components/popover/popover.component';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.page.html",
-  styleUrls: ["./home.page.scss"]
+  selector: 'app-home',
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss']
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit, OnDestroy {
   user: IUser;
   isBride: string;
-  private translations: any;
 
   private userSupscription: Subscription;
 
@@ -28,19 +26,17 @@ export class HomePage implements OnInit {
     private authService: AuthService,
     private router: Router,
     public popoverController: PopoverController,
-    private _translateService: TranslateService
   ) {}
 
   ngOnInit() {
-    this.initI18nData();
 
-    //this.loading.present();
+    this.loading.present();
     this.userSupscription = this.userService.getUserData().subscribe(
       (user: IUser) => {
         this.user = user[0];
-        console.log("user", this.user.gender, this.user);
+        console.log('user', this.user.gender, this.user);
         this.displayBrideOrGroom();
-        // this.loading.dismiss();
+        this.loading.dismiss();
       },
       err => {
         console.log(err);
@@ -49,7 +45,11 @@ export class HomePage implements OnInit {
   }
 
   displayBrideOrGroom() {
-    this.isBride = this.user.gender === "Female" ? "bride" : "groom";
+    this.isBride = this.user.gender === 'Female' ? 'bride' : 'groom';
+  }
+
+  public splitName(fullName: string) {
+    return fullName ? fullName.split(' ').map(value => value[0]).join('').substring(0, 2).toLocaleUpperCase() : '';
   }
 
   ngOnDestroy() {
@@ -57,51 +57,37 @@ export class HomePage implements OnInit {
   }
 
   goToNotes(path: string) {
-    this.router.navigateByUrl("welcome/tabs/home/" + path);
+    this.router.navigateByUrl('welcome/tabs/home/' + path);
   }
 
   async presentActionSheet() {
     const actionSheet = await this.actionSheetCtrl.create({
-      header: "Settings",
+      header: 'Settings',
       buttons: [
         {
-          text: "Edit profile",
+          text: 'Edit profile',
           handler: () => {
-            console.log("edit clicked");
+            console.log('edit clicked');
           }
         },
         {
-          text: "Language",
+          text: 'Log out',
           handler: () => {
-            console.log("edit language");
-            this.presentPopover();
-          }
-        },
-        {
-          text: "Log out",
-          handler: () => {
-            console.log("log out clicked");
+            console.log('log out clicked');
             this.authService.logout();
-            this.router.navigateByUrl("/auth");
+            this.router.navigateByUrl('/auth');
           }
         },
         {
-          text: "Cancel",
-          role: "cancel",
+          text: 'Cancel',
+          role: 'cancel',
           handler: () => {
-            console.log("Cancel clicked");
+            console.log('Cancel clicked');
           }
         }
       ]
     });
     await actionSheet.present();
-  }
-
-  private initI18nData() {
-    this._translateService.get("messages").subscribe(data => {
-      console.log(data);
-      this.translations = data;
-    });
   }
 
   async presentPopover() {

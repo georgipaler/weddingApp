@@ -3,7 +3,7 @@
 <ion-content>
 
     <div class="topWrapperHome">
-        <div class="photoProfile"></div>
+        <div class="photoProfile">{{splitName(user?.name)}}</div>
     </div>
 
     <div class="bottomWrapperHome">
@@ -28,11 +28,7 @@
             </a>
             <a class="seconMenu-button">
                 <ion-icon ios="ios-restaurant" md="md-restaurant"></ion-icon>
-                <span>Restaurant</span>
-            </a>
-            <a class="seconMenu-button">
-                <ion-icon ios="ios-briefcase" md="md-briefcase"></ion-icon>
-                <span>Travelers</span>
+                <span>Vendors</span>
             </a>
             <a class="seconMenu-button" (click)="presentActionSheet()">
                 <ion-icon name="settings"></ion-icon>

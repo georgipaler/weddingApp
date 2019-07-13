@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <div class="backButton" (click)="dismissModal()">
-        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
-        <div class="textBack">Back</div>
+    <div class='backButton' (click)='dismissModal()'>
+        <ion-icon ios='ios-arrow-back' md='md-arrow-back'></ion-icon>
+        <div class='textBack'>Back</div>
     </div>
     <ion-title>Add new guest</ion-title>
-    <ion-button class="toolbar__done" [disabled]='!addGuest.valid' slot="end" (click)="logForm()" fill='clear'
-    [ngClass]="{'submit__button--disabled' : !addGuest?.valid}">
+    <ion-button class='toolbar__done' [disabled]='!addGuest.valid' slot='end' (click)='logForm()' fill='clear'
+    [ngClass]='{'submit__button--disabled' : !addGuest?.valid}'>
       Done
     </ion-button>
   </ion-toolbar>
@@ -16,55 +16,55 @@
 <ion-content>
   <section>
 
-    <div class="importButton" (click)="goToContacts()">
+    <div class='importButton' (click)='goToContacts()'>
       Import from Contacts
     </div>
   
-    <form [formGroup]="addGuest">
+    <form [formGroup]='addGuest'>
       <ion-item >
-        <ion-label position="floating">Name</ion-label>
-        <ion-input type="text" formControlName="name" ></ion-input>
+        <ion-label position='floating'>Name</ion-label>
+        <ion-input type='text' formControlName='name' ></ion-input>
       </ion-item>
 
       <ion-item >
-        <ion-label position="floating">Phone number</ion-label>
-        <ion-input type="text" formControlName="phoneNumber" ></ion-input>
+        <ion-label position='floating'>Phone number</ion-label>
+        <ion-input type='text' formControlName='phoneNumber' ></ion-input>
       </ion-item>
 
       <ion-item >
-        <ion-label position="floating">Members number</ion-label>
-        <ion-input type="number" formControlName="membersNo"></ion-input>
+        <ion-label position='floating'>Members number</ion-label>
+        <ion-input type='number' formControlName='membersNo'></ion-input>
       </ion-item>
 
-      <ion-item class="dropdownInput">
+      <ion-item class='dropdownInput'>
           <ion-label>Menu</ion-label>
-          <ion-select placeholder="Select One" formControlName="menu" interface="popover">
-            <ion-select-option value="1">Vegetarian</ion-select-option>
-            <ion-select-option value="2">Non-Vegetarian</ion-select-option>
+          <ion-select placeholder='Select One' formControlName='menu' interface='popover'>
+            <ion-select-option value='1'>Vegetarian</ion-select-option>
+            <ion-select-option value='2'>Non-Vegetarian</ion-select-option>
           </ion-select>
       </ion-item>
       <ion-item >
-        <ion-label position="floating">Address</ion-label>
-        <ion-input type="type" formControlName="address"></ion-input>
+        <ion-label position='floating'>Address</ion-label>
+        <ion-input type='type' formControlName='address'></ion-input>
       </ion-item>
 
-      <ion-item class="dropdownInput">
+      <ion-item class='dropdownInput'>
         <ion-label>Confirmation</ion-label>
-        <ion-select placeholder="Select One" formControlName="confirmation">
-          <ion-select-option value="accepted">Food & drink</ion-select-option>
-          <ion-select-option value="declined">Declined</ion-select-option>
-          <ion-select-option value="noResponse">No response</ion-select-option>
+        <ion-select placeholder='Select One' formControlName='confirmation'>
+          <ion-select-option value='accepted'>Food & drink</ion-select-option>
+          <ion-select-option value='declined'>Declined</ion-select-option>
+          <ion-select-option value='noResponse'>No response</ion-select-option>
         </ion-select>
       </ion-item>
 
-      <ion-item class="dropdownInput">
+      <ion-item class='dropdownInput'>
         <ion-label>Sent invitation</ion-label>
-        <ion-toggle color="secondary" formControlName="sentInvitation"></ion-toggle>
+        <ion-toggle color='secondary' formControlName='sentInvitation'></ion-toggle>
       </ion-item>
 
       <ion-item>
-          <ion-label position="floating">Notes</ion-label>
-        <ion-textarea type="text" formControlName="notes"></ion-textarea>
+          <ion-label position='floating'>Notes</ion-label>
+        <ion-textarea type='text' formControlName='notes'></ion-textarea>
       </ion-item>
 
     </form>

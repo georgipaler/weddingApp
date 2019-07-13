@@ -47,6 +47,10 @@
                     padding: 1rem 0;
                     display: flex;
                     justify-content: space-between;
+
+                    .dropdownInput{
+                        padding-top: 1.5rem;
+                    }
                 }
             }
 
@@ -76,6 +80,8 @@
       
         span{
             padding: 0.8rem 1rem;
+            display: flex;
+            align-items: center;
         }
     }
 
