@@ -5,9 +5,10 @@
         <div class="textBack">Back</div>
     </div>
     <ion-title>Add new guest</ion-title>
-    <ion-buttons slot="end" (click)="logForm()">
+    <ion-button class="toolbar__done" [disabled]='!addGuest.valid' slot="end" (click)="logForm()" fill='clear'
+    [ngClass]="{'submit__button--disabled' : !addGuest?.valid}">
       Done
-    </ion-buttons>
+    </ion-button>
   </ion-toolbar>
 
 </ion-header>
@@ -36,35 +37,16 @@
       </ion-item>
 
       <ion-item class="dropdownInput">
-        <ion-label>Table number</ion-label>
-        <ion-select placeholder="Select One" formControlName="tableNo" interface="popover">
-          <ion-select-option value="1">Table 1</ion-select-option>
-          <ion-select-option value="2">Table 2</ion-select-option>
-          <ion-select-option value="3">Table 3</ion-select-option>
-          <ion-select-option value="4">Table 4</ion-select-option>
-          <ion-select-option value="5">Table 5</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item class="dropdownInput">
           <ion-label>Menu</ion-label>
           <ion-select placeholder="Select One" formControlName="menu" interface="popover">
             <ion-select-option value="1">Vegetarian</ion-select-option>
             <ion-select-option value="2">Non-Vegetarian</ion-select-option>
           </ion-select>
       </ion-item>
-
-      <!-- <ion-item >
-          <ion-label position="floating">Address</ion-label>
-        <ion-input type="text" id="autocomplete"  (focus)="geolocate()" ></ion-input>
-      </ion-item> -->
       <ion-item >
         <ion-label position="floating">Address</ion-label>
         <ion-input type="type" formControlName="address"></ion-input>
       </ion-item>
-      <div class="addressWrapper">
-
-      </div>
 
       <ion-item class="dropdownInput">
         <ion-label>Confirmation</ion-label>

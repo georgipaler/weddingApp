@@ -1,4 +1,7 @@
 ion-header{
+    display: flex;
+    justify-content: space-between;
+
     .backButton{
        font-size: 2rem;
        align-items: center;
@@ -8,13 +11,20 @@ ion-header{
        .textBack{
            font-size: 1rem;
        }
-
-
     }
+  
+        & .toolbar__done {
+            text-transform: uppercase;
+            background-color: transparent;
+            color: black;
 
-    ion-buttons{
-        font-family: 'Montserrat', sans-serif;
-    }
+            &--disabled {
+                background-color: transparent;
+                color: gray;
+            }
+        }
+    
+
 
     ion-toolbar{
         padding-right: 1rem;

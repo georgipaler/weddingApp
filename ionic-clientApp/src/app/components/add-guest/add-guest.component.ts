@@ -11,36 +11,35 @@ import { IGuest, IGROUP } from 'src/model/interfaces';
 })
 export class AddGuestComponent implements OnInit {
 
-  
-  public addGuest : FormGroup;
-  public groupName: IGROUP ;
+
+  public addGuest: FormGroup;
+  public groupName: IGROUP;
   public newGuest: IGuest;
 
-  constructor( private formBuilder: FormBuilder,
-    private modalController: ModalController, 
+  constructor(private formBuilder: FormBuilder,
+    private modalController: ModalController,
     public navParams: NavParams) {
   }
 
   ngOnInit() {
     this.initAddGuestForm();
-    this.groupName = this.navParams.get("groupName");
-    this.newGuest = this.navParams.get("guest");
-    console.log("group name", this.groupName);
-    console.log("guest", this.newGuest);
+    this.groupName = this.navParams.get('groupName');
+    this.newGuest = this.navParams.get('guest');
+    console.log('group name', this.groupName);
+    console.log('guest', this.newGuest);
     this.initFormValues();
   }
 
   initAddGuestForm() {
     this.addGuest = this.formBuilder.group({
       name: ['', Validators.required],
-      phoneNumber: [''],
-      membersNo: [''],
-      confirmation: [''],
-      address: [''],
+      phoneNumber: ['', Validators.required],
+      membersNo: ['', Validators.required],
+      confirmation: ['', Validators.required],
+      address: ['', Validators.required],
       notes: [''],
       sentInvitation: [''],
-      tableNo: [''],
-      menu: ['']
+      menu: ['', Validators.required]
     });
   }
 
@@ -54,40 +53,41 @@ export class AddGuestComponent implements OnInit {
         component: ImportContacsComponent,
       });
 
-      modal.onDidDismiss().then(data => {
-        if(data["data"]){
-          this.addGuest.patchValue({
-            name: data["data"].name.formatted,
-            phoneNumber: data["data"].phoneNumbers[0].value});
-        }
-      });
+    modal.onDidDismiss().then(data => {
+      if (data['data']) {
+        this.addGuest.patchValue({
+          name: data['data'].name.formatted,
+          phoneNumber: data['data'].phoneNumbers[0].value
+        });
+      }
+    });
 
     modal.present();
   }
 
-  logForm(){
+  logForm() {
     console.log(this.addGuest.value);
 
     this.newGuest = {
       id: 10,
-      group: this.groupName ? this.groupName.name : this.newGuest.group ,
+      group: this.groupName ? this.groupName.name : this.newGuest.group,
       name: this.addGuest.value.name,
       phoneNumber: this.addGuest.value.phoneNumber,
-      membersNo:  this.addGuest.value.membersNo,
+      membersNo: this.addGuest.value.membersNo,
       isVegetarian: this.addGuest.value.menu,
-      address:this.addGuest.value.address,
+      address: this.addGuest.value.address,
       response: this.addGuest.value.confirmation,
-      sentInvitation : this.addGuest.value.sentInvitation,
+      sentInvitation: this.addGuest.value.sentInvitation,
       notes: this.addGuest.value.notes,
       tableNo: this.addGuest.value.tableNo,
     };
 
-    console.log("new guest addModal", this.newGuest);
+    console.log('new guest addModal', this.newGuest);
     this.dismissModal();
   }
 
-  initFormValues(){
-    if(!this.newGuest){
+  initFormValues() {
+    if (!this.newGuest) {
       return;
     }
     this.addGuest.patchValue({
@@ -103,7 +103,7 @@ export class AddGuestComponent implements OnInit {
     });
   }
 
-  async dismissModal(){
+  async dismissModal() {
     await this.modalController.dismiss(this.newGuest);
   }
 }
