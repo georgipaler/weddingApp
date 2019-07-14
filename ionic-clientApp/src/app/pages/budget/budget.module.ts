@@ -12,6 +12,7 @@ import { MonthSearchCostsPipe } from '../../pipes/monthSearchCosts/month-search-
 import { SharedModule } from 'src/app/pipes/shared.module';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { CostsDetailsComponent } from './costs-details/costs-details.component';
+import { AddCostComponent } from 'src/app/components/add-cost/add-cost.component';
 
 const routes: Routes = [
   {
@@ -21,10 +22,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  entryComponents:[ 
-    ChartComponent,
-    CostsDetailsComponent
-  ],
   imports: [
     ComponentsModule,
     SharedModule,
@@ -37,10 +34,14 @@ const routes: Routes = [
   declarations: [
     BudgetPage,
     ChartComponent
-    
   ],
   providers: [
     MonthSearchCostsPipe
+  ],
+  entryComponents: [
+    ChartComponent,
+    CostsDetailsComponent,
+    AddCostComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

@@ -34,6 +34,7 @@ export class AddGuestComponent implements OnInit {
     this.addGuest = this.formBuilder.group({
       name: ['', Validators.required],
       phoneNumber: ['', Validators.required],
+      email: ['', Validators.required],
       membersNo: ['', Validators.required],
       confirmation: ['', Validators.required],
       address: ['', Validators.required],
@@ -72,6 +73,7 @@ export class AddGuestComponent implements OnInit {
       id: 10,
       group: this.groupName ? this.groupName.name : this.newGuest.group,
       name: this.addGuest.value.name,
+      email: this.addGuest.value.email,
       phoneNumber: this.addGuest.value.phoneNumber,
       membersNo: this.addGuest.value.membersNo,
       isVegetarian: this.addGuest.value.menu,
@@ -93,6 +95,7 @@ export class AddGuestComponent implements OnInit {
     this.addGuest.patchValue({
       name: this.newGuest.name,
       phoneNumber: this.newGuest.phoneNumber,
+      email: this.newGuest.email,
       membersNo: this.newGuest.membersNo,
       confirmation: this.newGuest.response,
       address: this.newGuest.address,

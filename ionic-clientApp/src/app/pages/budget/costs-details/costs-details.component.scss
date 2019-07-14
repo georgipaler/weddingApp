@@ -2,6 +2,7 @@
     background-color: #ffffff;
     padding:  3rem 1rem 1rem 1rem;
     overflow-y: auto;
+    height: 100%;
 
     .backButton{
         margin-bottom:  1.5rem;
@@ -27,6 +28,7 @@
         display: flex;
         justify-content: space-between;
         border-bottom: 0.1px solid #FFDED5;
+        width: 100%;
 
         p{
             font-size: 0.8rem;

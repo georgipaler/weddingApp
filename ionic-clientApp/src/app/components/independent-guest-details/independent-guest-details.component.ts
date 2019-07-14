@@ -13,30 +13,30 @@ export class IndependentGuestDetailsComponent implements OnInit {
   guest: IGuest;
 
   constructor(public navParams: NavParams,
-    private modalController: ModalController, 
+    private modalController: ModalController,
     public alertController: AlertController,
-    ) { }
+  ) { }
 
 
   ngOnInit() {
-    this.guest = this.navParams.get("guest");
-    console.log("guest", this.guest);
+    this.guest = this.navParams.get('guest');
+    console.log('guest', this.guest);
   }
-  async editGuest(){
+  async editGuest() {
     const modal: HTMLIonModalElement = await this.modalController.create({
       component: AddGuestComponent,
       componentProps: { guest: this.guest }
     });
 
     modal.onDidDismiss().then(data => {
-      this.guest = data["data"];
+      this.guest = data['data'];
     });
 
     modal.present();
 
   }
 
-  deleteGuest(){
+  deleteGuest() {
     this.presentAlertConfirm();
   }
 
@@ -57,7 +57,7 @@ export class IndependentGuestDetailsComponent implements OnInit {
           text: 'Okay',
           handler: () => {
             console.log('Confirm Okay');
-            this.dismissModal("delete");
+            this.dismissModal('delete');
           }
         }
       ]
@@ -65,15 +65,14 @@ export class IndependentGuestDetailsComponent implements OnInit {
     await alert.present();
   }
 
-  async dismissModal(info: string){
-    
-    if(info === "delete"){
+  async dismissModal(info: string) {
+
+    if (info === 'delete') {
       await this.modalController.dismiss(this.guest);
-    }
-    else{
+    } else {
       await this.modalController.dismiss(null);
     }
-   
+
   }
 
 

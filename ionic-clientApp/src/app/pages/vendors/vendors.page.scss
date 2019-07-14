@@ -22,15 +22,13 @@ ion-content{
     ion-item-sliding{
         margin-bottom: 1.5rem;
     }
+    app-expandable{
+        width: 100%;
+    }
 
     #guestList{
         margin: 1rem;
-
-
-        .guest{
-            padding: 1rem;
-            border-bottom: 0.3px solid #FFDED5 ;
-        }
+        
     }
 }
 

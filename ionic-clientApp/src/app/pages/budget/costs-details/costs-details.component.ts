@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { LoaderService } from 'src/app/services/loader/loader.service';
 import { CostsService } from 'src/app/services/costs/costs.service';
 import { MonthSearchCostsPipe } from '../../../pipes/monthSearchCosts/month-search-costs.pipe';
@@ -6,6 +6,8 @@ import { ModalService } from './modal/modal.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Cost } from '../../costs/cost.model';
+import { AlertController, ModalController } from '@ionic/angular';
+import { AddCostComponent } from 'src/app/components/add-cost/add-cost.component';
 
 @Component({
   selector: 'app-costs-details',
@@ -24,7 +26,9 @@ export class CostsDetailsComponent implements OnInit, OnDestroy {
     private pipe: MonthSearchCostsPipe,
     private modalService: ModalService,
     public route: ActivatedRoute,
-    private costService: CostsService
+    private costService: CostsService,
+    public alertController: AlertController,
+    private modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -57,6 +61,51 @@ export class CostsDetailsComponent implements OnInit, OnDestroy {
     return this.pipe.transform(this.costs, this.searchedMonth);
   }
 
+  deleteCost(cost: Cost) {
+    this.presentAlertConfirm(cost);
+  }
+
+
+  async presentAlertConfirm(cost: Cost) {
+    const alert = await this.alertController.create({
+      header: 'Confirm!',
+      message: 'Are you sure you want to remove this cost?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.costService.deleteCost(cost);
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async editCost(cost: Cost) {
+    const modal: HTMLIonModalElement = await this.modalController.create({
+      component: AddCostComponent,
+      componentProps: { cost: cost }
+    });
+
+    modal.onDidDismiss().then(data => {
+      if (data['data']) {
+        const newCost: Cost = data['data'];
+        this.costService.addCost(newCost.title, new Date(newCost.dueDate), newCost.category, newCost.totalSum, newCost.paid, newCost.notes);
+        this.costs.push(newCost);
+      }
+    });
+    modal.present();
+  }
+
   getMonth(): string {
     const monthNames = [
       'January',
@@ -87,23 +136,4 @@ export class CostsDetailsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.expensesSub.unsubscribe();
   }
-
-
-  // logScrolling(event) {
-  //   if (this.modalOpen || !this.getCostsArray().length ) {
-  //     return;
-  //   }
-
-  //   this.modalController
-  //     .create({
-  //       component: CostsDetailsComponent,
-  //       componentProps: {
-  //         searchedMonth: this.searchedMonth
-  //       }
-  //     })
-  //     .then(modalEl => {
-  //       this.modalService.openModal();
-  //       modalEl.present();
-  //     });
-  // }
 }

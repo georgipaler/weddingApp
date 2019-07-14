@@ -4,10 +4,8 @@ export class Cost {
       public title: string,
       public  dueDate: Date,
       public totalSum: number,
-      public  category : string ,
-      public paid: boolean
-    
-
+      public  category: string ,
+      public paid: boolean,
+      public notes?: string
     ) {}
-  }
-  
+    }

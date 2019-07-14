@@ -1,40 +1,45 @@
-import { Component, OnInit } from "@angular/core";
-import { CostsService } from "src/app/services/costs/costs.service";
-import { ModalController } from "@ionic/angular";
-import { AddCostComponent } from "./add-cost/add-cost.component";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CostsService } from 'src/app/services/costs/costs.service';
+import { ModalController } from '@ionic/angular';
 import { Cost } from './cost.model';
 import { Subscription } from 'rxjs';
+import { AddCostComponent } from 'src/app/components/add-cost/add-cost.component';
 
 @Component({
-  selector: "app-costs",
-  templateUrl: "./costs.page.html",
-  styleUrls: ["./costs.page.scss"]
+  selector: 'app-costs',
+  templateUrl: './costs.page.html',
+  styleUrls: ['./costs.page.scss']
 })
-export class CostsPage implements OnInit {
+export class CostsPage implements OnInit, OnDestroy {
   public expenses: Array<Cost>;
   private expensesSub: Subscription;
 
   constructor(private modalController: ModalController,
-    private costService: CostsService) {}
+    private costService: CostsService) { }
 
   ngOnInit() {
-    this.expensesSub = this.costService.expenses.subscribe( costs => this.expenses = costs);
+    this.expensesSub = this.costService.expenses.subscribe(costs => this.expenses = costs);
   }
 
-  addNewCost() {
-    this.modalController
-      .create({
-        component: AddCostComponent
-      })
-      .then(modalEl => {
-        modalEl.present();
-      });
+  async addNewCost() {
+    const modal: HTMLIonModalElement = await this.modalController.create({
+      component: AddCostComponent,
+    });
+
+    modal.onDidDismiss().then(data => {
+      if (data['data']) {
+        const newCost: Cost = data['data'];
+        this.costService.addCost(newCost.title, new Date(newCost.dueDate), newCost.category, newCost.totalSum, newCost.paid, newCost.notes);
+        this.expenses.push(newCost);
+      }
+    });
+    modal.present();
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.expensesSub.unsubscribe();
   }
 
 
-  ionViewWillLeave() {}
+  ionViewWillLeave() { }
 }

@@ -6,48 +6,48 @@
 </section>
 
 <section id='mainWrapper'>
-  <h4>Add new vendor</h4>
-  <ion-list class='guestInfo'>
+  <h4>{{pageTitle}}</h4>
+  <form [formGroup]='costForm' class='guestInfo'>
     <ion-item>
       <ion-input
         type='text'
         placeholder='Title'
-        [(ngModel)]='event.title'
+        formControlName='title'
       ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Amount </ion-label>
-      <ion-input type='number' [(ngModel)]='event.totalCost'></ion-input>
+      <ion-input type='number' formControlName='totalCost'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Due date </ion-label>
       <ion-datetime
-        displayFormat='MM/DD/YYYY HH:mm'
-        pickerFromat='MM/DD/YYYY HH:mm'
-        [(ngModel)]='event.dueDate'
+        displayFormat='MM/DD/YYYY'
+        pickerFromat='MM/DD/YYYY'
+        formControlName='dueDate'
         [min]='minDate'
       ></ion-datetime>
     </ion-item>
 
     <ion-item class='dropdownInput'>
       <ion-label>Category</ion-label>
-      <ion-select placeholder='Category'  [(ngModel)]='event.category'>
+      <ion-select placeholder='Category'  formControlName='category'>
         <ion-select-option *ngFor='let opt of options' value='{{opt}}'>{{opt}}</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label>Paid</ion-label>
-      <ion-checkbox [(ngModel)]='event.paid'></ion-checkbox>
+      <ion-checkbox formControlName='paid'></ion-checkbox>
     </ion-item>
 
     <ion-item>
       <ion-label position='floating'>Notes</ion-label>
-      <ion-textarea type='text' [(ngModel)]='event.notes'></ion-textarea>
+      <ion-textarea type='text' formControlName='notes'></ion-textarea>
     </ion-item>
-  </ion-list>
+  </form>
 
   <div class='buttonsWrapper' (click)='save()'>
-    <span (click)='save()'>Add cost</span>
+    <span (click)='save()'>{{finishTextButton}}</span>
   </div>
 </section>

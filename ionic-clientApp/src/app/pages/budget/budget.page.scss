@@ -21,10 +21,8 @@
         }
     }
     
-    & .costsDetails {
-        min-height: fit-content;
+    & .bottomWrapper {
         flex-grow: 1;
-        overflow: auto;
     }
 
 }

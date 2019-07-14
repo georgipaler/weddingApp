@@ -8,7 +8,9 @@
     <app-chart (monthValueChange)='changeMonth($event)'></app-chart>
   </section>
 
-  <app-costs-details class='costsDetails' [searchedMonth]='searchedMonth'></app-costs-details>
+  <div class="bottomWrapper"> 
+      <app-costs-details class='costsDetails' [searchedMonth]='searchedMonth'></app-costs-details>
+  </div>  
 </section>
 
 <!-- <ion-slides #slider (ionSlideWillChange)='changeButton($event)'>

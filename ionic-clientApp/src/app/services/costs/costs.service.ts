@@ -24,16 +24,18 @@ export class CostsService {
     dueDate: Date,
     category: string,
     totalSum: number,
-    paid: boolean
+    paid: boolean,
+    notes?: string
   ) {
     console.log('add new place');
     const newCost = new Cost(
       Math.random().toString(),
       title,
       dueDate,
-     totalSum,
-     category,
-     paid
+      totalSum,
+      category,
+      paid,
+      notes
     );
     return this._expenses.pipe(
       take(1),
@@ -44,6 +46,16 @@ export class CostsService {
         }, 1000)
       )
     );
+  }
+
+  deleteCost(cost: Cost) {
+
+    this.expenses.subscribe(costs => {
+      this.costs = costs;
+      const removeIndex = this.costs.map(function (item) { return item.id; }).indexOf(cost.id);
+      // remove object
+      this.costs.splice(removeIndex, 1);
+    });
   }
 
   calcTotalCost() {

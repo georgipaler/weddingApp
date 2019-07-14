@@ -32,6 +32,7 @@ export interface IGuest {
     id: number;
     group: string;
     name: string;
+    email?: string;
     phoneNumber: string;
     membersNo: number;
     tableNo?: number;
