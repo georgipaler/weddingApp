@@ -1,3 +1,9 @@
+:host(){
+    --border-color: white;
+    --border-style: unset;
+    --inner-border-width: 0;
+}
+
 ion-header{
     ion-title{
         font-family: 'Montserrat', sans-serif;
@@ -13,6 +19,10 @@ ion-content{
         margin-top: 1rem;
     }
 
+    ion-item-sliding{
+        margin-bottom: 1.5rem;
+    }
+
     #guestList{
         margin: 1rem;
 
@@ -26,5 +36,7 @@ ion-content{
 
 
 .item-inner{
-    border: 0;
+    border-color: var(--border-color);
+    border-style: var(--border-style);
+    border-width: var(--inner-border-width);
 }

@@ -13,9 +13,8 @@ export class ContactSearchPipe implements PipeTransform {
       return this.compare(guest.name.formatted, searchedText);
     });
   }
-  
+
   private compare(initialValue: string, searchValue: string): boolean {
-    console.log("compare", initialValue, searchValue);
     if (initialValue.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1) {
       return true;
     }

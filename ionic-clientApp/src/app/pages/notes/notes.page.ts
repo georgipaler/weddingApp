@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { INote, NOTES_LIST } from 'src/model/interfaces';
-import * as moment from 'moment'
 import { Router } from '@angular/router';
 import { LoaderService } from 'src/app/services/loader/loader.service';
-import { TouchSequence } from 'selenium-webdriver';
 import { NoteService } from 'src/app/services/notes/note.service';
 
 @Component({
@@ -16,7 +14,7 @@ export class NotesPage implements OnInit {
 
   notes: INote[] = [];
 
-  constructor( public alertController: AlertController,
+  constructor(public alertController: AlertController,
     private router: Router,
     private loaderServ: LoaderService,
     private noteService: NoteService) { }
@@ -27,21 +25,20 @@ export class NotesPage implements OnInit {
     this.loaderServ.dismiss();
   }
 
-  addNote(note: INote){
-    if(note){
+  addNote(note: INote) {
+    if (note) {
       this.noteService.newNote = note;
-    }
-    else{
+    } else {
       this.noteService.resetNote();
     }
     this.router.navigateByUrl('welcome/tabs/home/addNote');
   }
 
-  dateFormat(date: Date){
-    return date.toLocaleDateString("en-US");
+  dateFormat(date: Date) {
+    return date.toLocaleDateString('en-US');
   }
 
-  deleteNote(note: INote){
+  deleteNote(note: INote) {
     this.presentAlertConfirm(note);
   }
 
@@ -61,7 +58,7 @@ export class NotesPage implements OnInit {
           text: 'Okay',
           handler: () => {
             console.log('Confirm Okay');
-            this.noteService.deleteNote(note)
+            this.noteService.deleteNote(note);
           }
         }
       ]

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Vendor } from 'src/model/interfaces';
 import { ExpandableComponent } from 'src/app/components/expandable/expandable.component';
-import { ModalController } from '@ionic/angular';
+import { ModalController, AlertController } from '@ionic/angular';
 import { AddVendorComponent } from './components/add-vendor/add-vendor.component';
 
 @Component({
@@ -24,7 +24,8 @@ export class VendorsPage implements OnInit {
     },
   ];
   constructor(
-    private modalController: ModalController
+    private modalController: ModalController,
+    public alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -43,6 +44,40 @@ export class VendorsPage implements OnInit {
     });
 
     modal.present();
+  }
+
+  deleteVendor(note: Vendor) {
+    this.presentAlertConfirm(note);
+  }
+
+  async presentAlertConfirm(vendor: Vendor) {
+    const alert = await this.alertController.create({
+      header: 'Confirm!',
+      message: `Are you sure you want to remove this vendor?`,
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.deleteVendorByIndex(vendor);
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  deleteVendorByIndex(vendor: Vendor) {
+    const removeIndex = this.vendorsList.map(function (item) { return item.id; }).indexOf(vendor.id);
+    // remove object
+    this.vendorsList.splice(removeIndex, 1);
   }
 
 }
