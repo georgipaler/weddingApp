@@ -8,11 +8,15 @@ import { GuestPage } from 'src/app/pages/guest/guest.page';
 })
 export class ExpandableComponent implements OnInit {
 
+  // tslint:disable-next-line:no-input-rename
   @Input('guest') guest;
+  // tslint:disable-next-line:no-input-rename
+  @Input('type') type;
 
   constructor() { }
 
   ngOnInit() {
+    console.log('obj', this.guest);
   }
 
 }

@@ -1,0 +1,38 @@
+<section id='topWrapper'>
+  <div class='backButton' (click)='dismissModalCancel()'>
+    <ion-icon ios='ios-arrow-back' md='md-arrow-back'></ion-icon>
+    <div class='textBack'>Back</div>
+  </div>
+</section>
+
+<section id='mainWrapper'>
+  <h4>Add new cost</h4>
+  <form [formGroup]='vendorForm' class='guestInfo'>
+    <ion-item>
+      <ion-label position='floating'>Full name</ion-label>
+      <ion-input
+        type='text'
+        formControlName='name'
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>Role</ion-label>
+      <ion-input
+      type='text'
+      formControlName='role'
+    ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position='floating'>Phone number</ion-label>
+      <ion-input
+      type='text'
+      formControlName='phoneNumber'
+    ></ion-input>
+    </ion-item>
+  </form>
+
+  <div class='buttonsWrapper' (click)='save()'>
+    <span (click)='save()'>Add vendor</span>
+  </div>
+</section>

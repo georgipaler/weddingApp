@@ -1,0 +1,30 @@
+ion-header{
+    ion-title{
+        font-family: 'Montserrat', sans-serif;
+    }
+    ion-buttons.addNote{
+        font-size: 2rem;
+    }
+}
+
+ion-content{
+    font-family: 'Montserrat', sans-serif;
+    ion-searchbar{
+        margin-top: 1rem;
+    }
+
+    #guestList{
+        margin: 1rem;
+
+
+        .guest{
+            padding: 1rem;
+            border-bottom: 0.3px solid #FFDED5 ;
+        }
+    }
+}
+
+
+.item-inner{
+    border: 0;
+}

@@ -1,7 +1,8 @@
 <section id="mainContainer">
   {{guest?.name}}
   <div class="shortInfoGuest">
-    <section>Confirmation: {{guest?.response}}</section>
+    <section *ngIf="type === 'guest'">Confirmation: {{guest?.response}}</section>
+    <section *ngIf="type === 'vendor'">Role: {{guest?.role}}</section>
     <section>Phone: {{guest?.phoneNumber}}</section>
   </div>
 </section>

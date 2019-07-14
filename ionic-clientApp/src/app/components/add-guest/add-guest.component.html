@@ -6,11 +6,10 @@
     </div>
     <ion-title>Add new guest</ion-title>
     <ion-button class='toolbar__done' [disabled]='!addGuest.valid' slot='end' (click)='logForm()' fill='clear'
-    [ngClass]='{'submit__button--disabled' : !addGuest?.valid}'>
+    [ngClass]="{'submit__button--disabled' : !addGuest?.valid}">
       Done
     </ion-button>
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content>

@@ -22,6 +22,7 @@
     }
     
     & .costsDetails {
+        min-height: fit-content;
         flex-grow: 1;
         overflow: auto;
     }

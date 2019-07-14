@@ -16,15 +16,19 @@ const routes: Routes = [
           },
           {
             path: 'notes',
-            loadChildren: '../pages/notes/notes.module#NotesPageModule' 
+            loadChildren: '../pages/notes/notes.module#NotesPageModule'
           },
           {
             path: 'addNote',
-            loadChildren: '../pages/notes/add-note/add-note.module#AddNotePageModule' 
+            loadChildren: '../pages/notes/add-note/add-note.module#AddNotePageModule'
           },
           {
             path: 'costs',
-            loadChildren: '../pages/costs/costs.module#CostsPageModule' 
+            loadChildren: '../pages/costs/costs.module#CostsPageModule'
+          },
+          {
+            path: 'vendors',
+            loadChildren: '../pages/vendors/vendors.module#VendorsPageModule'
           },
         ]
       },

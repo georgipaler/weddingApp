@@ -1,53 +1,53 @@
-<section id="topWrapper">
-  <div class="backButton" (click)="dismissModalCancel()">
-    <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
-    <div class="textBack">Back</div>
+<section id='topWrapper'>
+  <div class='backButton' (click)='dismissModalCancel()'>
+    <ion-icon ios='ios-arrow-back' md='md-arrow-back'></ion-icon>
+    <div class='textBack'>Back</div>
   </div>
 </section>
 
-<section id="mainWrapper">
-  <h4>Add new cost</h4>
-  <ion-list class="guestInfo">
+<section id='mainWrapper'>
+  <h4>Add new vendor</h4>
+  <ion-list class='guestInfo'>
     <ion-item>
       <ion-input
-        type="text"
-        placeholder="Title"
-        [(ngModel)]="event.title"
+        type='text'
+        placeholder='Title'
+        [(ngModel)]='event.title'
       ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Amount </ion-label>
-      <ion-input type="number" [(ngModel)]="event.totalCost"></ion-input>
+      <ion-input type='number' [(ngModel)]='event.totalCost'></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Due date </ion-label>
       <ion-datetime
-        displayFormat="MM/DD/YYYY HH:mm"
-        pickerFromat="MM/DD/YYYY HH:mm"
-        [(ngModel)]="event.dueDate"
-        [min]="minDate"
+        displayFormat='MM/DD/YYYY HH:mm'
+        pickerFromat='MM/DD/YYYY HH:mm'
+        [(ngModel)]='event.dueDate'
+        [min]='minDate'
       ></ion-datetime>
     </ion-item>
 
-    <ion-item class="dropdownInput">
+    <ion-item class='dropdownInput'>
       <ion-label>Category</ion-label>
-      <ion-select placeholder="Category"  [(ngModel)]="event.category">
-        <ion-select-option *ngFor="let opt of options" value="{{opt}}">{{opt}}</ion-select-option>
+      <ion-select placeholder='Category'  [(ngModel)]='event.category'>
+        <ion-select-option *ngFor='let opt of options' value='{{opt}}'>{{opt}}</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label>Paid</ion-label>
-      <ion-checkbox [(ngModel)]="event.paid"></ion-checkbox>
+      <ion-checkbox [(ngModel)]='event.paid'></ion-checkbox>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Notes</ion-label>
-      <ion-textarea type="text" [(ngModel)]="event.notes"></ion-textarea>
+      <ion-label position='floating'>Notes</ion-label>
+      <ion-textarea type='text' [(ngModel)]='event.notes'></ion-textarea>
     </ion-item>
   </ion-list>
 
-  <div class="buttonsWrapper" (click)="save()">
-    <span (click)="save()">Add cost</span>
+  <div class='buttonsWrapper' (click)='save()'>
+    <span (click)='save()'>Add cost</span>
   </div>
 </section>

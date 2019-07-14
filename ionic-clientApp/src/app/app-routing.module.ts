@@ -18,6 +18,7 @@ const routes: Routes = [
     loadChildren: './pages/auth/auth.module#AuthPageModule',
     canLoad: [AuthGuard]
   },
+  { path: 'vendors', loadChildren: './pages/vendors/vendors/vendors.module#VendorsPageModule' },
   // { path: 'costs', loadChildren: './costs/costs.module#CostsPageModule' },
   // { path: 'add-note', loadChildren: './pages/notes/add-note/add-note.module#AddNotePageModule' },
   // { path: 'notes', loadChildren: './pages/notes/notes.module#NotesPageModule' }

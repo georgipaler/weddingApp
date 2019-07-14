@@ -11,31 +11,28 @@ export class AddCostComponent implements OnInit {
 
   event = {
     title: '',
-    totalCost: new Date().toISOString(), 
-    dueDate: new Date().toISOString(), 
+    totalCost: new Date().toISOString(),
+    dueDate: new Date().toISOString(),
     paid: false,
     category: '',
     notes: ''
   };
 
-  options: String[] = ["Food & drink", "Music", "Flowers"];
+  options: String[] = ['Food & drink', 'Music', 'Flowers'];
 
   minDate = new Date().toISOString();
   constructor(public navController: NavController,
     public navParams: NavParams,
     private modalController: ModalController
-    ) { 
-
-    
-  }
+    ) {}
 
   ngOnInit() {}
 
-  async save(){
-    console.log("form", this.event);
+  async save() {
+    console.log('form', this.event);
     await this.modalController.dismiss();
   }
-  async dismissModalCancel(){
+  async dismissModalCancel() {
     await this.modalController.dismiss();
   }
 

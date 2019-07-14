@@ -12,6 +12,7 @@ import { SearchPipePipe } from 'src/app/pipes/searchPipe/search-pipe.pipe';
 import { SharedModule } from 'src/app/pipes/shared.module';
 import { ImportContacsComponent } from 'src/app/components/import-contacs/import-contacs.component';
 import { IndependentGuestDetailsComponent } from 'src/app/components/independent-guest-details/independent-guest-details.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
     AddGuestComponent,
     ImportContacsComponent,
     IndependentGuestDetailsComponent,
+    ExpandableComponent
   ],
   imports: [
     CommonModule,
@@ -33,14 +35,14 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule,
     ReactiveFormsModule,
+    ComponentsModule
   ],
   declarations: [
     GroupDetailsPage,
     AddGuestComponent,
-    ExpandableComponent,
     ImportContacsComponent,
     IndependentGuestDetailsComponent,
   ],
- 
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class GroupDetailsPageModule {}

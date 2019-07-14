@@ -1,23 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons slot='start'>
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    
+
     <ion-title>{{group?.name}}</ion-title>
-    <ion-buttons (click)="addNewGuest()" class="addGuest" slot="end">
-        <ion-icon ios="ios-add" md="md-add"></ion-icon>
+    <ion-buttons (click)='addNewGuest()' class='addGuest' slot='end'>
+      <ion-icon ios='ios-add' md='md-add'></ion-icon>
     </ion-buttons>
   </ion-toolbar>
- 
+
 </ion-header>
 
-<ion-content id="mainWrapper">
-  <ion-searchbar [(ngModel)]="searchedText" ></ion-searchbar>
+<ion-content id='mainWrapper'>
+  <ion-searchbar [(ngModel)]='searchedText'></ion-searchbar>
 
-  <div id="guestList">
-    <div class="guest" *ngFor="let guest of guestsList | searchPipe: searchedText" >
-      <app-expandable (click)="goToIndependentDetails(guest)" [guest]="guest"></app-expandable>
+  <div id='guestList'>
+    <div class='guest' *ngFor='let guest of guestsList | searchPipe: searchedText'>
+      <app-expandable (click)='goToIndependentDetails(guest)' [type]="'guest'" [guest]='guest'></app-expandable>
     </div>
   </div>
 </ion-content>

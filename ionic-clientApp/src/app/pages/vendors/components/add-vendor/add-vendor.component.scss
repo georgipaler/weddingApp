@@ -1,0 +1,65 @@
+#topWrapper{
+    height: 10%;
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+
+    .backButton{
+        color: #A87E67;
+        font-size: 2rem;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: fit-content;
+        .textBack{
+            font-size: 1rem;
+        }
+     }
+}
+
+
+#mainWrapper{
+    height: 90%;
+
+    padding-top: 3rem;
+    padding-left: 3rem;
+    color: #5d6066;
+    animation: 1.5s fadeInRight forwards;
+
+    h4{
+        color: #A87E67;
+        margin-left: 2rem;
+    }
+    .guestInfo{
+        margin-top: 2rem;
+        padding: 1rem;
+        width: 100% ;
+        box-shadow: -7px -1px 10px -4px #EDEAEA;
+
+    }
+
+    .buttonsWrapper{
+        display: flex;
+        background-color: #A87E67;
+        color: #EDEAEA;
+        font-weight: bold;
+        margin-left: 2rem;
+        span{
+            padding: 0.8rem 1rem;
+        }
+    }
+
+}
+
+ .list-ios{
+     margin:0;
+ }
+
+@keyframes fadeInRight {
+    0% { 
+      opacity: 0;
+    }
+    100% { 
+      opacity: 1; 
+    } 
+  }

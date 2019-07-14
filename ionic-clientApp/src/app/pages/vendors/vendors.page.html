@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot='start'>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Vendors</ion-title>
+    <ion-buttons (click)='addNewVendor()' class='addNote' slot='end'>
+      <ion-icon ios='ios-add' md='md-add'></ion-icon>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id='mainWrapper'>
+  <ion-searchbar [(ngModel)]='searchedText'></ion-searchbar>
+
+  <div id='guestList'>
+    <div class='guest' *ngFor='let guest of vendorsList | searchPipe: searchedText'>
+      <app-expandable [guest]='guest' [type]="'vendor'"></app-expandable>
+    </div>
+  </div>
+</ion-content>

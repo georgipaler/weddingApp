@@ -60,6 +60,10 @@ export class HomePage implements OnInit, OnDestroy {
     this.router.navigateByUrl('welcome/tabs/home/' + path);
   }
 
+  goToVendors(path: string) {
+    this.router.navigateByUrl('welcome/tabs/home/' + path);
+  }
+
   async presentActionSheet() {
     const actionSheet = await this.actionSheetCtrl.create({
       header: 'Settings',

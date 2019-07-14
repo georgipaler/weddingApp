@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, FormBuilder } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { HelpModalComponent } from './modals/help-modal/help-modal/help-modal.component';
+import { ExpandableComponent } from './expandable/expandable.component';
 
 @NgModule({
     imports: [
@@ -14,9 +15,14 @@ import { HelpModalComponent } from './modals/help-modal/help-modal/help-modal.co
     ],
     declarations: [
         CostsDetailsComponent,
-        HelpModalComponent
+        HelpModalComponent,
+        ExpandableComponent,
     ],
-    exports: [CostsDetailsComponent],
+    exports: [
+        CostsDetailsComponent,
+        ExpandableComponent,
+        HelpModalComponent,
+    ],
     providers: [
         FormBuilder,
     ],
