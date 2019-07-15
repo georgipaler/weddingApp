@@ -14,7 +14,7 @@ export class LoaderService {
     this.isLoading = true;
     return await this.loadingController.create({
       message: 'Please wait...',
-      spinner: "bubbles"
+      spinner: 'bubbles'
     }).then(a => {
       a.present().then(() => {
         console.log('presented');

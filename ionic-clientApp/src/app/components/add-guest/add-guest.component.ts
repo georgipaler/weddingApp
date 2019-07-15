@@ -67,8 +67,6 @@ export class AddGuestComponent implements OnInit {
   }
 
   logForm() {
-    console.log(this.addGuest.value);
-
     this.newGuest = {
       id: 10,
       group: this.groupName ? this.groupName.name : this.newGuest.group,
@@ -83,8 +81,6 @@ export class AddGuestComponent implements OnInit {
       notes: this.addGuest.value.notes,
       tableNo: this.addGuest.value.tableNo,
     };
-
-    console.log('new guest addModal', this.newGuest);
     this.dismissModal();
   }
 

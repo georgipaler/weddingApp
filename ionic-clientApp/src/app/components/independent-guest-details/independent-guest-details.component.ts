@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IGROUP, IGuest } from 'src/model/interfaces';
 import { NavParams, ModalController, AlertController } from '@ionic/angular';
 import { AddGuestComponent } from '../add-guest/add-guest.component';
+import { GuestsService } from 'src/app/services/guests/guests.service';
 
 @Component({
   selector: 'app-independent-guest-details',
@@ -15,6 +16,7 @@ export class IndependentGuestDetailsComponent implements OnInit {
   constructor(public navParams: NavParams,
     private modalController: ModalController,
     public alertController: AlertController,
+    private guestService: GuestsService
   ) { }
 
 
@@ -57,6 +59,7 @@ export class IndependentGuestDetailsComponent implements OnInit {
           text: 'Okay',
           handler: () => {
             console.log('Confirm Okay');
+            this.guestService.deleteGuest(this.guest);
             this.dismissModal('delete');
           }
         }
@@ -68,9 +71,11 @@ export class IndependentGuestDetailsComponent implements OnInit {
   async dismissModal(info: string) {
 
     if (info === 'delete') {
-      await this.modalController.dismiss(this.guest);
+      await this.modalController.dismiss();
     } else {
-      await this.modalController.dismiss(null);
+      this.guestService.deleteGuest(this.guest);
+      this.guestService.addGuest(this.guest);
+      await this.modalController.dismiss(this.guest);
     }
 
   }

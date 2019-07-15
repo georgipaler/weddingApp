@@ -19,5 +19,8 @@
     <div class='guest' *ngFor='let guest of guestsList | searchPipe: searchedText'>
       <app-expandable (click)='goToIndependentDetails(guest)' [type]="'guest'" [guest]='guest'></app-expandable>
     </div>
+    <div class='noDatatoDisplay' *ngIf='!guestsList.length'>
+      No data to display
+    </div>
   </div>
 </ion-content>

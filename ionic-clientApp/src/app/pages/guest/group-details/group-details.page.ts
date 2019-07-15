@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AddGuestComponent } from 'src/app/components/add-guest/add-guest.component';
 import { ModalController } from '@ionic/angular';
 import { IndependentGuestDetailsComponent } from 'src/app/components/independent-guest-details/independent-guest-details.component';
+import { GuestsService } from 'src/app/services/guests/guests.service';
 
 @Component({
   selector: 'app-group-details',
@@ -12,13 +13,14 @@ import { IndependentGuestDetailsComponent } from 'src/app/components/independent
 })
 export class GroupDetailsPage implements OnInit {
   group: IGROUP;
-  guestsList: Array<IGuest> = GUEST_LIST;
+  guestsList: Array<IGuest> = [];
   searchedText;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private guestService: GuestsService
   ) { }
 
   ngOnInit() {
@@ -27,11 +29,7 @@ export class GroupDetailsPage implements OnInit {
         this.group = JSON.parse(params.data);
       }
     });
-    console.log(this.group.name, this.guestsList);
-
-    this.guestsList = this.guestsList.filter(
-      guest => guest.group === this.group.name
-    );
+    this.guestsList = this.guestService.getGuestByGroup(this.group);
   }
 
   async addNewGuest() {
@@ -42,8 +40,9 @@ export class GroupDetailsPage implements OnInit {
 
     modal.onDidDismiss().then(data => {
       if (data['data']) {
-        this.guestsList.push(data['data']);
+       this.guestService.addGuest(data['data']);
       }
+      this.guestsList = this.guestService.getGuestByGroup(this.group);
     });
 
     modal.present();
@@ -58,12 +57,7 @@ export class GroupDetailsPage implements OnInit {
     modal.onDidDismiss().then(data => {
       // get null object if i click back button
       // get object i want be deleted if i click delete button
-      if (data['data']) {
-        const removeIndex = this.guestsList.map(function (item) { return item.id; }).indexOf(data['data'].id);
-        // remove object
-        this.guestsList.splice(removeIndex, 1);
-      }
-      console.log('dismiss');
+      this.guestsList = this.guestService.getGuestByGroup(this.group);
     });
 
     modal.present();

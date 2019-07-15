@@ -1,32 +1,35 @@
-<section class="mainWrapper">
+<section class="mainWrapperCost">
   <div class="currentMonth">{{ getMonth() }}</div>
 
-  <ion-item-sliding *ngFor="let cost of getCostsArray()">
-    <ion-item>
-      <div class="costItem">
-        <div class="leftColumn">
-          <p>{{ cost?.title }}</p>
-          <span>{{ cost?.category }}</span>
+  <div class="listaItems">
+    <ion-item-sliding *ngFor="let cost of getCostsArray()">
+      <ion-item>
+        <div class="costItem">
+          <div class="leftColumn">
+            <p>{{ cost?.title }}</p>
+            <span>{{ cost?.category }}</span>
+          </div>
+          <div class="rightColumn">
+  
+            <p>{{ cost?.totalSum }} lei</p>
+            <span *ngIf="!cost?.paid" class="unpaid">Unpaid</span>
+            <span *ngIf="cost?.paid" class="paid">Paid <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
+          </div>
+  
         </div>
-        <div class="rightColumn">
+      </ion-item>
+  
+  
+      <ion-item-options side="end">
+          <ion-item-option color="edit" (click)="editCost(cost)" expandable>
+              <ion-icon ios="ios-create" md="md-create"></ion-icon>
+           </ion-item-option>
+        <ion-item-option color="danger" (click)="deleteCost(cost)" expandable>
+          <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </div>
 
-          <p>{{ cost?.totalSum }} lei</p>
-          <span *ngIf="!cost?.paid" class="unpaid">Unpaid</span>
-          <span *ngIf="cost?.paid" class="paid">Paid <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon></span>
-        </div>
-
-      </div>
-    </ion-item>
-
-
-    <ion-item-options side="end">
-        <ion-item-option color="edit" (click)="editCost(cost)" expandable>
-            <ion-icon ios="ios-create" md="md-create"></ion-icon>
-         </ion-item-option>
-      <ion-item-option color="danger" (click)="deleteCost(cost)" expandable>
-        <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-      </ion-item-option>
-    </ion-item-options>
-  </ion-item-sliding>
   <span *ngIf="!getCostsArray() || getCostsArray().length === 0" class="noInfo">No data to display</span>
 </section>
