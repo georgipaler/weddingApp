@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IGROUP, IGuest, GUEST_LIST } from 'src/model/interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddGuestComponent } from 'src/app/components/add-guest/add-guest.component';
-import { ModalController } from '@ionic/angular';
+import { ModalController, Platform } from '@ionic/angular';
 import { IndependentGuestDetailsComponent } from 'src/app/components/independent-guest-details/independent-guest-details.component';
 import { GuestsService } from 'src/app/services/guests/guests.service';
 
@@ -20,16 +20,20 @@ export class GroupDetailsPage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private modalController: ModalController,
-    private guestService: GuestsService
+    private guestService: GuestsService,
+    private platform: Platform
   ) { }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      if (params && params.data) {
-        this.group = JSON.parse(params.data);
-      }
+    this.platform.ready().then(() => {
+      this.route.queryParams.subscribe(params => {
+        if (params && params.data) {
+          this.group = JSON.parse(params.data);
+        }
+      });
+      this.guestService.getGuestByGroup(this.group).then(res => this.guestsList = res);
     });
-    this.guestsList = this.guestService.getGuestByGroup(this.group);
+
   }
 
   async addNewGuest() {
@@ -42,7 +46,7 @@ export class GroupDetailsPage implements OnInit {
       if (data['data']) {
        this.guestService.addGuest(data['data']);
       }
-      this.guestsList = this.guestService.getGuestByGroup(this.group);
+      this.guestService.getGuestByGroup(this.group).then(res => this.guestsList = res);
     });
 
     modal.present();
@@ -57,7 +61,7 @@ export class GroupDetailsPage implements OnInit {
     modal.onDidDismiss().then(data => {
       // get null object if i click back button
       // get object i want be deleted if i click delete button
-      this.guestsList = this.guestService.getGuestByGroup(this.group);
+      this.guestService.getGuestByGroup(this.group).then(res => this.guestsList = res);
     });
 
     modal.present();

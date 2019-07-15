@@ -7,14 +7,14 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 })
 export class GuestsService {
 
-  private guestsList: IGuest[] = [];
+  private guestsList: IGuest[];
 
   constructor(
     private nativeStorage: NativeStorage
   ) { }
 
   deleteGuest(guest: IGuest) {
-    const removeIndex = this.guestsList.map(function (item) { return item.id; }).indexOf(guest.id);
+    const removeIndex = this.guestsList.map(function (item) { return item.name; }).indexOf(guest.name);
     // remove object
     this.guestsList.splice(removeIndex, 1);
     this.nativeStorage.setItem('guests', this.guestsList)
@@ -28,20 +28,30 @@ export class GuestsService {
     this.guestsList.push(guest);
     this.nativeStorage.setItem('guests', this.guestsList)
     .then(
-      () => console.log('Stored guests!'),
-      error => console.error('Error storing item', error)
-    );
+      () => {
+        console.log('Stored guests!');
+      }
+    )
+    .catch(error => {
+      console.error('Error storing item', error);
+    });
   }
 
-  getAllGuest(): IGuest[] {
-    this.nativeStorage.getItem('guests').then(res => this.guestsList = res);
-    return this.guestsList;
+  getAllGuest() {
+    return this.nativeStorage.getItem('guests').then(res => {
+      this.guestsList = res;
+      return Promise.all(this.guestsList);
+    });
   }
 
-  getGuestByGroup(group: IGROUP): IGuest[] {
-    this.nativeStorage.getItem('guests').then(res => this.guestsList = res);
-    return this.guestsList.filter(
-      guest => guest.group === group.name
-    );
+  getGuestByGroup(group: IGROUP) {
+    return this.nativeStorage.getItem('guests').then(res => {
+      this.guestsList = res;
+      const guests = this.guestsList.filter(
+         guest => guest.group === group.name
+      );
+
+      return Promise.all(guests);
+    });
   }
 }

@@ -3,7 +3,7 @@
     <name>Official mrs.</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.8:8101" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -88,6 +88,7 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSContactsUsageDescription">
         <string>need contacts access to search friends</string>
     </edit-config>
-    <engine name="android" spec="6.3.0" />
+    <plugin name="cordova-plugin-nativestorage" spec="2.3.2" />
+    <allow-navigation href="http://192.168.1.8:8101" sessionid="7546eb8b" />
     <engine name="ios" spec="^4.5.5" />
 </widget>
