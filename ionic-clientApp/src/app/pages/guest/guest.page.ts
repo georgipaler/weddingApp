@@ -3,6 +3,7 @@ import { IGROUP, GROUP_LIST, IGuest } from 'src/model/interfaces';
 import { Router, NavigationExtras } from '@angular/router';
 import { GuestsService } from 'src/app/services/guests/guests.service';
 import { LoaderService } from 'src/app/services/loader/loader.service';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
   selector: 'app-guest',
@@ -24,7 +25,8 @@ export class GuestPage implements OnInit {
   constructor(
     private router: Router,
     private guestService: GuestsService,
-    private loader: LoaderService
+    private loader: LoaderService,
+    private nativeStorage: NativeStorage
     ) { }
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class GuestPage implements OnInit {
       this.guestsList.map( guest => guest.sentInvitation ? this.totalInvited++ : this.totalInvited);
       this.totalGuest = this.guestsList.length;
     });
+    this.nativeStorage.getItem('groups').then(res => this.groupsList = res);
   }
 
   showNewInput() {
@@ -55,6 +58,11 @@ export class GuestPage implements OnInit {
 
     this.hideInput();
     this.groupsList.unshift(newGroup);
+    this.nativeStorage.setItem('groups', this.groupsList)
+    .then(
+      () => console.log('Stored group!'),
+      error => console.error('Error storing item', error)
+    );
   }
 
   hideInput() {
