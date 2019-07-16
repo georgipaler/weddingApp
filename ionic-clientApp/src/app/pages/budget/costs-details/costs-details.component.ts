@@ -38,7 +38,6 @@ export class CostsDetailsComponent implements OnInit, OnDestroy {
 
     this.expensesSub = this.costService.expenses.subscribe(costs => {
       this.costs = costs;
-      console.log(costs);
       this.loaderServ.dismiss();
     });
 
@@ -99,6 +98,7 @@ export class CostsDetailsComponent implements OnInit, OnDestroy {
     modal.onDidDismiss().then(data => {
       if (data['data']) {
         const newCost: Cost = data['data'];
+        this.costService.deleteCost(newCost);
         this.costService.addCost(newCost.title, new Date(newCost.dueDate), newCost.category, newCost.totalSum, newCost.paid, newCost.notes);
         this.costs.push(newCost);
       }

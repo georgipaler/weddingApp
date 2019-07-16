@@ -4,6 +4,7 @@ import { __await } from 'tslib';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { CostsService } from 'src/app/services/costs/costs.service';
 import { Cost } from 'src/app/pages/costs/cost.model';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-add-cost',
@@ -89,12 +90,9 @@ export class AddCostComponent implements OnInit {
   }
 
   async save() {
-    if ( this.cost ) {
-      this.costService.deleteCost(this.cost);
-    }
     console.log('form', this.costForm.value);
     const costValue: Cost = {
-      id: '1',
+      id:  this.cost ? this.cost.id :  Math.random().toString(),
       title: this.costForm.value.title,
       dueDate: this.costForm.value.dueDate,
       category: this.costForm.value.category,

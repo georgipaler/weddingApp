@@ -35,13 +35,11 @@ export class GuestPage implements OnInit {
     this.totalInvited = 0;
     this.totalGuest = 0;
 
-    this.loader.present();
     this.guestService.getAllGuest().then(res => {
       this.guestsList = res;
       this.guestsList.map( guest => guest.response === 'accepted' ? this.totalAccepted++ : this.totalAccepted);
       this.guestsList.map( guest => guest.sentInvitation ? this.totalInvited++ : this.totalInvited);
       this.totalGuest = this.guestsList.length;
-      this.loader.dismiss();
     });
   }
 

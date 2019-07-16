@@ -20,14 +20,16 @@ export class NotesPage implements OnInit {
     private noteService: NoteService) { }
 
   ngOnInit() {
-    this.loaderServ.present();
-    this.notes = this.noteService.notes;
-    this.loaderServ.dismiss();
+    this.noteService.getAllNotes().then(res => this.notes = res);
   }
 
-  addNote(note: INote) {
+  ionViewWillEnter() {
+    this.noteService.getAllNotes().then(res => this.notes = res);
+  }
+
+  addNote(note: INote, types: string) {
     if (note) {
-      this.noteService.newNote = note;
+      this.noteService.setNewNote(note);
     } else {
       this.noteService.resetNote();
     }
@@ -35,7 +37,7 @@ export class NotesPage implements OnInit {
   }
 
   dateFormat(date: Date) {
-    return date.toLocaleDateString('en-US');
+    return date.toString();
   }
 
   deleteNote(note: INote) {
@@ -59,6 +61,7 @@ export class NotesPage implements OnInit {
           handler: () => {
             console.log('Confirm Okay');
             this.noteService.deleteNote(note);
+            this.noteService.getAllNotes().then(res => this.notes = res);
           }
         }
       ]
