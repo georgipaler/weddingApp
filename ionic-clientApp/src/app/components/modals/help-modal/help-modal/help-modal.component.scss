@@ -1,0 +1,78 @@
+#topWrapper{
+    height: 10%;
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+
+    .backButton{
+        color: #A87E67;
+        font-size: 2rem;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: fit-content;
+        .textBack{
+            font-size: 1rem;
+        }
+     }
+}
+
+#mainWrapper{
+    height: 90%;
+
+    padding-top: 0.5rem;
+    padding-left: 3rem;
+    color: #5d6066;
+    animation: 0.75s fadeInRight forwards;
+
+    h3{
+        color: #A87E67;
+        font-weight: bold;
+    }
+    .guestInfo{
+        margin-top: 0.5rem;
+        padding: 1rem;
+        width: 100% ;
+        box-shadow: 0 15px 40px 0 #EDEAEA;
+
+        .basicInfo{
+            margin-top: 0.5rem;
+           
+            .info{
+                font-size: 0.9rem;
+                padding: 0.5rem 0;
+                display: flex;
+                justify-content: space-between;
+            }
+            
+        }
+    }
+
+    .buttonsWrapper{
+        min-height: 1.5rem;
+        display: flex;
+        justify-content: flex-end;
+        background-image: linear-gradient(rgb(145, 109, 90) ,#A87E67 , rgb(183, 138, 114));
+        color: #EDEAEA;
+        font-weight: bold;
+        margin-left: 2rem;
+      
+        span{
+            padding: 0.8rem 1rem;
+        }
+    }
+
+}
+
+ 
+@keyframes fadeInRight {
+    0% { 
+      opacity: 0;
+      margin-left:70px;
+      margin-right: -70px;
+    }
+    100% { 
+      opacity: 1; 
+      margin-left:0px;
+    } 
+  }

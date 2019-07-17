@@ -36,6 +36,10 @@ export class AuthPage implements OnInit, OnDestroy {
   }
 
   onLogin() {
+    const userForm: IUser = {
+      email: this.formLogin.value.email
+   };
+  this.userService.setUser(userForm);
     console.log('values form', this.formLogin.value);
     this.authService.login();
     this.router.navigate(['welcome/tabs/home']);

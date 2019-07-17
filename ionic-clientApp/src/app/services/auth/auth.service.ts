@@ -7,17 +7,17 @@ export class AuthService {
 
   private _userIsAuthenticated = true;
 
-  get userIsAuthenticated(){
+  get userIsAuthenticated() {
     return this._userIsAuthenticated;
   }
 
   constructor() { }
 
-  login(){
+  login() {
     this._userIsAuthenticated = true;
   }
 
-  logout(){
+  logout() {
     this._userIsAuthenticated = false;
   }
 }

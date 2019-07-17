@@ -36,7 +36,7 @@ export class HomePage implements OnInit, OnDestroy {
     this.userSupscription = this.userService.getUserData().subscribe(
       (user: IUser[]) => {
         if ( this.userService.getUser() ) {
-          this.user = user.filter( us => us.name === this.userService.getUser().name)[0];
+          this.user = user.filter( us => us.email === this.userService.getUser().email)[0];
         } else {
           this.user = user[0];
         }

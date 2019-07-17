@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-help-modal',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modalController: ModalController
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+  dismissModal() {
+    this.modalController.dismiss();
+  }
 
 }

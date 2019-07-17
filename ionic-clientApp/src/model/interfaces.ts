@@ -15,9 +15,9 @@ export interface IGROUP {
 
 export interface IUser {
     id?: number;
-    name: string;
-    gender: string;
-    email: string;
+    name?: string;
+    gender?: string;
+    email?: string;
     _value?: any;
 }
 
