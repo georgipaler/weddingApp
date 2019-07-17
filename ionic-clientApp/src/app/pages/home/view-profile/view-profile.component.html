@@ -1,0 +1,32 @@
+<section id="topWrapper">
+  <div class="backButton" (click)="dismissModal()">
+    <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+    <div class="textBack">Back</div>
+  </div>
+</section>
+
+<section id="mainWrapper">
+  <h3>My profile</h3>
+
+  <div class="guestInfo">
+
+    <div class="basicInfo">
+        <div class="info">
+            <div>Full name: </div>
+            <div>{{ user?.name }}</div>
+        </div>
+       <div class="info">
+          <div>E-mail: </div>
+          <div>{{ user?.email }}</div>
+      </div>
+      <div class="info">
+            <div>Gender: </div>
+            <div>{{ user?.gender }}</div>
+      </div>
+    
+    </div>
+  </div>
+
+  <div class="buttonsWrapper">
+  </div>
+</section>

@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { HomePage } from './home.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { PopoverComponent } from 'src/app/components/popover/popover.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 const routes: Routes = [
   {
@@ -24,10 +25,11 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     TranslateModule
   ],
-  declarations: [HomePage, PopoverComponent]
+  declarations: [HomePage, PopoverComponent, ViewProfileComponent]
   ,
-  entryComponents:[
-    PopoverComponent
+  entryComponents: [
+    PopoverComponent,
+    ViewProfileComponent
   ]
 })
 export class HomePageModule {}

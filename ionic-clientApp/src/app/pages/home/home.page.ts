@@ -3,10 +3,11 @@ import { UserService } from 'src/app/services/user/user.service';
 import { IUser } from 'src/model/interfaces';
 import { Subscription } from 'rxjs';
 import { LoaderService } from 'src/app/services/loader/loader.service';
-import { ActionSheetController, PopoverController } from '@ionic/angular';
+import { ActionSheetController, PopoverController, ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { PopoverComponent } from 'src/app/components/popover/popover.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 @Component({
   selector: 'app-home',
@@ -26,6 +27,7 @@ export class HomePage implements OnInit, OnDestroy {
     private authService: AuthService,
     private router: Router,
     public popoverController: PopoverController,
+    private modalController: ModalController
   ) {}
 
   ngOnInit() {
@@ -73,9 +75,10 @@ export class HomePage implements OnInit, OnDestroy {
       header: 'Settings',
       buttons: [
         {
-          text: 'Edit profile',
+          text: 'View profile',
           handler: () => {
             console.log('edit clicked');
+            this.goToUserDetails(this.user);
           }
         },
         {
@@ -96,6 +99,17 @@ export class HomePage implements OnInit, OnDestroy {
       ]
     });
     await actionSheet.present();
+  }
+
+  async goToUserDetails(user: IUser) {
+    const modal: HTMLIonModalElement = await this.modalController.create({
+      component: ViewProfileComponent,
+      componentProps: { user: user }
+    });
+
+    modal.onDidDismiss().then(data => {
+    });
+    modal.present();
   }
 
   async presentPopover() {
