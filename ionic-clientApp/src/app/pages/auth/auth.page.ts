@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
@@ -6,24 +6,28 @@ import { IonSlides, ModalController } from '@ionic/angular';
 import { HelpModalComponent } from 'src/app/components/modals/help-modal/help-modal/help-modal.component';
 import { IUser } from '../../../model/interfaces';
 import { LoaderService } from '../../services/loader/loader.service';
+import { Subscription } from 'rxjs';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
 })
-export class AuthPage implements OnInit {
+export class AuthPage implements OnInit, OnDestroy {
 
   @ViewChild('slider') slider: IonSlides;
   public formLogin: FormGroup;
   formRegister: FormGroup;
   page: any = '0';
-
+  users: IUser[] ;
+  private userSupscription: Subscription;
   constructor(private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder,
     public modalController: ModalController,
-    private loader: LoaderService
+    private loader: LoaderService,
+    private userService: UserService,
     ) { }
 
   ngOnInit() {
@@ -38,25 +42,24 @@ export class AuthPage implements OnInit {
   }
 
  onRegister() {
-   const user: IUser = {
-    name: this.formRegister.value.fullName,
-    gender: this.formRegister.value.gender,
-    email: this.formRegister.value.email
+   const userForm: IUser = {
+      name: this.formRegister.value.fullName,
+      gender: this.formRegister.value.gender,
+      email: this.formRegister.value.email
    };
-   fetch('https://guarded-citadel-95311.herokuapp.com/users/register', {
-    method: 'POST',
-    body: JSON.stringify(user),
-    headers: {
-      'Content-Type': 'application/json',
+  this.userService.setUser(userForm);
+  this.loader.present();
+  this.userSupscription = this.userService.getUserData().subscribe(
+    (user: IUser[]) => {
+      this.users = user;
+      this.authService.login();
+      this.router.navigate(['welcome/tabs/home']);
+      this.loader.dismiss();
+    },
+    err => {
+      console.log(err);
     }
-  })
-  .then(response => {
-    console.log('Success:', JSON.stringify(response));
-    this.loader.present();
-    this.router.navigateByUrl('/');
-    this.loader.dismiss();
-  })
-  .catch(error => console.error('Error:', error));
+  );
 
  }
 
@@ -114,4 +117,7 @@ export class AuthPage implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.userSupscription.unsubscribe();
+  }
 }

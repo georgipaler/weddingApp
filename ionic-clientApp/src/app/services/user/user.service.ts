@@ -8,9 +8,19 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class UserService {
 
+  user: IUser;
+
   constructor(private http: HttpClient) { }
 
   getUserData(): Observable<Object>  {
     return this.http.get('https://guarded-citadel-95311.herokuapp.com/users');
+  }
+
+  setUser( user: IUser) {
+    this.user = user;
+  }
+
+  getUser() {
+    return this.user;
   }
 }

@@ -32,8 +32,12 @@ export class HomePage implements OnInit, OnDestroy {
 
     this.loading.present();
     this.userSupscription = this.userService.getUserData().subscribe(
-      (user: IUser) => {
-        this.user = user[0];
+      (user: IUser[]) => {
+        if ( this.userService.getUser() ) {
+          this.user = user.filter( us => us.name === this.userService.getUser().name)[0];
+        } else {
+          this.user = user[0];
+        }
         console.log('user', this.user.gender, this.user);
         this.displayBrideOrGroom();
         this.loading.dismiss();

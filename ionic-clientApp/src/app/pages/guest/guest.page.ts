@@ -39,9 +39,9 @@ export class GuestPage implements OnInit {
 
     this.guestService.getAllGuest().then(res => {
       this.guestsList = res;
-      this.guestsList.map( guest => guest.response === 'accepted' ? this.totalAccepted++ : this.totalAccepted);
+      this.guestsList.map( guest => guest.response === 'accepted' ? this.totalAccepted += guest.membersNo : this.totalAccepted);
       this.guestsList.map( guest => guest.sentInvitation ? this.totalInvited++ : this.totalInvited);
-      this.totalGuest = this.guestsList.length;
+      this.guestsList.map( guest => this.totalAccepted += guest.membersNo );
     });
     this.nativeStorage.getItem('groups').then(res => this.groupsList = res);
   }
