@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { IonSlides, ModalController } from '@ionic/angular';
 import { HelpModalComponent } from 'src/app/components/modals/help-modal/help-modal/help-modal.component';
+import { IUser } from '../../../model/interfaces';
+import { LoaderService } from '../../services/loader/loader.service';
 
 @Component({
   selector: 'app-auth',
@@ -20,7 +22,8 @@ export class AuthPage implements OnInit {
   constructor(private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder,
-    public modalController: ModalController
+    public modalController: ModalController,
+    private loader: LoaderService
     ) { }
 
   ngOnInit() {
@@ -33,6 +36,29 @@ export class AuthPage implements OnInit {
     this.authService.login();
     this.router.navigate(['welcome/tabs/home']);
   }
+
+ onRegister() {
+   const user: IUser = {
+    name: this.formRegister.fullName,
+    gender: this.formBuilder.gender,
+    email: this.formBuilder.email
+   }
+   fetch('https://guarded-citadel-95311.herokuapp.com/users/register', {
+    method: 'POST', 
+    body: JSON.stringify(user),
+    headers:{
+      'Content-Type': 'application/json',
+    }
+  })
+  .then(response => {
+    console.log('Success:', JSON.stringify(response));
+    this.loader.present();
+    this.router.navigateByUrl('/');
+    this.loader.dismiss();
+  })
+  .catch(error => console.error('Error:', error));
+
+ }
 
   async openHelpModal() {
     // open help modal
