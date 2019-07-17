@@ -49,7 +49,7 @@ export class AuthPage implements OnInit {
   }
 
 
-  // change selected button Sing In/ Sign Up
+  // change selected button Sign In/ Sign Up
   changeButton(event) {
     this.slider.getActiveIndex().then(index => this.page = index.toString());
   }
