@@ -7,7 +7,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 })
 export class GuestsService {
 
-  private guestsList: IGuest[];
+  private guestsList: IGuest[] = [];
 
   constructor(
     private nativeStorage: NativeStorage

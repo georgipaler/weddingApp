@@ -44,7 +44,8 @@ export class GroupDetailsPage implements OnInit {
 
     modal.onDidDismiss().then(data => {
       if (data['data']) {
-       this.guestService.addGuest(data['data']);
+        const guestDet: IGuest = data['data'];
+       this.guestService.addGuest(guestDet);
       }
       this.guestService.getGuestByGroup(this.group).then(res => this.guestsList = res);
     });

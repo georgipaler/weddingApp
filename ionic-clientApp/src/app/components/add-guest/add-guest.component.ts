@@ -68,7 +68,7 @@ export class AddGuestComponent implements OnInit {
 
   logForm() {
     this.newGuest = {
-      id: 10,
+      id: Math.random(),
       group: this.groupName ? this.groupName.name : this.newGuest.group,
       name: this.addGuest.value.name,
       email: this.addGuest.value.email,
@@ -79,7 +79,6 @@ export class AddGuestComponent implements OnInit {
       response: this.addGuest.value.confirmation,
       sentInvitation: this.addGuest.value.sentInvitation,
       notes: this.addGuest.value.notes,
-      tableNo: this.addGuest.value.tableNo,
     };
     this.dismissModal();
   }
@@ -97,7 +96,6 @@ export class AddGuestComponent implements OnInit {
       address: this.newGuest.address,
       notes: this.newGuest.notes,
       sentInvitation: this.newGuest.sentInvitation,
-      tableNo: this.newGuest.tableNo,
       menu: this.newGuest.isVegetarian
     });
   }
