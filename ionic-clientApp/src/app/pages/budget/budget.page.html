@@ -2,7 +2,7 @@
   <section class='topWrapperSmall'>
     <div class='totalInfo' (click)='displayTotalCosts()'>
       <p>Your total expenses</p>
-      <h3>{{totalSumTiDisplay}} RON</h3>
+      <h3>{{getTotalCost()}} RON</h3>
     </div>
 
     <app-chart (monthValueChange)='changeMonth($event)'></app-chart>

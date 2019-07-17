@@ -13,7 +13,12 @@ export class CostsService {
   _expenses = new BehaviorSubject<Cost[]>( expenses_list);
   costs: Cost[] = [];
   totalSum: number;
-  constructor() { }
+  constructor() {
+    this.expenses.subscribe(costs => {
+      this.costs = costs;
+      this.costs.map(cost => this.totalSum += cost.totalSum);
+    });
+   }
 
   public get expenses() {
     return this._expenses.asObservable();
@@ -60,10 +65,15 @@ export class CostsService {
 
   calcTotalCost() {
     this.totalSum = 0;
-    this.expenses.subscribe(costs => {
-      this.costs = costs;
-      this.costs.map(cost => this.totalSum += cost.totalSum);
-    });
+    this.costs.map(cost => this.totalSum += cost.totalSum);
+  }
+
+  getTotalSum() {
+    return this.totalSum ? this.totalSum : 0;
+  }
+
+  getCostArray() {
+    return this.costs;
   }
 
 }

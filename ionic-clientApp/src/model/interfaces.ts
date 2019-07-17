@@ -117,55 +117,56 @@ export const GROUP_LIST = [{
 },
 ];
 
-export const expenses_list: Cost[] = [{
-    id: '1',
-    title: 'Booked officiants',
-    dueDate: new Date(2018, 3, 10),
-    category: 'Food & drink',
-    totalSum: 3000,
-    paid: true
-},
-{
-    id: '2',
-    title: 'Bought cookies',
-    dueDate: new Date(2018, 10, 11),
-    totalSum: 4000,
-    category: 'Music',
-    paid: true
+export const expenses_list: Cost[] = [
+    //{
+//     id: '1',
+//     title: 'Booked officiants',
+//     dueDate: new Date(2018, 3, 10),
+//     category: 'Food & drink',
+//     totalSum: 3000,
+//     paid: true
+// },
+// {
+//     id: '2',
+//     title: 'Bought cookies',
+//     dueDate: new Date(2018, 10, 11),
+//     totalSum: 4000,
+//     category: 'Music',
+//     paid: true
 
-},
-{
-    id: '3',
-    title: 'Bought flowers',
-    dueDate: new Date(2018, 14, 12),
-    totalSum: 5600,
-    category: 'Flowers',
-    paid: true
-},
-{
-    id: '4',
-    title: 'Hired a photographer',
-    dueDate: new Date(2019, 3, 16),
-    totalSum: 1200,
-    category: 'Flowers',
-    paid: true
-},
-{
-    id: '5',
-    title: 'Hired a florist',
-    dueDate: new Date(2019, 6, 15),
-    totalSum: 300,
-    category: 'Flowers',
-    paid: true
-},
-{
-    id: '6',
-    title: 'Booked restaurant',
-    dueDate: new Date(2019, 7, 21),
-    totalSum: 10,
-    category: 'Flowers',
-    paid: false
-},
+// },
+// {
+//     id: '3',
+//     title: 'Bought flowers',
+//     dueDate: new Date(2018, 14, 12),
+//     totalSum: 5600,
+//     category: 'Flowers',
+//     paid: true
+// },
+// {
+//     id: '4',
+//     title: 'Hired a photographer',
+//     dueDate: new Date(2019, 3, 16),
+//     totalSum: 1200,
+//     category: 'Flowers',
+//     paid: true
+// },
+// {
+//     id: '5',
+//     title: 'Hired a florist',
+//     dueDate: new Date(2019, 6, 15),
+//     totalSum: 300,
+//     category: 'Flowers',
+//     paid: true
+// },
+// {
+//     id: '6',
+//     title: 'Booked restaurant',
+//     dueDate: new Date(2019, 7, 21),
+//     totalSum: 10,
+//     category: 'Flowers',
+//     paid: false
+// },
 ];
 
 export const Appointment_List: Array<IAppointment> = [

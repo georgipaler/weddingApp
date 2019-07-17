@@ -19,7 +19,12 @@ export class BudgetPage implements OnInit {
 
   ngOnInit() {
     this.costService.calcTotalCost();
-    this.totalSumTiDisplay = this.costService.totalSum;
+    this.totalSumTiDisplay = this.costService.getTotalSum();
+  }
+
+  getTotalCost() {
+    this.costService.calcTotalCost();
+    return this.costService.getTotalSum();
   }
 
   changeMonth(event: number) {

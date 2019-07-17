@@ -31,7 +31,7 @@ export class ChartComponent implements OnInit {
   public barChartLegend = false;
   public barChartData = [
     {
-      data: [12, 19, 3, 5, 2, 3, 10, 20, 17, 19, 23, 25],
+      data: [0, 0, 0, 0, 0, 0, 3, 10, 2, 0, 0, 0],
       backgroundColor: 
         "rgba(168, 126, 103, 0.2)"
       ,
