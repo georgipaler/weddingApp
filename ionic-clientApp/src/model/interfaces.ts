@@ -14,7 +14,7 @@ export interface IGROUP {
 }
 
 export interface IUser {
-    id: number;
+    id?: number;
     name: string;
     gender: string;
     email: string;
