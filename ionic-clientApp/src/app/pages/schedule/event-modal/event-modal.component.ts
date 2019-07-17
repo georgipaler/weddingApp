@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, ModalController } from '@ionic/angular';
-import * as moment from 'moment'
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-event-modal',
@@ -11,8 +11,8 @@ export class EventModalComponent implements OnInit {
 
   event = {
     title: '',
-    startTime: new Date().toISOString(), 
-    endTime: new Date().toISOString(), 
+    startTime: new Date().toISOString(),
+    endTime: new Date().toISOString(),
     allDay: false
   };
 
@@ -20,8 +20,7 @@ export class EventModalComponent implements OnInit {
   constructor(public navController: NavController,
     public navParams: NavParams,
     private modalController: ModalController
-    ) { 
-
+    ) {
     const preselectedDate = moment(this.navParams.get('selectedDay')).format();
       this.event.startTime  = preselectedDate;
       this.event.endTime  = preselectedDate;
@@ -29,19 +28,18 @@ export class EventModalComponent implements OnInit {
 
   ngOnInit() {}
 
-  save(){
+  save() {
    this.dismissModal();
   }
 
-  async dismissModal(){
-    if(this.event.title){
+  async dismissModal() {
+    if (this.event.title) {
       await this.modalController.dismiss(this.event);
     }
   }
 
-  async dismissModalCancel(){
+  async dismissModalCancel() {
       await this.modalController.dismiss(null);
-    
   }
 
 }

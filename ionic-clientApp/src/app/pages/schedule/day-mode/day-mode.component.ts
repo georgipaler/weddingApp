@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { NavController, ModalController, AlertController } from '@ionic/angular';
 import { EventModalComponent } from '../event-modal/event-modal.component';
 import { IEvent } from 'src/model/interfaces';
-import * as moment from 'moment'
-import { CalendarModule } from 'ion2-calendar';
+import * as moment from 'moment';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
   selector: 'app-day-mode',
@@ -12,7 +12,8 @@ import { CalendarModule } from 'ion2-calendar';
 })
 export class DayModeComponent implements OnInit {
 
-  @Input("calendarMode") calendarMode: string;
+  // tslint:disable-next-line:no-input-rename
+  @Input('calendarMode') calendarMode: string;
   eventSource = [];
   viewTitle: string;
   selectedDay = new Date();
@@ -25,10 +26,22 @@ export class DayModeComponent implements OnInit {
   constructor(
     public navCtrl: NavController,
     private modalController: ModalController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private nativeStorage: NativeStorage
   ) { }
 
   ngOnInit() {
+    this.nativeStorage.getItem('events').then(res => {
+      console.log('events from native', res);
+      const events = res;
+      events.forEach(ev => {
+        ev.startTime = new Date(ev.startTime );
+        ev.endTime = new Date(ev.endTime);
+      });
+      this.eventSource = events;
+    },
+      error => console.error(error)
+    );
   }
 
 
@@ -53,8 +66,12 @@ export class DayModeComponent implements OnInit {
         setTimeout(() => {
           this.eventSource = events;
           console.log('The result:', this.eventSource);
+          this.nativeStorage.setItem('events', events)
+            .then(
+              () => console.log('Stored events!', events),
+              error => console.error('Error storing item', error)
+            );
         });
-
       }
     });
 
