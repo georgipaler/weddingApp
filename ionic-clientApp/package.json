@@ -47,7 +47,7 @@
     "moment": "^2.24.0",
     "ng2-charts": "^2.2.2",
     "rxjs": "~6.3.3",
-    "swiper": "^4.5.0",
+    "swiper": "^6.5.1",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
