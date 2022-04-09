@@ -44,7 +44,7 @@
     "intl": "^1.2.3",
     "ion2-calendar": "^3.0.0-rc.0",
     "ionic2-calendar": "^0.5.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng2-charts": "^2.2.2",
     "rxjs": "~6.3.3",
     "swiper": "^4.5.0",
